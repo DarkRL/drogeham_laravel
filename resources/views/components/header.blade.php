@@ -10,10 +10,7 @@
             <li class="nav-item"><a href="#" class="nav-link link-light ">FAQs</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-light ">About</a></li>
         </ul>
-        <ul class="nav">
-            <li class="nav-item"><a href="#" class="nav-link link-light ">Login</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">Sign up</a></li>
-        </ul>
+
         </div>
     </nav>
     <header class="border-bottom">
