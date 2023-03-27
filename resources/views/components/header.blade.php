@@ -4,16 +4,28 @@
         <img src="https://www.drogeham.com/assets/img/wapen.svg" alt="Wapen Drogeham" title="Drogeham" height="50"/>
         <ul class="nav mx-auto">
 
-            <li class="nav-item"><a href="#" class="nav-link link-light  active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light " aria-current="page">Home</a></li>
             <li class="nav-item"><a href="/home" class="nav-link link-light ">Agenda</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-light ">Actueel</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">MEYD</a></li>
+            <div class="dropdown nav-link link-light">
+                <div
+                    class="dropdown-toggle"
+                    id="dropdownMenuButton"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    MEYD
+                </div>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
             <li class="nav-item"><a href="#" class="nav-link link-light ">Plaatselijk belang</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-light ">Brinkpraat</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-light ">Historie</a></li>
-
         </ul>
-
         </div>
     </nav>
     <header class="border-bottom">
