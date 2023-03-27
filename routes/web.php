@@ -36,3 +36,7 @@ Route::get('/brinkpraat', function () {
 Route::get('/historie', function () {
     return view('pages/historie');
 });
+
+Route::get('/login', function () {
+    return view('pages/login');
+});
