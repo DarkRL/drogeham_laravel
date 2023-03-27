@@ -1,0 +1,16 @@
+#hero-image {
+    height: 415px;
+    background-position: center;
+    background-size: cover;
+}
+.banner {
+    height: 215px;
+    background-attachment: fixed;
+    background-size: 100%;
+    position: relative;
+}
+#hero-image,
+.banner {
+    width: 100%;
+    background-image: url("https://www.drogeham.com/assets/img/luchtfoto.jpg");
+}

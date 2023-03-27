@@ -14,11 +14,6 @@
         </div>
     </nav>
     <header class="border-bottom">
-      <section 
-        style="width: 100%;
-        height: 350px;
-        background-image: url('https://www.drogeham.com/assets/img/luchtfoto.jpg');
-        "
-      ></section>
+      <section id="hero-image"></section>
   </header>
 </div>
