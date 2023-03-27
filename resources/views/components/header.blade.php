@@ -1,5 +1,5 @@
 <div>
-    <nav class="py-2 border-bottom bg-primary">
+    <nav class="py-2 bg-primary">
         <div class="container d-flex flex-wrap text-algin align-items-center justify-content-center">
         <img src="https://www.drogeham.com/assets/img/wapen.svg" alt="Wapen Drogeham" title="Drogeham" height="50"/>
         <ul class="nav mx-auto">
@@ -17,9 +17,9 @@
                     MEYD
                 </div>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item nav-link link-light ink-hover-bg-black" href="#">Action</a></li>
+                    <li><a class="dropdown-item nav-link link-light" href="#">Another action</a></li>
+                    <li><a class="dropdown-item nav-link link-light" href="#">Something else here</a></li>
                 </ul>
             </div>
             <li class="nav-item"><a href="#" class="nav-link link-light ">Plaatselijk belang</a></li>

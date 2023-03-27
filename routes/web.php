@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/agenda', function () {
+Route::get('/Agenda', function () {
     return view('pages/agenda');
 });
