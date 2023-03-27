@@ -6,7 +6,7 @@
 
             <li class="nav-item"><a href="/" class="nav-link link-light " aria-current="page">Home</a></li>
             <li class="nav-item"><a href="/agenda" class="nav-link link-light ">Agenda</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">Actueel</a></li>
+            <li class="nav-item"><a href="/actueel" class="nav-link link-light ">Actueel</a></li>
             <div class="dropdown nav-link link-light">
                 <div
                     class="dropdown-toggle"
@@ -22,9 +22,9 @@
                     <li><a class="dropdown-item nav-link link-light" href="#">Something else here</a></li>
                 </ul>
             </div>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">Plaatselijk belang</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">Brinkpraat</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">Historie</a></li>
+            <li class="nav-item"><a href="/plaatselijkbelang" class="nav-link link-light ">Plaatselijk belang</a></li>
+            <li class="nav-item"><a href="/brinkpraat" class="nav-link link-light ">Brinkpraat</a></li>
+            <li class="nav-item"><a href="/historie" class="nav-link link-light ">Historie</a></li>
         </ul>
         </div>
     </nav>

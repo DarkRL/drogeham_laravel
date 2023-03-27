@@ -20,3 +20,19 @@ Route::get('/', function () {
 Route::get('/agenda', function () {
     return view('pages/agenda');
 });
+
+Route::get('/actueel', function () {
+    return view('pages/actueel');
+});
+
+Route::get('/plaatselijkbelang', function () {
+    return view('pages/plaatselijkbelang');
+});
+
+Route::get('/brinkpraat', function () {
+    return view('pages/brinkpraat');
+});
+
+Route::get('/historie', function () {
+    return view('pages/historie');
+});
