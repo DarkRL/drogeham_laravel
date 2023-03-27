@@ -4,8 +4,8 @@
         <img src="https://www.drogeham.com/assets/img/wapen.svg" alt="Wapen Drogeham" title="Drogeham" height="50"/>
         <ul class="nav mx-auto">
 
-            <li class="nav-item"><a href="#" class="nav-link link-light " aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="/home" class="nav-link link-light ">Agenda</a></li>
+            <li class="nav-item"><a href="/" class="nav-link link-light " aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="/agenda" class="nav-link link-light ">Agenda</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-light ">Actueel</a></li>
             <div class="dropdown nav-link link-light">
                 <div
