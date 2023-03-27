@@ -5,10 +5,13 @@
         <ul class="nav mx-auto">
 
             <li class="nav-item"><a href="#" class="nav-link link-light  active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-light ">About</a></li>
+            <li class="nav-item"><a href="/home" class="nav-link link-light ">Agenda</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light ">Actueel</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light ">MEYD</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light ">Plaatselijk belang</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light ">Brinkpraat</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-light ">Historie</a></li>
+
         </ul>
 
         </div>
