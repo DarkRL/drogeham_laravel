@@ -17,9 +17,10 @@
                     MEYD
                 </div>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item nav-link link-light ink-hover-bg-black" href="#">Action</a></li>
-                    <li><a class="dropdown-item nav-link link-light" href="#">Another action</a></li>
-                    <li><a class="dropdown-item nav-link link-light" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item nav-link link-light ink-hover-bg-black" href="#">Hamster Hulp</a></li>
+                    <li><a class="dropdown-item nav-link link-light ink-hover-bg-black" href="#">Fit en Sûn</a></li>
+                    <li><a class="dropdown-item nav-link link-light ink-hover-bg-black" href="#">Doarpskeamer</a></li>
+                    <li><a class="dropdown-item nav-link link-light ink-hover-bg-black" href="#">Activiteiten 2022-2023</a></li>
                 </ul>
             </div>
             <li class="nav-item"><a href="/plaatselijkbelang" class="nav-link link-light ">Plaatselijk belang</a></li>
