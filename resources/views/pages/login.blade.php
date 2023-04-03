@@ -1,4 +1,10 @@
-<x-imports />
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <x-imports />
+</head>
+
 <body class="bg-dark">
     <div class="container bg-primary">
         <section class="vh-100 gradient-custom">

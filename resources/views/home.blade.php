@@ -1,4 +1,10 @@
-<x-imports />
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <x-imports />
+</head>
+
 <body>
     <x-header />
     <div class="container">
