@@ -18,18 +18,15 @@
 }
 .dropdown:hover > .dropdown-menu {
     display: block;
-    background-color: #0d6efd;
+    background-color: #ffffff;
 }
-.dropdown:hover > .dropdown-menu:hover {
-    display: block;
-    background-color: #0d6efd;
-}
+
 .dropdown a:hover {
-    background-color: #0f60d8;
+    background-color: #c9c9c9;
 }
 
 .dropdown a:focus {
-    background-color: #0e53bb;
+    background-color: #c9c9c9;
 }
 
 .dropdown > .dropdown-toggle:active {
@@ -40,14 +37,13 @@
 .parallax {
     /* The image used */
     background-image: url("https://www.drogeham.com/assets/img/luchtfoto.jpg");
-  
+
     /* Set a specific height */
     min-height: 700px;
-  
+
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  
+}
