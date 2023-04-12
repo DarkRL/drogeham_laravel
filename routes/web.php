@@ -14,8 +14,13 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 |
 */
 
-Route::get('/', [PageController::class, 'index'])
-    ->name("home");
+// Route::get('/', function (){
+
+// }) ->name("home");
+    
+
+Route::get('{page}',[PageController::class, 'index'])
+    ->name("page");
 
 Route::get('/agenda', function () {
     return view('pages/agenda');

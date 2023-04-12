@@ -1,11 +1,13 @@
 <header>
     <nav class="py-2 bg-light sticky-top">
         <div class="container d-flex flex-wrap text-algin align-items-center justify-content-center">
-            <img src="http://127.0.0.1:8000/img/wapen.svg" alt="Wapen Drogeham" title="Drogeham" height="50" />
+            <img src="{{URL::asset("./img/wapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="50" />
             <ul class="nav mx-auto">
-                <li class="nav-item"><a href="/" class="nav-link link-dark " aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="/agenda" class="nav-link link-dark ">Agenda</a></li>
-                <li class="nav-item"><a href="/actueel" class="nav-link link-dark ">Actueel</a></li>
+                <li class="nav-item"><a href={{route('page', ['page' => 'home'])}} class="nav-link link-dark " aria-current="page">Home</a></li>
+                <li class="nav-item"><a href={{route('page', ['page' => 'agenda'])}}
+                
+                class="nav-link link-dark ">Agenda</a></li>
+                <li class="nav-item"><a href={{route('page', ['page' => 'actueel'])}} class="nav-link link-dark ">Actueel</a></li>
                 <div class="dropdown nav-link link-dark">
                     <div class="dropdown-toggle" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
                         MEYD
@@ -17,10 +19,12 @@
                         <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Activiteiten 2022-2023</a></li>
                     </ul>
                 </div>
-                <li class="nav-item"><a href="/plaatselijkbelang" class="nav-link link-dark ">Plaatselijk belang</a></li>
-                <li class="nav-item"><a href="/brinkpraat" class="nav-link link-dark ">Brinkpraat</a></li>
-                <li class="nav-item"><a href="/historie" class="nav-link link-dark ">Historie</a></li>
+                <li class="nav-item"><a href={{route('page', ['page' => 'plaatselijkbelang'])}} class="nav-link link-dark ">Plaatselijk belang</a></li>
+                <li class="nav-item"><a href={{route('page', ['page' => 'brinkpraat'])}} class="nav-link link-dark ">Brinkpraat</a></li>
+                <li class="nav-item"><a href={{route('page', ['page' => 'historie'])}} class="nav-link link-dark ">Historie</a></li>
+
             </ul>
+            <img src="{{URL::asset("./img/MEYD_drogeham.png")}}" height="60"/>
         </div>
     </nav>
     <div style="align-items:center" class="d-flex parallax">
