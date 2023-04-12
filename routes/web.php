@@ -17,30 +17,13 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 // Route::get('/', function (){
 
 // }) ->name("home");
-    
 
+Route::get('/', function () {
+    return view('pages/home');
+});
+    
 Route::get('{page}',[PageController::class, 'index'])
     ->name("page");
-
-Route::get('/agenda', function () {
-    return view('pages/agenda');
-});
-
-Route::get('/actueel', function () {
-    return view('pages/actueel');
-});
-
-Route::get('/plaatselijkbelang', function () {
-    return view('pages/plaatselijkbelang');
-});
-
-Route::get('/brinkpraat', function () {
-    return view('pages/brinkpraat');
-});
-
-Route::get('/historie', function () {
-    return view('pages/historie');
-});
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
