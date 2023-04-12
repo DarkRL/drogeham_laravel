@@ -21,9 +21,6 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 Route::get('/', function () {
     return view('pages/home');
 });
-    
-Route::get('{page}',[PageController::class, 'index'])
-    ->name("page");
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
@@ -33,3 +30,6 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
+    
+Route::get('{page}',[PageController::class, 'index'])
+    ->name("page");
