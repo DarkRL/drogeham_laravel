@@ -1,3 +1,5 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:400&display=swap";
+
 #hero-image {
     height: 415px;
     background-position: center;
@@ -12,7 +14,7 @@
 #hero-image,
 .banner {
     width: 100%;
-    background-image: url("https://www.drogeham.com/assets/img/luchtfoto.jpg");
+    /* background-image: url("https://www.drogeham.com/assets/img/luchtfoto.jpg"); */
 }
 .dropdown:hover > .dropdown-menu {
     display: block;
@@ -34,3 +36,18 @@
     /*Without this, clicking will make it sticky*/
     pointer-events: none;
 }
+
+.parallax {
+    /* The image used */
+    background-image: url("https://www.drogeham.com/assets/img/luchtfoto.jpg");
+  
+    /* Set a specific height */
+    min-height: 700px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
