@@ -8,7 +8,8 @@
 </head>
 @section('content')
 <body>
-<x-header_admin />
+    <x-header_admin />
+    <x-sidebar />
     <div class="container pt-5">
         <div class="row pt-5">
             @yield('content')
