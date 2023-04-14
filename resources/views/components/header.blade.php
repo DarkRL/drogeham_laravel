@@ -31,6 +31,7 @@
             <div class="text-center text-white text-capitalize">
                 <h1>Plaatselijk belang drogeham</h1>
                 <button type="button" class="btn btn-primary rounded-pill">Word Lid</button>
+
             </div>
         </div>
         <div style="align-items:center" class="text-center text-capitalize d-flex flex-column">
