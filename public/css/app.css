@@ -47,3 +47,32 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.arrows {
+    display: inline-block;
+    /* padding: 10px; */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .arrows:hover {
+    transform: translateY(10px);
+  }
+  
+  .arrows::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid black;
+    position: relative;
+    top: -2px;
+    left: -12px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .arrows:hover::before {
+    transform: translateX(10px);
+  }
+  
