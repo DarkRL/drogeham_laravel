@@ -1,3 +1,4 @@
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +8,7 @@
 </head>
 
 <body>
+    
     @if ($message = Session::get('success')){
         <x-sidebar />
         <x-header_admin />
