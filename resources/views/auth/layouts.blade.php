@@ -1,4 +1,4 @@
-@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +6,16 @@
     <x-imports />
     <link rel="stylesheet" href="{{URL::asset("./css/admin.css")}}" />
 </head>
-
+@section('content')
 <body>
     
     @if ($message = Session::get('success')){
-        <x-sidebar />
+        <x-sidebar />        
         <x-header_admin />
     }
     @else{
         <x-header_admin />
+        
     }
     @endif
 
@@ -25,5 +26,4 @@
     </div>
 
 </body>
-
 </html>

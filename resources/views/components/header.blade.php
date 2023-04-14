@@ -37,5 +37,4 @@
             <a href="#home" style="text-decoration:none;" href="#home"><span class="text-white pb-3">Onze projecten</span></a>
             <a href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
         </div>
-    </div>
 </header>

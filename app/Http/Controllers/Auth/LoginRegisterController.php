@@ -102,7 +102,7 @@ class LoginRegisterController extends Controller
     {
         if(Auth::check())
         {
-            return view('auth.dashboard');
+            return view('admin.dashboard');
         }
         
         return redirect()->route('login')
@@ -124,6 +124,7 @@ class LoginRegisterController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('login')
             ->withSuccess('You have logged out successfully!');;
+        
     }    
 
 }
