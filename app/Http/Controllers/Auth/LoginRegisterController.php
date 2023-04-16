@@ -54,7 +54,7 @@ class LoginRegisterController extends Controller
         Auth::attempt($credentials);
         $request->session()->regenerate();
         return redirect()->route('dashboard')
-        ->withSuccess('You have successfully registered & logged in!');
+        ->withSuccess('U bent nu geregistreerd en ingelogd!');
     }
 
     /**
@@ -84,11 +84,11 @@ class LoginRegisterController extends Controller
         {
             $request->session()->regenerate();
             return redirect()->route('dashboard')
-                ->withSuccess('You have successfully logged in!');
+                ->withSuccess('U heeft succesvol ingelogd!');
         }
 
         return back()->withErrors([
-            'email' => 'Your provided credentials do not match in our records.',
+            'email' => 'Wachtwoord of e-mail adres is onjuist.',
         ])->onlyInput('email');
 
     } 
@@ -107,7 +107,7 @@ class LoginRegisterController extends Controller
         
         return redirect()->route('login')
             ->withErrors([
-            'email' => 'Please login to access the dashboard.',
+            'email' => 'Log in op bij het administrator paneel te komen.',
         ])->onlyInput('email');
     } 
     
@@ -123,7 +123,7 @@ class LoginRegisterController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-            ->withSuccess('You have logged out successfully!');;
+            ->withSuccess('U heeft succesvol ingelogd!');;
         
     }    
 
