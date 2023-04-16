@@ -19,11 +19,12 @@
                 </div>
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column">
-                <a href="#home" style="text-decoration:none;" href="#home"><span class="text-white pb-3">Onze projecten</span></a>
-                <a href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
+                <a class="clicktohome" href="#home" style="text-decoration:none;"><span class="text-white pb-3">Onze projecten</span></a>
+                <a class="clicktohome" href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
             </div>
         </div>
-        <div class="bg-light mt-5" id="home">
+        <div id="home" style="position:absolute"></div> <!-- Scrolling to this element -->
+        <div class="bg-light mt-5" >
             <div class="row">
                 <div class="col">
 
