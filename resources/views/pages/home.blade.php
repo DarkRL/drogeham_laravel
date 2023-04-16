@@ -8,6 +8,21 @@
 <body>
     <div class="wrapper">
         <x-header />
+        <div style="align-items:center" class="header_parallax_section d-flex flex-column justify-content-around h-100">
+            <img src="https://www.drogeham.com/assets/img/luchtfoto.jpg" class="parallax_background">
+            <div></div>
+            <div class="container">
+                <div class="text-center text-white text-capitalize">
+                    <h1>Plaatselijk belang drogeham</h1>
+                    <button type="button" class="btn btn-primary rounded-pill">Word Lid</button>
+
+                </div>
+            </div>
+            <div style="align-items:center" class="text-center text-capitalize d-flex flex-column">
+                <a href="#home" style="text-decoration:none;" href="#home"><span class="text-white pb-3">Onze projecten</span></a>
+                <a href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
+            </div>
+        </div>
         <div class="bg-light mt-5" id="home">
             <div class="row">
                 <div class="col">
