@@ -1,22 +1,30 @@
 @import "https://fonts.googleapis.com/css?family=Roboto:400&display=swap";
 
+*, html {
+
+    scroll-behavior: smooth !important;
+}
+
 #hero-image {
     height: 415px;
     background-position: center;
     background-size: cover;
 }
+
 .banner {
     height: 215px;
     background-attachment: fixed;
     background-size: 100%;
     position: relative;
 }
+
 #hero-image,
 .banner {
     width: 100%;
     /* background-image: url("https://www.drogeham.com/assets/img/luchtfoto.jpg"); */
 }
-.dropdown:hover > .dropdown-menu {
+
+.dropdown:hover>.dropdown-menu {
     display: block;
     background-color: #ffffff;
 }
@@ -29,7 +37,7 @@
     background-color: #c9c9c9;
 }
 
-.dropdown > .dropdown-toggle:active {
+.dropdown>.dropdown-toggle:active {
     /*Without this, clicking will make it sticky*/
     pointer-events: none;
 }
@@ -52,13 +60,13 @@
     display: inline-block;
     /* padding: 10px; */
     transition: transform 0.3s ease-in-out;
-  }
-  
-  .arrows:hover {
+}
+
+.arrows:hover {
     transform: translateY(10px);
-  }
-  
-  .arrows::before {
+}
+
+.arrows::before {
     content: "";
     display: inline-block;
     width: 0;
@@ -70,8 +78,53 @@
     top: -2px;
     left: -12px;
     transition: transform 0.3s ease-in-out;
-  }
-  
-  .arrows:hover::before {
+}
+
+.arrows:hover::before {
     transform: translateX(10px);
-  }
+}
+
+
+/*Parallax testing*/
+
+.wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+
+.parallax_header {
+    position: relative;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+.parallax_section {
+    background-color: white;
+}
+
+.parallax_background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.parallax_background {
+    transform: translateZ(-10px) scale(2.1);
+}
+
+.header_parallax_section {
+    position: relative;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+/*Sticky navbar testing*/

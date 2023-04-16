@@ -1,5 +1,5 @@
-<header>
-    <nav class="py-2 bg-light sticky-top">
+<header class="sticky-top">
+    <nav class="py-2 bg-light ">
         <div class="container d-flex flex-wrap text-algin align-items-center justify-content-center">
             <a href={{route('page', ['page' => 'home'])}}><img src="{{URL::asset("./img/wapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="50" /></a>
             <ul class="nav mx-auto">
@@ -25,17 +25,21 @@
             <img src="{{URL::asset("./img/MEYD_drogeham.png")}}" height="60" />
         </div>
     </nav>
-    <div style="align-items:center" class="d-flex flex-column justify-content-around parallax">
-        <div></div>
-        <div class="container h-100">
-            <div class="text-center text-white text-capitalize">
-                <h1>Plaatselijk belang drogeham</h1>
-                <button type="button" class="btn btn-primary rounded-pill">Word Lid</button>
-
-            </div>
-        </div>
-        <div style="align-items:center" class="text-center text-capitalize d-flex flex-column">
-            <a href="#home" style="text-decoration:none;" href="#home"><span class="text-white pb-3">Onze projecten</span></a>
-            <a href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
-        </div>
 </header>
+<div style="align-items:center" class="header_parallax_section d-flex flex-column justify-content-around h-100">
+    <!-- <div style="align-items:center" class="d-flex flex-column justify-content-around h-100"> -->
+    <img src="https://www.drogeham.com/assets/img/luchtfoto.jpg" class="parallax_background">
+    <div></div>
+    <div class="container">
+        <div class="text-center text-white text-capitalize">
+            <h1>Plaatselijk belang drogeham</h1>
+            <button type="button" class="btn btn-primary rounded-pill">Word Lid</button>
+
+        </div>
+    </div>
+    <div style="align-items:center" class="text-center text-capitalize d-flex flex-column">
+        <a href="#home" style="text-decoration:none;" href="#home"><span class="text-white pb-3">Onze projecten</span></a>
+        <a href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
+    </div>
+    <!-- </div> -->
+</div>
