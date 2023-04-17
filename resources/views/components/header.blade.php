@@ -24,7 +24,6 @@
 
             </ul>
             <a href={{route('page', ['page' => 'meyd'])}}><img src="{{URL::asset("./img/MEYD_drogeham.png")}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
-            <!-- <img src="{{URL::asset("./img/MEYD_drogeham.png")}}" height="60" /> -->
         </div>
     </nav>
 </header>
