@@ -23,7 +23,8 @@
                 <li class="nav-item"><a href={{route('page', ['page' => 'historie'])}} class="nav-link link-dark ">Historie</a></li>
 
             </ul>
-            <img src="{{URL::asset("./img/MEYD_drogeham.png")}}" height="60" />
+            <a href={{route('page', ['page' => 'meyd'])}}><img src="{{URL::asset("./img/MEYD_drogeham.png")}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
+            <!-- <img src="{{URL::asset("./img/MEYD_drogeham.png")}}" height="60" /> -->
         </div>
     </nav>
 </header>
