@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\Admin\PageAdminController;
+use App\Http\Controllers\Admin\HomePostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +33,9 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/admin/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+
+Route::get('/admin/home',[HomePostController::class, 'index']);
 
 Route::get('/admin/{admin}',[PageAdminController::class, 'index'])
     ->name("admin");

@@ -12,7 +12,7 @@
             <!-- Right links -->
             <nav class="navbar navbar-expand-lg bg-light w-100">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ URL('/dashboard') }}"> <img src="{{URL::asset("./img/wapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="50" /></a>
+                    <a class="navbar-brand" href="{{ URL('/admin/dashboard') }}"> <img src="{{URL::asset("./img/wapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="50" /></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

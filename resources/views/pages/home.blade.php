@@ -8,13 +8,14 @@
 <body>
     <div class="wrapper">
         <x-header />
-        <div style="align-items:center" class="header_parallax_section d-flex flex-column justify-content-around h-100">
+        <div style="align-items:center;" class="header_parallax_section d-flex flex-column justify-content-around h-100">
             <img src="https://www.drogeham.com/assets/img/luchtfoto.jpg" class="parallax_background">
             <div></div>
             <div class="container">
                 <div class="text-center text-white text-capitalize">
                     <h1>Plaatselijk belang drogeham</h1>
-                    <button type="button" class="btn btn-primary rounded-pill">Word Lid</button>
+                    <!-- <button type="button" class="btn btn-primary rounded-pill">Word Lid</button> -->
+                    <button type="button" class="button_custom_lid">Word Lid</button>
 
                 </div>
             </div>
@@ -24,7 +25,7 @@
             </div>
         </div>
         <div id="home" style="position:absolute"></div> <!-- Scrolling to this element -->
-        <div class="bg-light mt-5" >
+        <div class="bg-light mt-5">
             <div class="row">
                 <div class="col">
 

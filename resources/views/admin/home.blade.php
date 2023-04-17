@@ -5,20 +5,33 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
         <div class="card">
-            <div class="card-header">HOMETEST</div>
+            <div class="card-header">Home</div>
+            <textarea>
+     Welcome to TinyMCE!
+  </textarea>
             <div class="card-body">
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        {{ $message }}
-                    </div>
-                @else
-                    <div class="alert alert-success">
-                        You are logged in!
-                    </div>       
-                @endif                
+                @forelse ($posts as $post)
+
+                <x-admin.home_post postid="{{ $post->id }}" fulltext="{{ $post->fulltext }}" datetime="{{ $post->datetime }}" />
+
+                @empty
+
+                none
+
+                @endforelse
             </div>
+            <script>
+                tinymce.init({
+                    selector: 'textarea', // change this value according to your HTML
+                    plugin: 'a_tinymce_plugin',
+                    menubar: 'edit insert view format table tools help',
+                    a_plugin_option: true,
+                    a_configuration_option: 400
+                });
+                console.log(window.location);
+            </script>
         </div>
-    </div>    
+    </div>
 </div>
-    
+
 @endsection
