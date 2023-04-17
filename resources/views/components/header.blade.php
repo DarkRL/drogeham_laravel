@@ -11,6 +11,7 @@
                         MEYD
                     </div>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href={{route('page', ['page' => 'meyd'])}}>MEYD Home</a></li>
                         <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Hamster Hulp</a></li>
                         <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Fit en Sûn</a></li>
                         <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Doarpskeamer</a></li>
