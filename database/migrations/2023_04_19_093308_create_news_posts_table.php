@@ -11,18 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('home_posts', function (Blueprint $table) {
-            $table->id();
-            $table->text('fulltext');
-            $table->timestamp('datetime')->useCurrent;
-        });
-
         Schema::create('news_posts', function (Blueprint $table) {
             $table->id();
-            $table->text('headline');
-            $table->text('fulltext');
-            $table->text('photo');
-            $table->timestamp('datetime')->useCurrent;
+            $table->timestamps();
         });
     }
 
@@ -31,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('home_posts');
+        Schema::dropIfExists('news_posts');
     }
 };
