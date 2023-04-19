@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('news_posts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->text('headline');
+            $table->text('fulltext');
+            $table->text('photo');
+            $table->timestamp('datetime')->useCurrent;
         });
     }
 

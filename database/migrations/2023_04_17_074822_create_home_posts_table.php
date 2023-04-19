@@ -17,13 +17,6 @@ return new class extends Migration
             $table->timestamp('datetime')->useCurrent;
         });
 
-        Schema::create('news_posts', function (Blueprint $table) {
-            $table->id();
-            $table->text('headline');
-            $table->text('fulltext');
-            $table->text('photo');
-            $table->timestamp('datetime')->useCurrent;
-        });
     }
 
     /**
