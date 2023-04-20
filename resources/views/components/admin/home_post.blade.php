@@ -1,5 +1,5 @@
 <section>
     <h2>{{ $postid }}</h2>
     <span>{{ $datetime }}</span>
-    <p>{!! $fulltext !!}</p>
+    {!! html_entity_decode($fulltext) !!}
 </section>

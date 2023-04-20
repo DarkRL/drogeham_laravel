@@ -34,6 +34,8 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::post('/logout', 'logout')->name('logout');
 });
 
+Route::post('/create', [HomePostController::class, 'insert']);
+
 
 Route::get('/admin/home',[HomePostController::class, 'index']);
 
