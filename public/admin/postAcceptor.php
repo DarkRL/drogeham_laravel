@@ -1,7 +1,11 @@
 <?php
 
+$base_url = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$base_url .= "://".$_SERVER['HTTP_HOST'];
+$base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+
 // Define the path where the uploaded image will be stored
-$uploadPath = realpath('/img/');
+$uploadPath = realpath('/admin/');
 
 // Check if the file was uploaded successfully
 if (isset($_FILES['upload']) && $_FILES['upload']['error'] === UPLOAD_ERR_OK) {
@@ -16,7 +20,7 @@ if (isset($_FILES['upload']) && $_FILES['upload']['error'] === UPLOAD_ERR_OK) {
     if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadPath . $uniqueName)) {
 
         // Return the file URL to TinyMCE
-        $fileUrl = 'http://127.0.0.1:8000/img/' . $uniqueName;
+        $fileUrl = $base_url . '' . $uniqueName;
         echo json_encode(['location' => $fileUrl]);
     } else {
 
