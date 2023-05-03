@@ -34,8 +34,7 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::post('/logout', 'logout')->name('logout');
 });
 
-// Route::post('/create', [HomePostController::class, 'insert']);
-
+//Admin Home routes
 Route::get('/admin/home/{id}/edit', [HomePostController::class, 'edit'])
     ->name('admin.home.edit');
 
@@ -46,7 +45,24 @@ Route::get('/admin/home/create', [HomePostController::class, 'create'])
 
 Route::post('/admin/home/create', [HomePostController::class, 'store']);
 
-Route::get('/admin/home',[HomePostController::class, 'index']);
+Route::get('/admin/home/index',[HomePostController::class, 'index']);
+//
+
+
+//Admin Actueel routes
+Route::get('/admin/actueel/{id}/edit', [HomePostController::class, 'edit'])
+    ->name('admin.home.edit');
+
+Route::patch('/admin/actueel/{id}/edit', [HomePostController::class, 'update']);
+
+Route::get('/admin/actueel/create', [HomePostController::class, 'create'])
+    ->name('admin.actueel.create');
+
+Route::post('/admin/actueel/create', [HomePostController::class, 'store']);
+
+Route::get('/admin/actueel/index',[HomePostController::class, 'index']);
+//
+
 
 Route::get('/admin/{admin}',[PageAdminController::class, 'index'])
     ->name("admin");

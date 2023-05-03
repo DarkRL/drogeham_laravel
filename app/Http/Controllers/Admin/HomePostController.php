@@ -17,23 +17,10 @@ class HomePostController extends Controller
         return view('admin.home', ['posts' => $posts]);
     }
 
-    // public function insert(Request $request)
-    // {
-    //     $email = $request->input('fulltext');
-    //     $data = array('fulltext' => $email);
-    //     DB::table('home_posts')->insert($data);
-    //     return redirect('/admin/home');
-    // }
-
     public function store(Request $request)
     {
-        // $request->validate(['photo' => 'required|image|mimes:jpeg,png,webp,png,gif,bmp,tiff|max:8192']);
-        // $imgName = date("YmdHms") . 'photo.' . $request->photo->extension();
-        // $request->photo->move(public_path('img'), $imgName);
         $newPost = HomePost::create([
-            // 'headline' => $request->headline,
             'fulltext' => $request->fulltext,
-            // 'photo' => $imgName,
             'datetime' => date("Y-m-d H:m:s")
         ]);
     }
