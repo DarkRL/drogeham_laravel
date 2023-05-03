@@ -53,7 +53,6 @@ Route::get('/admin/home/index',[HomePostController::class, 'index']);
 //Admin Actueel routes
 
 Route::get('/admin/actueel/{id}/edit', [HomePostController::class, 'edit'])
-
     ->name('admin.actueel.edit');
 
 Route::patch('/admin/actueel/{id}/edit', [NewsPostsController::class, 'update']);
