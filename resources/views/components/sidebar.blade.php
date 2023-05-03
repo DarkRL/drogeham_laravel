@@ -12,3 +12,12 @@
             </div>
         </div>
     </nav>
+    <script>
+        $(document).ready(function() {
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebarMenu').toggleClass('active');
+            });
+
+        });
+    </script>

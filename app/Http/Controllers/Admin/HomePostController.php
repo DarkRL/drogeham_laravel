@@ -12,9 +12,8 @@ class HomePostController extends Controller
 {
     public function index()
     {
-
         $posts = HomePost::all();
-        return view('admin.home', ['posts' => $posts]);
+        return view('admin.home.index', ['posts' => $posts]);
     }
 
     public function store(Request $request)
