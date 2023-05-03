@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\Admin\PageAdminController;
 use App\Http\Controllers\Admin\HomePostController;
+use App\Http\Controllers\Admin\NewsPostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,17 +51,18 @@ Route::get('/admin/home/index',[HomePostController::class, 'index']);
 
 
 //Admin Actueel routes
+
 Route::get('/admin/actueel/{id}/edit', [HomePostController::class, 'edit'])
     ->name('admin.actueel.edit');
 
-Route::patch('/admin/actueel/{id}/edit', [HomePostController::class, 'update']);
+Route::patch('/admin/actueel/{id}/edit', [NewsPostsController::class, 'update']);
 
-Route::get('/admin/actueel/create', [HomePostController::class, 'create'])
+Route::get('/admin/actueel/create', [NewsPostsController::class, 'create'])
     ->name('admin.actueel.create');
 
-Route::post('/admin/actueel/create', [HomePostController::class, 'store']);
+Route::post('/admin/actueel/create', [NewsPostsController::class, 'store']);
 
-Route::get('/admin/actueel/index',[HomePostController::class, 'index']);
+Route::get('/admin/actueel/index',[NewsPostsController::class, 'index']);
 //
 
 
