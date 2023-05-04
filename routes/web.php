@@ -37,37 +37,48 @@ Route::controller(LoginRegisterController::class)->group(function() {
 
 //Admin Home routes
 Route::get('/admin/home/{id}/edit', [HomePostController::class, 'edit'])
-    ->name('admin.home.edit');
+    ->name('admin.home.edit')
+    ->middleware('auth');
 
-Route::patch('/admin/home/{id}/edit', [HomePostController::class, 'update']);
+Route::patch('/admin/home/{id}/edit', [HomePostController::class, 'update'])
+    ->middleware('auth');
 
 Route::get('/admin/home/create', [HomePostController::class, 'create'])
-    ->name('admin.home.create');
+    ->name('admin.home.create')
+    ->middleware('auth');
 
-Route::post('/admin/home/create', [HomePostController::class, 'store']);
+Route::post('/admin/home/create', [HomePostController::class, 'store'])
+    ->middleware('auth');
 
-Route::get('/admin/home/index',[HomePostController::class, 'index']);
+Route::get('/admin/home/index',[HomePostController::class, 'index'])
+    ->middleware('auth');
 //
 
 
 //Admin Actueel routes
 
 Route::get('/admin/actueel/{id}/edit', [HomePostController::class, 'edit'])
-    ->name('admin.actueel.edit');
+    ->name('admin.actueel.edit')
+    ->middleware('auth');
 
-Route::patch('/admin/actueel/{id}/edit', [NewsPostsController::class, 'update']);
+Route::patch('/admin/actueel/{id}/edit', [NewsPostsController::class, 'update'])
+    ->middleware('auth');
 
 Route::get('/admin/actueel/create', [NewsPostsController::class, 'create'])
-    ->name('admin.actueel.create');
+    ->name('admin.actueel.create')
+    ->middleware('auth');
 
-Route::post('/admin/actueel/create', [NewsPostsController::class, 'store']);
+Route::post('/admin/actueel/create', [NewsPostsController::class, 'store'])
+    ->middleware('auth');
 
-Route::get('/admin/actueel/index',[NewsPostsController::class, 'index']);
+Route::get('/admin/actueel/index',[NewsPostsController::class, 'index'])
+    ->middleware('auth');
 //
 
 
 Route::get('/admin/{admin}',[PageAdminController::class, 'index'])
-    ->name("admin");
+    ->name("admin")
+    ->middleware('auth');
 
 Route::get('{page}',[PageController::class, 'index'])
     ->name("page");
