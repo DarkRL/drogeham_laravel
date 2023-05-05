@@ -4,6 +4,17 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
+        <h5>Homepagina</h5>
+        <div class="card mt-3">
+            <div class="card-header">Feedback</div>
+            <div class="card-body">
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    {{ $message }}
+                </div>
+                @endif
+            </div>
+        </div>
         <a href="{{ URL('/admin/home/create') }}">
             <button type="button" class="btn btn-success btn-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
@@ -22,6 +33,13 @@
         @endforelse
     </div>
 </div>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <h5 class="text-center">Preview:</h5>
+        <div>
+            
+        </div>
+    </div>
 </div>
 
 @endsection

@@ -22,6 +22,8 @@ class HomePostController extends Controller
             'fulltext' => $request->fulltext,
             'datetime' => date("Y-m-d H:m:s")
         ]);
+        return redirect()->route('admin.home.index')
+        ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
     }
 
     public function create()
@@ -39,5 +41,7 @@ class HomePostController extends Controller
         HomePost::find($id)->update([
             'fulltext' => $request->fulltext
         ]);
+        return redirect()->route('admin.home.index')
+        ->withSuccess('De inhoud is succesvol aangepast!');
     }
 }

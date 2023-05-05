@@ -51,6 +51,7 @@ Route::post('/admin/home/create', [HomePostController::class, 'store'])
     ->middleware('auth');
 
 Route::get('/admin/home/index',[HomePostController::class, 'index'])
+    ->name('admin.home.index')
     ->middleware('auth');
 //
 
@@ -72,6 +73,7 @@ Route::post('/admin/actueel/create', [NewsPostsController::class, 'store'])
     ->middleware('auth');
 
 Route::get('/admin/actueel/index',[NewsPostsController::class, 'index'])
+    ->name('admin.actueel.index')
     ->middleware('auth');
 //
 

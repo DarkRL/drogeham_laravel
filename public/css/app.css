@@ -196,3 +196,13 @@ html {
         animation-timing-function: ease-out;
     }
 }
+
+/* Custom scroll fade animation */
+.custom_hidden {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.custom_show {
+    opacity: 1;
+}
