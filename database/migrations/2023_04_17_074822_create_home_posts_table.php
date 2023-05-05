@@ -19,7 +19,7 @@ return new class extends Migration
         });
 
         DB::table('home_posts')->insert([
-            'fulltext' => 'My Data',
+            'fulltext' => 'Deze tekst is voor de homepagina. Verander deze! :-)',
             'datetime' => date("Y-m-d H:m:s")
         ]);
     }
