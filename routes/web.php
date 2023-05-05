@@ -26,6 +26,9 @@ use App\Http\Controllers\Admin\NewsPostsController;
 //     return view('pages/home');
 // });
 
+Route::get('/',[PageController::class, 'homepage'])
+    ->name('home');
+
 Route::get('/home',[PageController::class, 'homepage'])
     ->name('home');
 
