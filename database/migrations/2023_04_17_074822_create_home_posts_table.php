@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -14,9 +15,13 @@ return new class extends Migration
         Schema::create('home_posts', function (Blueprint $table) {
             $table->id();
             $table->text('fulltext');
-            $table->timestamp('datetime')->useCurrent;
+            $table->timestamp('datetime')->useCurrent();
         });
 
+        DB::table('home_posts')->insert([
+            'fulltext' => 'My Data',
+            'datetime' => date("Y-m-d H:m:s")
+        ]);
     }
 
     /**

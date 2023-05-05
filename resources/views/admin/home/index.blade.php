@@ -15,6 +15,12 @@
                 @endif
             </div>
         </div>
+        @php
+        use App\Models\HomePost;
+        @endphp
+        @if (HomePost::where('id', 1)->exists())
+
+        @else
         <a href="{{ route('admin.home.create') }}">
             <button type="button" class="btn btn-success btn-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
@@ -22,6 +28,7 @@
                 </svg>
             </button>
         </a>
+        @endif
     </div>
 </div>
 <div class="row justify-content-center mt-5">

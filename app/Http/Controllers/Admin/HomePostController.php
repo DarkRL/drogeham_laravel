@@ -12,7 +12,8 @@ class HomePostController extends Controller
 {
     public function index()
     {
-        $posts = HomePost::all();
+        // $posts = HomePost::all();
+        $posts = DB::select('SELECT * FROM home_posts WHERE id = ?' , ['1']);
         return view('admin.home.index', ['posts' => $posts]);
     }
 
@@ -23,11 +24,15 @@ class HomePostController extends Controller
             'datetime' => date("Y-m-d H:m:s")
         ]);
         return redirect()->route('admin.home.index')
-        ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
+            ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
     }
 
     public function create()
     {
+        $id = 1;
+        if (HomePost::where('id', $id)->exists()) {
+            return redirect()->route('admin.home.index');
+        }
         return view('admin.home.create');
     }
 
@@ -42,6 +47,6 @@ class HomePostController extends Controller
             'fulltext' => $request->fulltext
         ]);
         return redirect()->route('admin.home.index')
-        ->withSuccess('De inhoud is succesvol aangepast!');
+            ->withSuccess('De inhoud is succesvol aangepast!');
     }
 }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\HomePost;
+// use App\Models\HomePost;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -14,7 +15,9 @@ class PageController extends Controller
 
     public function homepage()
     {
-        $posts = HomePost::all();
+        // $posts = HomePost::all();
+        $posts = DB::select('SELECT * FROM home_posts WHERE id = ?' , ['1']);
+        
         return view("pages/home", compact('posts'));
     }
 }

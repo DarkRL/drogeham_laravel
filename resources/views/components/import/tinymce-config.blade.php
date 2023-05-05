@@ -47,9 +47,9 @@
 
     tinymce.init({
         selector: 'textarea#file-picker',
-        plugins: 'image code',
+        plugins: 'image code link',
         menubar: 'edit insert view format table tools',
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image link',
         images_upload_credentials: true,
         images_upload_handler: example_image_upload_handler,
         /* enable title field in the Image dialog*/
