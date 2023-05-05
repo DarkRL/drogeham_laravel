@@ -22,9 +22,12 @@ use App\Http\Controllers\Admin\NewsPostsController;
 
 // }) ->name("home");
 
-Route::get('/', function () {
-    return view('pages/home');
-});
+// Route::get('/', function () {
+//     return view('pages/home');
+// });
+
+Route::get('/home',[PageController::class, 'homepage'])
+    ->name('home');
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
