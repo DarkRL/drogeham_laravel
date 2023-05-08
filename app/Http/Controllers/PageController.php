@@ -20,4 +20,11 @@ class PageController extends Controller
         
         return view("pages/home", compact('posts'));
     }
+
+    public function historypage()
+    {
+        $posts = DB::select('SELECT * FROM history_posts WHERE id = ?' , ['1']);
+        
+        return view("pages/historie", compact('posts'));
+    }
 }

@@ -19,21 +19,16 @@ use App\Http\Controllers\Admin\HistoryPostController;
 |
 */
 
-// Route::get('/', function (){
-
-// }) ->name("home");
-
-// Route::get('/', function () {
-//     return view('pages/home');
-// });
-
-Route::get('/',[PageController::class, 'homepage'])
+Route::get('/', [PageController::class, 'homepage'])
     ->name('home');
 
-Route::get('/home',[PageController::class, 'homepage'])
+Route::get('/home', [PageController::class, 'homepage'])
     ->name('home');
 
-Route::controller(LoginRegisterController::class)->group(function() {
+Route::get('/historie', [PageController::class, 'historypage'])
+    ->name('historie');
+
+Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
@@ -57,7 +52,7 @@ Route::get('/admin/home/create', [HomePostController::class, 'create'])
 Route::post('/admin/home/create', [HomePostController::class, 'store'])
     ->middleware('auth');
 
-Route::get('/admin/home/index',[HomePostController::class, 'index'])
+Route::get('/admin/home/index', [HomePostController::class, 'index'])
     ->name('admin.home.index')
     ->middleware('auth');
 //
@@ -79,7 +74,7 @@ Route::get('/admin/actueel/create', [NewsPostsController::class, 'create'])
 Route::post('/admin/actueel/create', [NewsPostsController::class, 'store'])
     ->middleware('auth');
 
-Route::get('/admin/actueel/index',[NewsPostsController::class, 'index'])
+Route::get('/admin/actueel/index', [NewsPostsController::class, 'index'])
     ->name('admin.actueel.index')
     ->middleware('auth');
 //
@@ -100,15 +95,15 @@ Route::get('/admin/history/create', [historyPostController::class, 'create'])
 Route::post('/admin/history/create', [historyPostController::class, 'store'])
     ->middleware('auth');
 
-Route::get('/admin/history/index',[historyPostController::class, 'index'])
+Route::get('/admin/history/index', [historyPostController::class, 'index'])
     ->name('admin.history.index')
     ->middleware('auth');
 //
 
 
-Route::get('/admin/{admin}',[PageAdminController::class, 'index'])
+Route::get('/admin/{admin}', [PageAdminController::class, 'index'])
     ->name("admin")
     ->middleware('auth');
 
-Route::get('{page}',[PageController::class, 'index'])
+Route::get('{page}', [PageController::class, 'index'])
     ->name("page");

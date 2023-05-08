@@ -15,7 +15,7 @@
             </div>
             <div class="col-10">
                 <div class="m-5">
-                    <div>
+                    <!-- <div>
                         <h2>Drogeham</h2>
                         <br>
                         <h6>De Hamster Ko</h6>
@@ -59,6 +59,12 @@
                         <p>
                         Aan 't Zuidoosten staan ook veele huizen en plantagien aan den weg, die, alomme met boomen beplant, zeer aangenaam is; een weinig ten Zuiden van dien ligt het buurtje Hamshorn, gelyk ten Westen het buurtje Westerend. Alles in vermaakelyke en vruchtbaare bouwlanden, die het dorp van alle kanten omringen. De Hamster akkers loopen tot aan Tietjerksteradeel in 't Zuidwesten, terwyl zy zich ten Oosten tot aan Opeinde strekken en ten Noorden van de Kootster landen door 't Kolonels diepts gescheiden worden. Onder dit dorp is voor eenige jaaren, door den Raadsheer Mr. J.L. Dois van Haersma, een fraaie buitenplaats gesticht'.
                         </p>
+                    </div> -->
+
+                    <div class="custom_hidden">
+                        @foreach ($posts as $post)
+                        {!! html_entity_decode($post->fulltext) !!}
+                        @endforeach
                     </div>
                 </div>
             </div>
