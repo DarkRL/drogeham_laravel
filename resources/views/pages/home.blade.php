@@ -13,13 +13,13 @@
             <div></div>
             <div class="container">
                 <div class="text-center text-white text-capitalize">
-                    <h1 class="roboto">Plaatselijk belang drogeham</h1>
+                    <h1 class="roboto custom_hidden_stay">Plaatselijk belang drogeham</h1>
                     <!-- <button type="button" class="btn btn-primary rounded-pill">Word Lid</button> -->
-                    <button type="button" class="button_custom_lid mt-2">Word Lid</button>
+                    <button type="button" class="button_custom_lid mt-2 custom_hidden_stay">Word Lid</button>
 
                 </div>
             </div>
-            <div style="align-items:center" class="text-center text-capitalize d-flex flex-column">
+            <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">
                 <a class="clicktohome" href="#home" style="text-decoration:none;"><span class="text-white pb-3">Onze projecten</span></a>
                 <a class="clicktohome" href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
             </div>
@@ -84,7 +84,7 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <div class="pt-5 pb-3 custom_hidden">
+                        <div class="pt-5 pb-3 custom_hidden_repeat">
                             @foreach ($posts as $post)
                             {!! html_entity_decode($post->fulltext) !!}
                             @endforeach
@@ -93,7 +93,7 @@
                 </div>
                 <div class="col-10">
                     <div class="mb-5">
-                        <div id="CarouselArtikelen" class="carousel slide custom_hidden" data-bs-ride="carousel">
+                        <div id="CarouselArtikelen" class="carousel slide custom_hidden_repeat" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="row">
@@ -136,8 +136,8 @@
                 <div class="container bg-light-custom pt-5 pb-5">
                     <div class="row">
                         <div class="col-md-8 mx-auto">
-                            <h2 class="text-center">Word lid</h2>
-                            <p class="text-mute text-center mb-4"><i>Word lid van het plaatselijk belang en ontvang het meest recente nieuws!</i></p>
+                            <h2 class="text-center custom_hidden_repeat">Word lid</h2>
+                            <p class="text-mute text-center mb-4"><i>Word lid van het plaatselijk belang en ontvang het meest recente nieuws</i></p>
                             <form>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Naam</label>
@@ -151,7 +151,7 @@
                                     <label for="message" class="form-label">Bericht</label>
                                     <textarea class="form-control" id="message" rows="5" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Verstuur</button>
+                                <button type="submit" class="btn btn-primary custom_hidden_repeat">Verstuur</button>
                             </form>
                         </div>
                     </div>

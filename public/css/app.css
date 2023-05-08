@@ -206,8 +206,14 @@ html {
     }
 }
 
-/* Custom scroll fade animation */
-.custom_hidden {
+/* Custom scroll fade animation(Repeats if off screen and back on screen) */
+.custom_hidden_repeat {
+    opacity: 0;
+    transition: all 2s;
+}
+
+/* Custom scroll fade animation(Does not repeat when off screen and back on screen) */
+.custom_hidden_stay {
     opacity: 0;
     transition: all 2s;
 }
