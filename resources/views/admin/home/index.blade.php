@@ -6,7 +6,7 @@
     <div class="col-md-8">
         <h5>Homepagina
             @php
-            use App\Models\HomePost;
+            use App\Models\admin\HomePost;
             @endphp
             @if (!HomePost::where('id', 1)->exists())
             <a href="{{ route('admin.home.create') }}">
