@@ -60,7 +60,7 @@ Route::get('/admin/home/index', [HomePostController::class, 'index'])
 
 //Admin Actueel routes
 
-Route::get('/admin/actueel/{id}/edit', [HomePostController::class, 'edit'])
+Route::get('/admin/actueel/{id}/edit', [NewsPostsController::class, 'edit'])
     ->name('admin.actueel.edit')
     ->middleware('auth');
 
