@@ -19,7 +19,7 @@ return new class extends Migration
         });
 
         DB::table('history_posts')->insert([
-            'fulltext' => 'Deze tekst is voor de geschiedenispagina. Verander deze! :-)',
+            'fulltext' => 'Deze tekst is voor de hirstoriepagina. Verander deze! :-)',
             'datetime' => date("Y-m-d H:m:s")
         ]);
     }
