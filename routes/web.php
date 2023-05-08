@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\Admin\PageAdminController;
 use App\Http\Controllers\Admin\HomePostController;
 use App\Http\Controllers\Admin\NewsPostsController;
+use App\Http\Controllers\Admin\HistoryPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,27 @@ Route::post('/admin/actueel/create', [NewsPostsController::class, 'store'])
 
 Route::get('/admin/actueel/index',[NewsPostsController::class, 'index'])
     ->name('admin.actueel.index')
+    ->middleware('auth');
+//
+
+
+//Admin History routes
+Route::get('/admin/history/{id}/edit', [historyPostController::class, 'edit'])
+    ->name('admin.history.edit')
+    ->middleware('auth');
+
+Route::patch('/admin/history/{id}/edit', [historyPostController::class, 'update'])
+    ->middleware('auth');
+
+Route::get('/admin/history/create', [historyPostController::class, 'create'])
+    ->name('admin.history.create')
+    ->middleware('auth');
+
+Route::post('/admin/history/create', [historyPostController::class, 'store'])
+    ->middleware('auth');
+
+Route::get('/admin/history/index',[historyPostController::class, 'index'])
+    ->name('admin.history.index')
     ->middleware('auth');
 //
 

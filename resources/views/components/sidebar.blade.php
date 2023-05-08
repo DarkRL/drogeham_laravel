@@ -10,6 +10,11 @@
                     <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Home</span>
                 </a>
             </div>
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="{{ URL('/admin/history/index') }}" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>History</span>
+                </a>
+            </div>
         </div>
     </nav>
     <script>

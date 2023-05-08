@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PageAdminController extends Controller
 {
-    public function index($admin)
+    public function index($admin, $arg)
     {
         if (Auth::check()) {
             return view("admin/" . $admin);
