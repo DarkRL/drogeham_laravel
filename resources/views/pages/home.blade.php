@@ -13,9 +13,9 @@
             <div></div>
             <div class="container">
                 <div class="text-center text-white text-capitalize">
-                    <h1>Plaatselijk belang drogeham</h1>
+                    <h1 class="roboto">Plaatselijk belang drogeham</h1>
                     <!-- <button type="button" class="btn btn-primary rounded-pill">Word Lid</button> -->
-                    <button type="button" class="button_custom_lid">Word Lid</button>
+                    <button type="button" class="button_custom_lid mt-2">Word Lid</button>
 
                 </div>
             </div>

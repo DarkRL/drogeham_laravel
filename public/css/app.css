@@ -1,9 +1,14 @@
-@import "https://fonts.googleapis.com/css?family=Roboto:400&display=swap";
+@import "https://fonts.googleapis.com/css?family=Roboto:500&display=swap";
 
 *,
 html {
 
     scroll-behavior: smooth !important;
+}
+
+.roboto {
+    font-family: 'Roboto';
+    font-size:56px;
 }
 
 #hero-image {
