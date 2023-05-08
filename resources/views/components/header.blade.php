@@ -21,7 +21,7 @@
                 <li class="nav-item"><a href={{route('page', ['page' => 'plaatselijkbelang'])}} class="nav-link link-dark ">Plaatselijk belang</a></li>
                 <li class="nav-item"><a href={{route('page', ['page' => 'brinkpraat'])}} class="nav-link link-dark ">Brinkpraat</a></li>
                 <li class="nav-item"><a href={{route('page', ['page' => 'historie'])}} class="nav-link link-dark ">Historie</a></li>
-
+                <li class="nav-item"><a href={{route('page', ['page' => 'contact'])}} class="nav-link link-dark ">Contact</a></li>
             </ul>
             <a href={{route('page', ['page' => 'meyd'])}}><img src="{{URL::asset("./img/MEYD_drogeham.png")}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
         </div>

@@ -11,6 +11,10 @@ html {
     font-size:56px;
 }
 
+.bg-light-custom {
+    background-color:#f4f1f0;
+}
+
 #hero-image {
     height: 415px;
     background-position: center;

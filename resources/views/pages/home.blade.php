@@ -26,11 +26,7 @@
         </div>
         <div id="home" style="position:absolute"></div> <!-- Scrolling to this element -->
         <div class="bg-light mt-5">
-            <div class="row">
-
-                <div class="col">
-
-                </div>
+            <div class="row justify-content-center">
                 <div class="col-10">
                     <div class="m-5">
                         <div id="CarouselProjecten" class="carousel slide" data-bs-ride="carousel">
@@ -88,11 +84,15 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <div class="pt-5 pb-5 custom_hidden">
+                        <div class="pt-5 pb-3 custom_hidden">
                             @foreach ($posts as $post)
                             {!! html_entity_decode($post->fulltext) !!}
                             @endforeach
                         </div>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="mb-5">
                         <div id="CarouselArtikelen" class="carousel slide custom_hidden" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -133,8 +133,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
-
+                <div class="container bg-light-custom pt-5 pb-5">
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <h2 class="text-center">Word lid</h2>
+                            <p class="text-mute text-center mb-4"><i>Word lid van het plaatselijk belang en ontvang het meest recente nieuws!</i></p>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Naam</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Bericht</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Verstuur</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
