@@ -12,8 +12,8 @@ class NewsPostsController extends Controller
 {
     public function index()
     {
-
         $posts = NewsPosts::all();
+        // $posts = DB::select('SELECT * FROM news_posts');
         return view('admin.actueel.index', ['posts' => $posts]);
     }
 
