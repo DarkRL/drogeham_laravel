@@ -42,7 +42,11 @@ class NewsPostsController extends Controller
     public function update(Request $request, $id)
     {
         NewsPosts::find($id)->update([
-            'fulltext' => $request->fulltext
+            'headline' => $request->headline,
+            'fulltext' => $request->fulltext,
+            'photo' => 'empty',
+            'datetime' => date("Y-m-d H:m:s")
         ]);
+        return redirect()->route('admin.actueel.index');
     }
 }
