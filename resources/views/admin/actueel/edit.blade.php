@@ -10,6 +10,7 @@
             @method('PATCH')
             <input name="headline" class="form-control" placeholder="Titel" value="{{ $post->headline }}"></input>
             <textarea name="fulltext" class="form-control" id="file-picker">{{ $post->fulltext }}</textarea>
+            <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Update" class="btn btn-primary">Submit</button>
         </form>
     </div>
