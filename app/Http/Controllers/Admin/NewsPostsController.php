@@ -49,4 +49,10 @@ class NewsPostsController extends Controller
         ]);
         return redirect()->route('admin.actueel.index');
     }
+
+    public function delete(Request $request, $id)
+    {
+        NewsPosts::find($id)->delete();
+        return redirect()->route('admin.actueel.index');
+    }
 }

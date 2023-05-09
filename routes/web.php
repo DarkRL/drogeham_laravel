@@ -64,6 +64,10 @@ Route::get('/admin/actueel/{id}/edit', [NewsPostsController::class, 'edit'])
     ->name('admin.actueel.edit')
     ->middleware('auth');
 
+Route::get('/admin/actueel/{id}/delete', [NewsPostsController::class, 'delete'])
+    ->name('admin.actueel.delete')
+    ->middleware('auth');
+
 Route::patch('/admin/actueel/{id}/edit', [NewsPostsController::class, 'update'])
     ->middleware('auth');
 
