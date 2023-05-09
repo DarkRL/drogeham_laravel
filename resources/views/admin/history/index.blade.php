@@ -6,7 +6,7 @@
     <div class="col-md-10">
         <h5>Homepagina
             @php
-            use App\Models\admin\Historyposts;
+            use App\Models\admin\HistoryPosts;
             @endphp
             @if (!Historyposts::where('id', 1)->exists())
             <a href="{{ route('admin.home.create') }}">
