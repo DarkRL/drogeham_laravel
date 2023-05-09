@@ -40,7 +40,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Let op</h5>
+                    <h5 class="modal-title">Let op!</h5>
                 </div>
                 <div class="modal-body">
                     <div class="my-3">Weet u zeker dat u dit artikel wil verwijderen?</div>
