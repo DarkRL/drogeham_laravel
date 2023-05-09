@@ -87,15 +87,20 @@
             $("a[href*='" + location.pathname + "']").addClass("active");
           });
         </script>
-        <li class="nav-item mt-4"></li>
+        <li class="nav-item mt-5"></li>
         <li class="nav-item mt-5"></li>
         <li class="nav-item mt-5 text-center">
           <div class="btn-group dropup bg-light">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Name
+              {{ Auth::user()->name }}
             </button>
             <ul class="dropdown-menu dropdown-menu-sm bg-light">
-              <li><a class="dropdown-item dropdown-item-custom" href="#">Logout</a></li>
+              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                  @csrf
+                </form>
+              </li>
             </ul>
           </div>
         </li>
