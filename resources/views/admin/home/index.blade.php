@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row justify-content-center mt-5">
-    <div class="col-md-8">
+    <div class="col-md-10">
         <h5>Homepagina
             @php
             use App\Models\admin\HomePost;
@@ -32,7 +32,7 @@
     </div>
 </div>
 <div class="row justify-content-center mt-5">
-    <div class="col-md-8">
+    <div class="col-md-10">
         <div class="card">
             <div class="card-header">
                 <h5 class="text-center">Preview:</h5>

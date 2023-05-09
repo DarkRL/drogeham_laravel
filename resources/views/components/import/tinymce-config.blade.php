@@ -47,7 +47,7 @@
 
     tinymce.init({
         selector: 'textarea#file-picker',
-        plugins: 'image code link',
+        plugins: 'image code link autoresize',
         menubar: 'edit insert view format table tools',
         toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image link',
         images_upload_credentials: true,
@@ -56,6 +56,7 @@
         image_title: true,
         /* enable automatic uploads of images represented by blob or data URIs*/
         automatic_uploads: true,
+        autoresize_bottom_margin: 50,
         branding: false,
         language: 'nl',
     });
