@@ -7,6 +7,7 @@
         <form action="" method="post" class="form-group">
             @csrf
             <textarea name="fulltext" class="form-control" id="file-picker"></textarea>
+            <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Save" class="btn btn-primary">Submit</button>
         </form>
     </div>
