@@ -20,7 +20,7 @@ if (isset($_FILES['upload']) && $_FILES['upload']['error'] === UPLOAD_ERR_OK) {
     if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadPath . $uniqueName)) {
 
         // Return the file URL to TinyMCE
-        $fileUrl = $base_url . '' . $uniqueName;
+        $fileUrl = $uploadPath . '' . $uniqueName;
         echo json_encode(['location' => $fileUrl]);
     } else {
 
