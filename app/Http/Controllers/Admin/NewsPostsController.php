@@ -23,7 +23,8 @@ class NewsPostsController extends Controller
             'headline' => $request->headline,
             'fulltext' => $request->fulltext,
             'photo' => 'empty',
-            'datetime' => date("Y-m-d H:m:s")
+            'datetime' => date("Y-m-d H:m:s"),
+            'public' => 0
         ]);
         return redirect()->route('admin.actueel.index')
         ->withSuccess('Nieuw artikel is succesvol aangemaakt!');
@@ -45,7 +46,8 @@ class NewsPostsController extends Controller
             'headline' => $request->headline,
             'fulltext' => $request->fulltext,
             'photo' => 'empty',
-            'datetime' => date("Y-m-d H:m:s")
+            'datetime' => date("Y-m-d H:m:s"),
+            'public' => 0
         ]);
         return redirect()->route('admin.actueel.index');
     }

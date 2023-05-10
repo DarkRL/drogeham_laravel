@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('fulltext');
             $table->text('photo');
             $table->timestamp('datetime')->useCurrent;
+            $table->tinyInteger('public')->default('0'); 
         });
     }
 
