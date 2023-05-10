@@ -31,6 +31,9 @@ Route::get('/historie', [PageController::class, 'historypage'])
 Route::get('/actueel', [PageController::class, 'actueelpage'])
     ->name('actueel');
 
+Route::get('/templates/{id}/newspost', [PageController::class, 'newspost'])
+    ->name('templates.newspost');
+
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // use App\Models\HomePost;
+use App\Models\posts\NewsPosts;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
@@ -34,4 +35,10 @@ class PageController extends Controller
         
         return view("pages/actueel", ['posts' => $posts]);
     }
+
+    public function newspost(NewsPosts $id)
+    {
+        return view("templates/newspost", ['post' => $id]);
+    }
 }
+ 
