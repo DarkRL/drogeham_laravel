@@ -111,6 +111,26 @@ Route::get('/admin/history/index', [historyPostController::class, 'index'])
     ->middleware('auth');
 //
 
+//Admin Plaatselijk belang routes
+Route::get('/admin/plaatselijkbelang/{id}/edit', [PlaatselijkBelangPostController::class, 'edit'])
+    ->name('admin.plaatselijkbelang.edit')
+    ->middleware('auth');
+
+Route::patch('/admin/plaatselijkbelang/{id}/edit', [PlaatselijkBelangPostController::class, 'update'])
+    ->middleware('auth');
+
+Route::get('/admin/plaatselijkbelang/create', [PlaatselijkBelangPostController::class, 'create'])
+    ->name('admin.plaatselijkbelang.create')
+    ->middleware('auth');
+
+Route::post('/admin/plaatselijkbelang/create', [PlaatselijkBelangPostController::class, 'store'])
+    ->middleware('auth');
+
+Route::get('/admin/plaatselijkbelang/index', [PlaatselijkBelangPostController::class, 'index'])
+    ->name('admin.plaatselijkbelang.index')
+    ->middleware('auth');
+//
+
 
 Route::get('/admin/{admin}', [PageAdminController::class, 'index'])
     ->name("admin")
