@@ -14,8 +14,7 @@
             <div class="container">
                 <div class="text-center text-white text-capitalize">
                     <h1 class="roboto custom_hidden_stay">Plaatselijk belang drogeham</h1>
-                    <!-- <button type="button" class="btn btn-primary rounded-pill">Word Lid</button> -->
-                    <button type="button" class="button_custom_lid mt-2 custom_hidden_stay">Word Lid</button>
+                    <a href="{{route('page', ['page' => 'contact'])}}"><button type="button" class="button_custom_lid mt-2 custom_hidden_stay">Word Lid</button></a>
 
                 </div>
             </div>
@@ -93,7 +92,7 @@
                 </div>
                 <div class="col-10">
                     <div class="mb-5">
-                        <div id="CarouselArtikelen" class="carousel slide custom_hidden_repeat" data-bs-ride="carousel">
+                        <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="row">
