@@ -84,7 +84,7 @@ class LoginRegisterController extends Controller
         {
             $request->session()->regenerate();
             return redirect()->route('dashboard')
-                ->withSuccess('U heeft succesvol ingelogd!');
+                ->withSuccess('Je bent nu ingelogd!');
         }
 
         return back()->withErrors([
@@ -123,7 +123,7 @@ class LoginRegisterController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-            ->withSuccess('U heeft succesvol ingelogd!');;
+            ->withSuccess('Je bent nu ingelogd!');;
         
     }    
 
