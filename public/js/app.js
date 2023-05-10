@@ -2,7 +2,6 @@
 function scrollFunction(classname, repeat) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            console.log(entry)
             if (repeat == true) {
                 if (entry.isIntersecting) {
                     $(entry.target).addClass('custom_show');
