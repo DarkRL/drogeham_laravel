@@ -6,12 +6,14 @@
                 <li class="nav-item"><a href={{route('page', ['page' => 'home'])}} class="nav-link link-dark " aria-current="page">Home</a></li>
                 <li class="nav-item"><a href={{route('page', ['page' => 'agenda'])}} class="nav-link link-dark ">Agenda</a></li>
                 <li class="nav-item"><a href={{route('page', ['page' => 'actueel'])}} class="nav-link link-dark ">Actueel</a></li>
+                <li class="nav-item"><a href={{route('page', ['page' => 'projecten'])}} class="nav-link link-dark ">Projecten</a></li>
                 <div class="dropdown nav-link link-dark">
-                    <div class="dropdown-toggle" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-                        MEYD
-                    </div>
+                    <a class="text-decoration-none text-reset" href="{{route('page', ['page' => 'meyd'])}}">
+                        <div class="dropdown-toggle" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                            MEYD
+                        </div>
+                    </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href={{route('page', ['page' => 'meyd'])}}>MEYD Home</a></li>
                         <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Hamster Hulp</a></li>
                         <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Fit en Sûn</a></li>
                         <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Doarpskeamer</a></li>
