@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="col-4 d-flex align-items-center text-white">
                                             <div class="w-100 p-4 ">
-                                                <p>This div has a width of 25% and is positioned to the left of the image</p>
+                                                <p>Hier komt een project te staan.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="col-4 d-flex align-items-center text-white">
                                             <div class="w-100 p-4 ">
-                                                <p>This div has a width of 25% and is positioned to the left of the image</p>
+                                                <p>Hier komt een project te staan.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col-4 d-flex align-items-center text-white">
                                             <div class="w-100 p-4 ">
-                                                <p>This div has a width of 25% and is positioned to the left of the image</p>
+                                                <p>Hier komt een project te staan.</p>
                                             </div>
                                         </div>
                                     </div>
