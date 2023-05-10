@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PageAdminController;
 use App\Http\Controllers\Admin\HomePostController;
 use App\Http\Controllers\Admin\NewsPostsController;
 use App\Http\Controllers\Admin\HistoryPostController;
+use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
 
 /*
 |--------------------------------------------------------------------------
