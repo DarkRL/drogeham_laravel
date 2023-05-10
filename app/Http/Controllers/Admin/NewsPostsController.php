@@ -46,8 +46,7 @@ class NewsPostsController extends Controller
             'headline' => $request->headline,
             'fulltext' => $request->fulltext,
             'photo' => 'empty',
-            'datetime' => date("Y-m-d H:m:s"),
-            'public' => 0
+            'datetime' => date("Y-m-d H:m:s")
         ]);
         return redirect()->route('admin.actueel.index');
     }
@@ -55,6 +54,14 @@ class NewsPostsController extends Controller
     public function delete(Request $request, $id)
     {
         NewsPosts::find($id)->delete();
+        return redirect()->route('admin.actueel.index');
+    }
+
+    public function publish(Request $request, $id)
+    {
+        NewsPosts::find($id)->update([
+            'public' => 1
+        ]);
         return redirect()->route('admin.actueel.index');
     }
 }

@@ -27,4 +27,11 @@ class PageController extends Controller
         
         return view("pages/historie", compact('posts'));
     }
+
+    public function actueelpage()
+    {
+        $posts = DB::select('SELECT * FROM news_posts WHERE public = 0');
+        
+        return view("pages/actueel", ['posts' => $posts]);
+    }
 }
