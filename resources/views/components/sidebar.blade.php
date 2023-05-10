@@ -13,6 +13,7 @@
             <span class="ms-2 d-none d-sm-inline">Dashboard</span>
           </a>
         </li>
+        <hr class="text-white" />
         <li class="nav-item my-1 hoverOnLink ">
           <a class="nav-link text-white" href="{{route('admin', ['admin' => 'home/index'])}}" aria-current="page">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
