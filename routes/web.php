@@ -36,6 +36,9 @@ Route::get('/historie', [PageController::class, 'historypage'])
 Route::get('/actueel', [PageController::class, 'actueelpage'])
     ->name('actueel');
 
+Route::get('/templates/{id}/newspost', [PageController::class, 'newspost'])
+    ->name('templates.newspost');
+
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
@@ -90,8 +93,8 @@ Route::get('/admin/actueel/index', [NewsPostsController::class, 'index'])
     ->name('admin.actueel.index')
     ->middleware('auth');
 
-Route::post('/admin/actueel/{id}/index', [NewsPostsController::class, 'publish'])
-    ->name('admin.actueel.publish')
+Route::get('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
+    ->name('admin.actueel.publish')     
     ->middleware('auth');
 //
 

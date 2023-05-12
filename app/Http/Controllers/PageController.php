@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // use App\Models\HomePost;
+use App\Models\posts\NewsPosts;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
@@ -30,8 +31,14 @@ class PageController extends Controller
 
     public function actueelpage()
     {
-        $posts = DB::select('SELECT * FROM news_posts WHERE public = 0');
+        $posts = DB::select('SELECT * FROM news_posts WHERE public = 0 ORDER BY datetime desc');
         
         return view("pages/actueel", ['posts' => $posts]);
     }
+
+    public function newspost(NewsPosts $id)
+    {
+        return view("templates/newspost", ['post' => $id]);
+    }
 }
+ 

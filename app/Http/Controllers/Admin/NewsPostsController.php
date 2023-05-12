@@ -62,6 +62,7 @@ class NewsPostsController extends Controller
         NewsPosts::find($id)->update([
             'public' => 1
         ]);
+        DB::commit();
         return redirect()->route('admin.actueel.index');
     }
 }
