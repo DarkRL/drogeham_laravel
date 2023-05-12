@@ -31,7 +31,7 @@ class PageController extends Controller
 
     public function actueelpage()
     {
-        $posts = DB::select('SELECT * FROM news_posts WHERE public = 0');
+        $posts = DB::select('SELECT * FROM news_posts WHERE public = 0 ORDER BY datetime desc');
         
         return view("pages/actueel", ['posts' => $posts]);
     }
