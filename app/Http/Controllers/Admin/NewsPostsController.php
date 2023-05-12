@@ -19,15 +19,20 @@ class NewsPostsController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->hasFile('photo')) {
+            $imgpath = request()->file('photo')->store('uploads', 'public');
+            $url = asset('storage/' . $imgpath);
+        }
+
         $newPost = NewsPosts::create([
             'headline' => $request->headline,
             'fulltext' => $request->fulltext,
-            'photo' => 'empty',
+            'photo' => $url,
             'datetime' => date("Y-m-d H:m:s"),
             'public' => 0
         ]);
         return redirect()->route('admin.actueel.index')
-        ->withSuccess('Nieuw artikel is succesvol aangemaakt!');
+            ->withSuccess('Nieuw artikel is succesvol aangemaakt!');
     }
 
     public function create()
@@ -42,10 +47,18 @@ class NewsPostsController extends Controller
 
     public function update(Request $request, $id)
     {
+        if ($request->hasFile('photo')) {
+            $imgpath = request()->file('photo')->store('uploads', 'public');
+            $url = asset('storage/' . $imgpath);
+
+            NewsPosts::find($id)->update([
+                'photo' => $url
+            ]);
+        }
+
         NewsPosts::find($id)->update([
             'headline' => $request->headline,
             'fulltext' => $request->fulltext,
-            'photo' => 'empty',
             'datetime' => date("Y-m-d H:m:s")
         ]);
         return redirect()->route('admin.actueel.index');

@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
             <h4>{!! html_entity_decode($headline) !!}</h4>
-            <img src="{{URL::asset("./img/luchtfoto.jpg")}}" height="100px">
+            <img src="{{ $photo }}" height="100px">
             <div class="row">
                 <div class="col-4">
                     <a href="{{ URL('/admin/actueel/'. $postid .'/edit') }}">
