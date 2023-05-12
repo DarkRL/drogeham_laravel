@@ -1,7 +1,7 @@
 <div class="d-flex flex-column justify-content-between align-items-center col-auto bg-dark min-vh-100 px-3">
   <div class="sticky-top">
     <div class="mt-4">
-      <a style="display: flex!important;" class="d-flex justify-content-center d-none d-md-block" href="{{route('admin', ['admin' => 'dashboard'])}}"><img src="{{URL::asset("./img/sidebarwapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="30" /></a>
+      <a class="d-flex justify-content-center" href="{{route('admin', ['admin' => 'dashboard'])}}"><img class="d-none d-md-block" src="{{URL::asset("./img/sidebarwapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="30" /></a>
       <hr class="text-white" />
       <ul class="nav nav-pills flex-column  mt-2 mt-sm-0" id="menu">
         <li class="nav-item my-1 hoverOnLink text-center text-sm-start">
