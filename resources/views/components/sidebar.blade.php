@@ -1,9 +1,9 @@
-<div class="d-flex flex-column justify-content-between align-items-center  bg-dark min-vh-100 px-3">
+<div class="d-flex flex-column justify-content-between align-items-center col-auto bg-dark min-vh-100 px-3">
   <div class="sticky-top">
     <div class="mt-4">
-      <a class="d-flex justify-content-center" href="{{route('admin', ['admin' => 'dashboard'])}}"><img src="{{URL::asset("./img/sidebarwapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="30" /></a>
+      <a style="display: flex!important;" class="d-flex justify-content-center d-none d-md-block" href="{{route('admin', ['admin' => 'dashboard'])}}"><img src="{{URL::asset("./img/sidebarwapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="30" /></a>
       <hr class="text-white" />
-      <ul class="nav nav-pills flex-column  mt-2 mt-sm-0 min-vh-100" id="menu">
+      <ul class="nav nav-pills flex-column  mt-2 mt-sm-0" id="menu">
         <li class="nav-item my-1 hoverOnLink text-center text-sm-start">
           <a class="nav-link text-white " href="{{route('admin', ['admin' => 'dashboard'])}}" aria-current="page">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer " viewBox="0 0 16 16">
@@ -66,7 +66,7 @@
             <span class="ms-2  d-none d-sm-inline">Agenda</span>
           </a>
         </li>
-        <li class="nav-item my-1 hoverOnLink">
+        <li class="nav-item my-1 hoverOnLink text-center text-sm-start">
           <a class="nav-link text-white" href="{{route('admin', ['admin' => 'plaatselijkbelang/index'])}}" aria-current="page">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
@@ -74,7 +74,7 @@
             <span class="ms-2  d-none d-sm-inline">Plaatselijkbelang</span>
           </a>
         </li>
-        <li class="nav-item my-1 hoverOnLink text-center text-sm-start">
+        <li class="nav-item my-1 hoverOnLink text-center mb-5 text-sm-start">
           <a class="nav-link text-white" href="#" aria-current="page">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
               <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
@@ -89,10 +89,10 @@
           });
         </script>
 
-        <li class="nav-item mb-5 text-center">
+        <li class="nav-item align-bottom mt-5 text-center">
           <div class="btn-group dropup bg-light">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              {{ Auth::user()->name }}
+              <span class="d-none d-sm-inline">{{ Auth::user()->name }}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-sm bg-light">
               <li><a class="dropdown-item dropdown-item-custom" href="{{ route('logout') }}" onclick="event.preventDefault();
