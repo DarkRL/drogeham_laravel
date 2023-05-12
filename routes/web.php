@@ -89,8 +89,8 @@ Route::get('/admin/actueel/index', [NewsPostsController::class, 'index'])
     ->name('admin.actueel.index')
     ->middleware('auth');
 
-Route::post('/admin/actueel/{id}/index', [NewsPostsController::class, 'publish'])
-    ->name('admin.actueel.publish')
+Route::get('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
+    ->name('admin.actueel.publish')     
     ->middleware('auth');
 //
 
