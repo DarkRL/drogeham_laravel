@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostTaskController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\Admin\PageAdminController;
 use App\Http\Controllers\Admin\HomePostController;
@@ -19,6 +20,9 @@ use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
+    ->name('upload.post.image');
 
 Route::get('/', [PageController::class, 'homepage'])
     ->name('home');
