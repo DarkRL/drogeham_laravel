@@ -54,12 +54,12 @@ class ImageController extends Controller
             $counter++;
         }
 
-        if ($counter > 1){
-            return redirect()->back()->withSuccess($counter . ' Afbeeldingen zijn succesvol verwijderd!');
-        } elseif ($counter == 1) {
-            return redirect()->back()->withSuccess($counter . ' Afbeelding succesvol verwijderd!');
-        } else {
-            return redirect()->back()->withSuccess('Er zijn geen afbeeldingen meer om te verwijderen!');
-        }
+        // if ($counter > 1){
+        //     return redirect()->back()->withSuccess($counter . ' Afbeeldingen zijn succesvol verwijderd!');
+        // } elseif ($counter == 1) {
+        //     return redirect()->back()->withSuccess($counter . ' Afbeelding succesvol verwijderd!');
+        // } else {
+        //     return redirect()->back()->withSuccess('Er zijn geen afbeeldingen meer om te verwijderen!');
+        // }
     }
 }

@@ -61,12 +61,14 @@ class NewsPostsController extends Controller
             'fulltext' => $request->fulltext,
             'datetime' => date("Y-m-d H:m:s")
         ]);
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.actueel.index');
     }
 
     public function delete(Request $request, $id)
     {
         NewsPosts::find($id)->delete();
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.actueel.index');
     }
 
