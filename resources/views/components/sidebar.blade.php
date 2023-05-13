@@ -107,7 +107,7 @@
               <span class="ms-2  d-none d-sm-inline">Tools</span>
             </a>
             <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">- Opschoontool</a>
+              <a class="dropdown-item" href="{{route('page', ['page' => 'delete-unused-images'])}}">- Opschoontool</a>
             </div>
           </div>
         </li>
