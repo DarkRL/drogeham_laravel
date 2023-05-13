@@ -22,10 +22,6 @@ use App\Http\Controllers\imagehandler\ImageController;
 |
 */
 
-Route::get('/delete-unused-images', [ImageController::class, 'deleteUnusedImagesForm'])
-    ->name('delete-unused-images');
-Route::post('/delete-unused-images', [ImageController::class, 'deleteUnusedImages']);
-
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
     ->name('upload.post.image');
 
