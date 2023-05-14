@@ -221,3 +221,8 @@ html {
 .custom_show {
     opacity: 1;
 }
+
+.img-thumbnail {
+    max-height: 30vh !important;
+    padding: 0% !important;
+}
