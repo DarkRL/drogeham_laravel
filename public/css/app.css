@@ -252,3 +252,7 @@ html {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+.img-thumbnail {
+    max-height: 30vh !important;
+    padding: 0% !important;
+}
