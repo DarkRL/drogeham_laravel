@@ -94,9 +94,14 @@ Route::get('/admin/actueel/index', [NewsPostsController::class, 'index'])
     ->name('admin.actueel.index')
     ->middleware('auth');
 
-Route::post('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
+// Route::post('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
+//     ->name('admin.actueel.publish')
+//     ->middleware('auth');
+
+    Route::put('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
     ->name('admin.actueel.publish')
     ->middleware('auth');
+
 //
 
 

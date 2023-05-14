@@ -76,9 +76,20 @@ class NewsPostsController extends Controller
     {
         $record = NewsPosts::findOrFail($id);
 
+        $oldValue = $record->public;
         $record->public = $request->publishValue;
         $record->save();
 
-        return redirect()->route('admin.actueel.index');
+        // return redirect()->route('admin.actueel.index');
+        if ($oldValue == 0) {
+            $returnMessage =  $request->publishValue == 0 ? "Artikel '{$request->headline}' was al inactief!" : "Artikel '{$request->headline}' is succesvol actief gezet!";
+        } else {
+            $returnMessage =  $request->publishValue == 0 ? "Artikel '{$request->headline}' is succesvol inactief gezet!" : "Artikel '{$request->headline}' was al actief!";
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => $returnMessage
+        ]);
     }
 }

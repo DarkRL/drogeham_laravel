@@ -23,30 +23,62 @@
                     </button>
                 </div>
                 <div class="col-4">
-                    <form action="{{ route('admin.actueel.publish', ['id' => $postid]) }}" method="post" class="form-group">
+                    <!-- <form action="{{ route('admin.actueel.publish', ['id' => $postid]) }}" method="post" class="form-group"> -->
+                    <form class="form-group" id="article_post_form_{{ $postid }}">
                         @csrf
-                        <input class="form-control" type="hidden" name="publishValue" id="toggle-input" value="0">
-                        <button type="submit" class="btn btn-success btn-sm" title="Publiceren">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
-                                <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm1.354 4.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
-                            </svg>
-                        </button>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" id="toggle" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input type="hidden" name="article_id" value="{{ $postid }}">
+                        <input type="hidden" name="headline" value="{{ $headline }}">
+                        <input class="form-control" type="hidden" name="publishValue" id="toggle-input_{{ $postid }}" value="0">
+
+                        <div class="form-check form-switch form-switch-lg">
+                            @if ($publishid == 1)
+                            <input style="transform: scale(1.5);" class="form-check-input" id="toggle_{{ $postid }}" type="checkbox" role="switch" checked>
+                            @else
+                            <input style="transform: scale(1.5);" class="form-check-input" id="toggle_{{ $postid }}" type="checkbox" role="switch">
+                            @endif
+                            <label class="form-check-label" for="toggle_{{ $postid }}">Zet actief</label>
                         </div>
                         <script>
                             $(document).ready(function() {
-                                $('#toggle').change(function() {
+                                $('#toggle_{{ $postid }}').change(function() {
                                     if ($(this).prop('checked')) {
-                                        $('#toggle-input').val(1);
+                                        $('#toggle-input_{{ $postid }}').val(1);
                                     } else {
-                                        $('#toggle-input').val(0);
+                                        $('#toggle-input_{{ $postid }}').val(0);
                                     }
                                 });
                             });
                         </script>
                     </form>
                 </div>
+                <script>
+                    $(document).ready(function() {
+                        // $('#article_post_form_{{ $postid }}').on('submit', function(event) {
+                        $('#toggle_{{ $postid }}').change( function(event) {
+                            event.preventDefault();
+
+                            var formElement = $("#article_post_form_{{ $postid }}")
+                            var formData = $(formElement).serialize();
+                            // var formData = new FormData(formElement);
+                            // formData.append('myHiddenInput', hiddenValue);
+
+                            $.ajax({
+                                url: "{{ route('admin.actueel.publish', ['id' => $postid]) }}",
+                                type: 'PUT',
+                                data: formData,
+                                dataType: 'json',
+                                success: function(response) {
+                                    $('#message').text(response.message);
+                                },
+                                error: function(xhr, status, error) {
+                                    var err = eval("(" + xhr.responseText + ")");
+                                    $('#message').text(err.message);
+                                }
+                            });
+                        });
+                    });
+                </script>
+
             </div>
         </div>
     </div>
