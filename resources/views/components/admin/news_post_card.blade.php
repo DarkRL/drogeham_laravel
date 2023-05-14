@@ -23,7 +23,6 @@
                     </button>
                 </div>
                 <div class="col-4">
-                    <!-- <form action="{{ route('admin.actueel.publish', ['id' => $postid]) }}" method="post" class="form-group"> -->
                     <form class="form-group" id="article_post_form_{{ $postid }}">
                         @csrf
                         <input type="hidden" name="article_id" value="{{ $postid }}">
@@ -53,14 +52,11 @@
                 </div>
                 <script>
                     $(document).ready(function() {
-                        // $('#article_post_form_{{ $postid }}').on('submit', function(event) {
                         $('#toggle_{{ $postid }}').change( function(event) {
                             event.preventDefault();
 
                             var formElement = $("#article_post_form_{{ $postid }}")
                             var formData = $(formElement).serialize();
-                            // var formData = new FormData(formElement);
-                            // formData.append('myHiddenInput', hiddenValue);
 
                             $.ajax({
                                 url: "{{ route('admin.actueel.publish', ['id' => $postid]) }}",

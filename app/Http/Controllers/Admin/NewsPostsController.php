@@ -80,7 +80,6 @@ class NewsPostsController extends Controller
         $record->public = $request->publishValue;
         $record->save();
 
-        // return redirect()->route('admin.actueel.index');
         if ($oldValue == 0) {
             $returnMessage =  $request->publishValue == 0 ? "Artikel '{$request->headline}' was al inactief!" : "Artikel '{$request->headline}' is succesvol actief gezet!";
         } else {
