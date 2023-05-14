@@ -17,3 +17,12 @@ body {
 .dropdown-item-custom:hover {
   background-color: #d5d4d3;
 }
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0,0,0,.125);
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none !important;
+}

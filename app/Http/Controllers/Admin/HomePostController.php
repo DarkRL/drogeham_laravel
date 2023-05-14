@@ -46,6 +46,7 @@ class HomePostController extends Controller
         HomePost::find($id)->update([
             'fulltext' => $request->fulltext
         ]);
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.home.index')
             ->withSuccess('De inhoud is succesvol aangepast!');
     }

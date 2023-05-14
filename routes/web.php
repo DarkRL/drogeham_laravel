@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\HomePostController;
 use App\Http\Controllers\Admin\NewsPostsController;
 use App\Http\Controllers\Admin\HistoryPostController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
+use App\Http\Controllers\imagehandler\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,9 +94,14 @@ Route::get('/admin/actueel/index', [NewsPostsController::class, 'index'])
     ->name('admin.actueel.index')
     ->middleware('auth');
 
-Route::get('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
-    ->name('admin.actueel.publish')     
+// Route::post('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
+//     ->name('admin.actueel.publish')
+//     ->middleware('auth');
+
+    Route::put('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
+    ->name('admin.actueel.publish')
     ->middleware('auth');
+
 //
 
 

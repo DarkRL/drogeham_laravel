@@ -62,21 +62,35 @@ class NewsPostsController extends Controller
             'fulltext' => $request->fulltext,
             'datetime' => date("Y-m-d H:m:s")
         ]);
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.actueel.index');
     }
 
     public function delete(Request $request, $id)
     {
         NewsPosts::find($id)->delete();
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.actueel.index');
     }
 
     public function publish(Request $request, $id)
     {
-        NewsPosts::find($id)->update([
-            'public' => 1
+        $record = NewsPosts::findOrFail($id);
+
+        $oldValue = $record->public;
+        $record->public = $request->publishValue;
+        $record->save();
+
+        // return redirect()->route('admin.actueel.index');
+        if ($oldValue == 0) {
+            $returnMessage =  $request->publishValue == 0 ? "Artikel '{$request->headline}' was al inactief!" : "Artikel '{$request->headline}' is succesvol actief gezet!";
+        } else {
+            $returnMessage =  $request->publishValue == 0 ? "Artikel '{$request->headline}' is succesvol inactief gezet!" : "Artikel '{$request->headline}' was al actief!";
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => $returnMessage
         ]);
-        DB::commit();
-        return redirect()->route('admin.actueel.index');
     }
 }

@@ -74,7 +74,7 @@
             <span class="ms-2  d-none d-sm-inline">Plaatselijkbelang</span>
           </a>
         </li>
-        <li class="nav-item my-1 hoverOnLink text-center mb-5 text-sm-start">
+        <li class="nav-item my-1 hoverOnLink text-center text-sm-start">
           <a class="nav-link text-white" href="#" aria-current="page">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
               <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
@@ -82,6 +82,34 @@
             </svg>
             <span class="ms-2  d-none d-sm-inline">Brinkpraat</span>
           </a>
+        </li>
+        <li class="nav-item text-center text-sm-start bg-dark d-none d-lg-block">
+          <div class="accordion">
+            <a class="nav-link text-white accordion-button bg-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-right: 5px; margin-left: -5px;">
+                <path d="M4.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-4 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+              </svg>
+              <span class="ms-2 d-none d-sm-inline">Tools</span>
+            </a>
+            <div id="collapseOne" class="w-100 accordion-collapse collapse show bg-dark" aria-labelledby="headingOne" data-bs-parent=".accordion">
+              <div class="d-none d-sm-inline">
+                <a class="text-white text-decoration-none" href="#">- TestTool</a><br>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item my-1 hoverOnLink text-center text-sm-start d-lg-none">
+          <div class="dropdown">
+            <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path d="M4.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-4 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+              </svg>
+              <span class="ms-2  d-none d-sm-inline">Tools</span>
+            </a>
+            <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">- TestTool</a>
+            </div>
+          </div>
         </li>
         <script>
           $(document).ready(function() {
