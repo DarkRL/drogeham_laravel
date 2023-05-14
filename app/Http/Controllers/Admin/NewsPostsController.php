@@ -74,10 +74,11 @@ class NewsPostsController extends Controller
 
     public function publish(Request $request, $id)
     {
-        NewsPosts::find($id)->update([
-            'public' => 1
-        ]);
-        DB::commit();
+        $record = NewsPosts::findOrFail($id);
+
+        $record->public = $request->publishValue;
+        $record->save();
+
         return redirect()->route('admin.actueel.index');
     }
 }
