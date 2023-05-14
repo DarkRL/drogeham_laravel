@@ -19,6 +19,7 @@ class NewsPostsController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate(['photo' => 'required|image|mimes:jpeg,png,webp,png,gif,bmp,tiff|max:8192']);
         if ($request->hasFile('photo')) {
             $imgpath = request()->file('photo')->store('uploads', 'public');
             $url = asset('storage/' . $imgpath);
