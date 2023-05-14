@@ -22,4 +22,6 @@ function scrollFunction(classname, repeat) {
 
 scrollFunction('.custom_hidden_repeat', true)
 scrollFunction('.custom_hidden_stay', false)
+scrollFunction('.custom_hidden_stay_up', false)
+scrollFunction('.custom_hidden_stay_size', false)
 /* ------------- */

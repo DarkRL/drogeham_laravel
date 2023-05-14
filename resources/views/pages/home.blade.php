@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-10">
                     <div class="mb-5">
-                        <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay" data-bs-ride="carousel">
+                        <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay_up" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="row">

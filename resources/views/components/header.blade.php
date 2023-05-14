@@ -28,4 +28,9 @@
             <a href={{route('page', ['page' => 'meyd'])}}><img src="{{URL::asset("./img/MEYD_drogeham.png")}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
         </div>
     </nav>
+    <script>
+        $(document).ready(function() {
+            $("a[href*='" + location.pathname + "']").addClass("text-primary");
+        });
+    </script>
 </header>

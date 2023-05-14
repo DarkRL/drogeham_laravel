@@ -218,8 +218,24 @@ html {
     transition: all 2s;
 }
 
+/* Custom scroll fade up animation */
+.custom_hidden_stay_up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 2s;
+}
+
+/* Custom scroll fade from small to normal animation */
+.custom_hidden_stay_size {
+    opacity: 0;
+    transform: translateY(50px) scale(0.5);
+    transition: all 1s;
+}
+
+
 .custom_show {
     opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .hover-underline-animation {
