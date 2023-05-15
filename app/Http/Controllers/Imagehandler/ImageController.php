@@ -29,11 +29,13 @@ class ImageController extends Controller
                 $urls = DB::table($table)->pluck('fulltext')->toArray();
 
                 foreach ($urls as $imageData) {
-                    preg_match('/src="([^"]*)"/i', $imageData, $matches);
+                    preg_match_all('/src="([^"]*)"/i', $imageData, $matches);
 
-                    foreach ($matches as $url) {
-                        $imageNames = basename($url);
-                        $ImgArr2[] = $imageNames;
+                    foreach ($matches as $urls) {
+                        foreach($urls as $url){
+                            $imageNames = basename($url);
+                            $ImgArr2[] = $imageNames;
+                        }
                     }
                 }
             }

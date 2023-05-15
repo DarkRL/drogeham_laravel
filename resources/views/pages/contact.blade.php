@@ -16,8 +16,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 mx-auto">
-                                <h2 class="text-center">Word lid</h2>
-                                <p class="text-mute text-center mb-4"><i>Word lid van het plaatselijk belang en ontvang het meest recente nieuws!</i></p>
+                            <h2 class="text-center custom_hidden_repeat">Nieuw in Drogeham?</h2>
+                            <p class="text-mute text-center mb-4"><i>Namens de hele gemeenschap van Drogeham wil ik je van harte welkom heten in ons prachtige dorp. We zijn verheugd dat je ervoor hebt gekozen om hier te komen wonen en deel uit te maken van onze hechte gemeenschap.</i></p>
                                 <form>
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Naam</label>
