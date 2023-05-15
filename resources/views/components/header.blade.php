@@ -3,7 +3,7 @@
         <div class="container d-flex flex-wrap text-algin align-items-center justify-content-center">
             <a href={{route('page', ['page' => 'home'])}}><img src="{{URL::asset("./img/wapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="50" /></a>
             <ul class="nav mx-auto">
-                <li class="nav-item"><a href="{{route('page', ['page' => 'home'])}}" class="nav-link link-dark " aria-current="page"><span class="hover-underline-animation hover-underline-grey">Home</span></a></li>
+                <li class="nav-item"><a href="{{route('page', ['page' => 'home'])}}" class="nav-link link-dark " id="homepagelinkid" aria-current="page"><span class="hover-underline-animation hover-underline-grey">Home</span></a></li>
                 <li class="nav-item"><a href="{{route('page', ['page' => 'agenda'])}}" class="nav-link link-dark "><span class="hover-underline-animation hover-underline-grey">Agenda</span></a></li>
                 <li class="nav-item"><a href="{{route('page', ['page' => 'actueel'])}}" class="nav-link link-dark "><span class="hover-underline-animation hover-underline-grey">Actueel</span></a></li>
                 <li class="nav-item"><a href="{{route('page', ['page' => 'projecten'])}}" class="nav-link link-dark "><span class="hover-underline-animation hover-underline-grey">Projecten</span></a></li>
@@ -30,7 +30,11 @@
     </nav>
     <script>
         $(document).ready(function() {
-            $("a[href*='" + location.pathname + "']").addClass("text-primary");
+            if(location.pathname !== "/"){
+                $("a[href*='" + location.pathname + "']").addClass("text-primary");
+            } else {
+                $("#homepagelinkid").addClass("text-primary");
+            }
         });
     </script>
 </header>

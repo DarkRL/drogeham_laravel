@@ -13,7 +13,7 @@
                 <p>
                     <b>Plaatselijk Belang Drogeham</b>
                     <br>
-                    <a class="link text-white text-decoration-none" href="mailto:pbdrogeham@gmail.com">Neem contact op</a>
+                    <a class="link text-white text-decoration-none hover-underline-animation hover-underline-white" href="mailto:pbdrogeham@gmail.com">Neem contact op</a>
                 </p>
             </div>
             <!--Grid column-->
@@ -40,7 +40,7 @@
     <!-- Copyright -->
     <div class="container mb-4">
         <div class="text-center p-3 text-white">
-            © Plaatselijk belang Drogeham | <a class="text-decoration-none text-white" href="#">Colofon & disclaimer</a> | <a class="text-decoration-none text-white" href="#">Privacy verklaring</a>
+            <span style="user-select: none;">© Plaatselijk belang Drogeham</span> | <a class="text-decoration-none text-white hover-underline-animation hover-underline-white" href="#">Colofon & disclaimer</a> | <a class="text-decoration-none text-white hover-underline-animation hover-underline-white" href="#">Privacy verklaring</a>
         </div>
         <div class="container text-center custom_hidden_repeat">
             <button type="button" class="btn btn-primary" onclick="goToLink_facebook()">
