@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\Admin\PageAdminController;
 use App\Http\Controllers\Admin\HomePostController;
 use App\Http\Controllers\Admin\NewsPostsController;
+use App\Http\Controllers\Admin\MeydPostsController;
 use App\Http\Controllers\Admin\HistoryPostController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
 use App\Http\Controllers\imagehandler\ImageController;
@@ -96,6 +97,36 @@ Route::get('/admin/actueel/index', [NewsPostsController::class, 'index'])
 
     Route::put('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
     ->name('admin.actueel.publish')
+    ->middleware('auth');
+
+//
+
+//Admin meyd routes
+
+Route::get('/admin/meyd/{id}/edit', [MeydPostsController::class, 'edit'])
+    ->name('admin.meyd.edit')
+    ->middleware('auth');
+
+Route::get('/admin/meyd/{id}/delete', [MeydPostsController::class, 'delete'])
+    ->name('admin.meyd.delete')
+    ->middleware('auth');
+
+Route::patch('/admin/meyd/{id}/edit', [MeydPostsController::class, 'update'])
+    ->middleware('auth');
+
+Route::get('/admin/meyd/create', [MeydPostsController::class, 'create'])
+    ->name('admin.meyd.create')
+    ->middleware('auth');
+
+Route::post('/admin/meyd/create', [MeydPostsController::class, 'store'])
+    ->middleware('auth');
+
+Route::get('/admin/meyd/index', [MeydPostsController::class, 'index'])
+    ->name('admin.meyd.index')
+    ->middleware('auth');
+
+    Route::put('/admin/meyd/{id}/publish', [MeydPostsController::class, 'publish'])
+    ->name('admin.meyd.publish')
     ->middleware('auth');
 
 //
