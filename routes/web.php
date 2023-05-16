@@ -95,11 +95,9 @@ Route::get('/admin/actueel/index', [NewsPostsController::class, 'index'])
     ->name('admin.actueel.index')
     ->middleware('auth');
 
-    Route::put('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
+Route::put('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
     ->name('admin.actueel.publish')
     ->middleware('auth');
-
-//
 
 //Admin meyd routes
 
