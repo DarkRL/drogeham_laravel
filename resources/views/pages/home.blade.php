@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper custom_hidden_stay_fast">
         <x-header />
         <div style="align-items:center;" class="header_parallax_section d-flex flex-column justify-content-around h-100">
             <img src="https://www.drogeham.com/assets/img/luchtfoto.jpg" class="parallax_background">
@@ -14,8 +14,7 @@
             <div class="container">
                 <div class="text-center text-white text-capitalize">
                     <h1 class="roboto custom_hidden_stay">Plaatselijk belang drogeham</h1>
-                    <a href="{{route('page', ['page' => 'contact'])}}"><button type="button" class="button_custom_lid mt-2 custom_hidden_stay">Word Lid</button></a>
-
+                    <a href="{{route('page', ['page' => 'contact'])}}" class="custom_lid_button_home text-decoration-none custom_hidden_stay">Word lid</a>
                 </div>
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">
