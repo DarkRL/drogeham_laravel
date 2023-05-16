@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AgendaAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostTaskController;
@@ -177,3 +178,8 @@ Route::get('/admin/{admin}', [PageAdminController::class, 'index'])
 
 Route::get('{page}', [PageController::class, 'index'])
     ->name("page");
+
+// admin agenda routes
+Route::get('/admin/agenda/index', [AgendaAdminController::class, 'index'])
+    ->name('admin.agenda.index')
+    ->middleware('auth');
