@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('pages.layouts')
 
-<head>
-    <x-imports />
-</head>
-
-<body>
-    <x-header />
-    <div class="parallax_fixed"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                agenda pagina
-            </div>
-        </div>
+@section('content')
+<div class="row">
+    <div class="col">
+        agenda pagina
     </div>
-    <x-footer />
-</body>
-
-</html>
+</div>
+@endsection

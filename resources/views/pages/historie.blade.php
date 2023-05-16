@@ -1,33 +1,21 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('pages.layouts')
 
-<head>
-    <x-imports />
-</head>
+@section('content')
+<div class="row">
+    <div class="col">
 
-<body>
-    <x-header />
-    <div class="parallax_fixed"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-
-            </div>
-            <div class="col-10">
-                <div class="m-5">
-                    <div class="custom_hidden_repeat">
-                        @foreach ($posts as $post)
-                        {!! html_entity_decode($post->fulltext) !!}
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-
+    </div>
+    <div class="col-10">
+        <div class="m-5">
+            <div class="custom_hidden_repeat">
+                @foreach ($posts as $post)
+                {!! html_entity_decode($post->fulltext) !!}
+                @endforeach
             </div>
         </div>
     </div>
-    <x-footer />
-</body>
+    <div class="col">
 
-</html>
+    </div>
+</div>
+@endsection
