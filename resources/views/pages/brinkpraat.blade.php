@@ -5,7 +5,7 @@
     <x-imports />
 </head>
 
-<body>
+<body class="custom_hidden_stay_fast">
     <x-header />
     <div class="parallax_fixed"></div>
     <div class="container">
