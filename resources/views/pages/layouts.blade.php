@@ -7,10 +7,10 @@
 @section('content')
 
 <body>
-    <x-header />
+    <div class="custom_hidden_stay_fast"><x-header /></div>
     <div class="parallax_fixed"></div>
-    <div class="container">
-    @yield('content')
+    <div class="container custom_hidden_stay_fast">
+        @yield('content')
     </div>
     <x-footer />
 </body>
