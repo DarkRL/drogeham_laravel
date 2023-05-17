@@ -24,23 +24,14 @@ use App\Http\Controllers\imagehandler\ImageController;
 |
 */
 
-Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
-    ->name('upload.post.image');
-
-Route::get('/', [PageController::class, 'homepage'])
-    ->name('home');
-
-Route::get('/home', [PageController::class, 'homepage'])
-    ->name('home');
-
-Route::get('/historie', [PageController::class, 'historypage'])
-    ->name('historie');
-
-Route::get('/actueel', [PageController::class, 'actueelpage'])
-    ->name('actueel');
-
-Route::get('/templates/{id}/newspost', [PageController::class, 'newspost'])
-    ->name('templates.newspost');
+Route::controller(PageController::class)->group(function() {
+    Route::get('/', 'homepage')->name('home');
+    Route::get('/home', 'homepage')->name('home');
+    Route::get('/historie', 'historypage')->name('historie');
+    Route::get('/actueel', 'actueelpage')->name('actueel');
+    Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
+    Route::get('{page}', 'index')->name("page");
+});
 
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
@@ -51,137 +42,55 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::post('/logout', 'logout')->name('logout');
 });
 
-//Admin Home routes
-Route::get('/admin/home/{id}/edit', [HomePostController::class, 'edit'])
-    ->name('admin.home.edit')
-    ->middleware('auth');
+Route::controller(HomePostController::class)->group(function() {
+    Route::get('/admin/home/{id}/edit', 'edit')->name('admin.home.edit')->middleware('auth');
+    Route::patch('/admin/home/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/home/create', 'create')->name('admin.home.create')->middleware('auth');
+    Route::get('/admin/home/index', 'index')->name('admin.home.index')->middleware('auth');
+});
 
-Route::patch('/admin/home/{id}/edit', [HomePostController::class, 'update'])
-    ->middleware('auth');
+Route::controller(NewsPostsController::class)->group(function() {
+    Route::get('/admin/actueel/{id}/edit', 'edit')->name('admin.actueel.edit')->middleware('auth');
+    Route::patch('/admin/actueel/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/actueel/create', 'create')->name('admin.actueel.create')->middleware('auth');
+    Route::post('/admin/actueel/create', 'store')->middleware('auth');
+    Route::get('/admin/actueel/{id}/delete', 'delete')->name('admin.actueel.delete')->middleware('auth');
+    Route::put('/admin/actueel/{id}/publish', 'publish')->name('admin.actueel.publish')->middleware('auth');
+    Route::get('/admin/actueel/index', 'index')->name('admin.actueel.index')->middleware('auth');
+});
 
-Route::get('/admin/home/create', [HomePostController::class, 'create'])
-    ->name('admin.home.create')
-    ->middleware('auth');
+Route::controller(MeydPostsController::class)->group(function() {
+    Route::get('/admin/meyd/{id}/edit', 'edit')->name('admin.meyd.edit')->middleware('auth');
+    Route::patch('/admin/meyd/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/meyd/create', 'create')->name('admin.meyd.create')->middleware('auth');
+    Route::post('/admin/meyd/create', 'store')->middleware('auth');
+    Route::get('/admin/meyd/{id}/delete', 'delete')->name('admin.meyd.delete')->middleware('auth');
+    Route::put('/admin/meyd/{id}/publish', 'publish')->name('admin.meyd.publish')->middleware('auth');
+    Route::get('/admin/meyd/index', 'index')->name('admin.meyd.index')->middleware('auth');
+});
 
-Route::post('/admin/home/create', [HomePostController::class, 'store'])
-    ->middleware('auth');
+Route::controller(HistoryPostController::class)->group(function() {
+    Route::get('/admin/history/{id}/edit', 'edit')->name('admin.history.edit')->middleware('auth');
+    Route::patch('/admin/history/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/history/create', 'create')->name('admin.history.create')->middleware('auth');
+    Route::post('/admin/history/create', 'store')->middleware('auth');
+    Route::get('/admin/history/index', 'index')->name('admin.history.index')->middleware('auth');
+});
 
-Route::get('/admin/home/index', [HomePostController::class, 'index'])
-    ->name('admin.home.index')
-    ->middleware('auth');
-//
+Route::controller(PlaatselijkBelangPostController::class)->group(function() {
+    Route::get('/admin/plaatselijkbelang/{id}/edit', 'edit')->name('admin.plaatselijkbelang.edit')->middleware('auth');
+    Route::patch('/admin/plaatselijkbelang/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/plaatselijkbelang/create', 'create')->name('admin.plaatselijkbelang.create')->middleware('auth');
+    Route::post('/admin/plaatselijkbelang/create', 'store')->middleware('auth');
+    Route::get('/admin/plaatselijkbelang/index', 'index')->name('admin.plaatselijkbelang.index')->middleware('auth');
+});
 
-
-//Admin Actueel routes
-
-Route::get('/admin/actueel/{id}/edit', [NewsPostsController::class, 'edit'])
-    ->name('admin.actueel.edit')
-    ->middleware('auth');
-
-Route::get('/admin/actueel/{id}/delete', [NewsPostsController::class, 'delete'])
-    ->name('admin.actueel.delete')
-    ->middleware('auth');
-
-Route::patch('/admin/actueel/{id}/edit', [NewsPostsController::class, 'update'])
-    ->middleware('auth');
-
-Route::get('/admin/actueel/create', [NewsPostsController::class, 'create'])
-    ->name('admin.actueel.create')
-    ->middleware('auth');
-
-Route::post('/admin/actueel/create', [NewsPostsController::class, 'store'])
-    ->middleware('auth');
-
-Route::get('/admin/actueel/index', [NewsPostsController::class, 'index'])
-    ->name('admin.actueel.index')
-    ->middleware('auth');
-
-Route::put('/admin/actueel/{id}/publish', [NewsPostsController::class, 'publish'])
-    ->name('admin.actueel.publish')
-    ->middleware('auth');
-
-//Admin meyd routes
-
-Route::get('/admin/meyd/{id}/edit', [MeydPostsController::class, 'edit'])
-    ->name('admin.meyd.edit')
-    ->middleware('auth');
-
-Route::get('/admin/meyd/{id}/delete', [MeydPostsController::class, 'delete'])
-    ->name('admin.meyd.delete')
-    ->middleware('auth');
-
-Route::patch('/admin/meyd/{id}/edit', [MeydPostsController::class, 'update'])
-    ->middleware('auth');
-
-Route::get('/admin/meyd/create', [MeydPostsController::class, 'create'])
-    ->name('admin.meyd.create')
-    ->middleware('auth');
-
-Route::post('/admin/meyd/create', [MeydPostsController::class, 'store'])
-    ->middleware('auth');
-
-Route::get('/admin/meyd/index', [MeydPostsController::class, 'index'])
-    ->name('admin.meyd.index')
-    ->middleware('auth');
-
-Route::put('/admin/meyd/{id}/publish', [MeydPostsController::class, 'publish'])
-    ->name('admin.meyd.publish')
-    ->middleware('auth');
-
-//
+Route::controller(PageAdminController::class)->group(function() {
+    Route::get('/admin/{admin}', 'index')->middleware('auth');
+    Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
+    Route::post('/admin/agenda/fullcalendarAjax', 'ajax');
+});
 
 
-//Admin History routes
-Route::get('/admin/history/{id}/edit', [historyPostController::class, 'edit'])
-    ->name('admin.history.edit')
-    ->middleware('auth');
-
-Route::patch('/admin/history/{id}/edit', [historyPostController::class, 'update'])
-    ->middleware('auth');
-
-Route::get('/admin/history/create', [historyPostController::class, 'create'])
-    ->name('admin.history.create')
-    ->middleware('auth');
-
-Route::post('/admin/history/create', [historyPostController::class, 'store'])
-    ->middleware('auth');
-
-Route::get('/admin/history/index', [historyPostController::class, 'index'])
-    ->name('admin.history.index')
-    ->middleware('auth');
-//
-
-//Admin Plaatselijk belang routes
-Route::get('/admin/plaatselijkbelang/{id}/edit', [PlaatselijkBelangPostController::class, 'edit'])
-    ->name('admin.plaatselijkbelang.edit')
-    ->middleware('auth');
-
-Route::patch('/admin/plaatselijkbelang/{id}/edit', [PlaatselijkBelangPostController::class, 'update'])
-    ->middleware('auth');
-
-Route::get('/admin/plaatselijkbelang/create', [PlaatselijkBelangPostController::class, 'create'])
-    ->name('admin.plaatselijkbelang.create')
-    ->middleware('auth');
-
-Route::post('/admin/plaatselijkbelang/create', [PlaatselijkBelangPostController::class, 'store'])
-    ->middleware('auth');
-
-Route::get('/admin/plaatselijkbelang/index', [PlaatselijkBelangPostController::class, 'index'])
-    ->name('admin.plaatselijkbelang.index')
-    ->middleware('auth');
-//
-
-
-Route::get('/admin/{admin}', [PageAdminController::class, 'index'])
-    ->name("admin")
-    ->middleware('auth');
-
-Route::get('{page}', [PageController::class, 'index'])
-    ->name("page");
-
-// admin agenda routes
-Route::get('/admin/agenda/index', [AgendaAdminController::class, 'index'])
-    ->name('admin.agenda.index')
-    ->middleware('auth');
-
-Route::post('/admin/agenda/fullcalendarAjax', [AgendaAdminController::class, 'ajax']);
+Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
+    ->name('upload.post.image');
