@@ -24,13 +24,12 @@ use App\Http\Controllers\imagehandler\ImageController;
 |
 */
 
-Route::controller(PageController::class)->group(function() {
-    Route::get('/', 'homepage')->name('home');
-    Route::get('/home', 'homepage')->name('home');
-    Route::get('/historie', 'historypage')->name('historie');
-    Route::get('/actueel', 'actueelpage')->name('actueel');
-    Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
-    Route::get('{page}', 'index')->name("page");
+Route::controller(HomePostController::class)->group(function () {
+    Route::get('/admin/home/index', 'index')->name('admin.home.index')->middleware('auth');
+    Route::get('/admin/home/{id}/edit', 'edit')->name('admin.home.edit')->middleware('auth');
+    Route::patch('/admin/home/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/home/create', 'create')->name('admin.home.create')->middleware('auth');
+
 });
 
 Route::controller(LoginRegisterController::class)->group(function () {
@@ -42,14 +41,7 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::post('/logout', 'logout')->name('logout');
 });
 
-Route::controller(HomePostController::class)->group(function() {
-    Route::get('/admin/home/{id}/edit', 'edit')->name('admin.home.edit')->middleware('auth');
-    Route::patch('/admin/home/{id}/edit', 'update')->middleware('auth');
-    Route::get('/admin/home/create', 'create')->name('admin.home.create')->middleware('auth');
-    Route::get('/admin/home/index', 'index')->name('admin.home.index')->middleware('auth');
-});
-
-Route::controller(NewsPostsController::class)->group(function() {
+Route::controller(NewsPostsController::class)->group(function () {
     Route::get('/admin/actueel/{id}/edit', 'edit')->name('admin.actueel.edit')->middleware('auth');
     Route::patch('/admin/actueel/{id}/edit', 'update')->middleware('auth');
     Route::get('/admin/actueel/create', 'create')->name('admin.actueel.create')->middleware('auth');
@@ -59,7 +51,7 @@ Route::controller(NewsPostsController::class)->group(function() {
     Route::get('/admin/actueel/index', 'index')->name('admin.actueel.index')->middleware('auth');
 });
 
-Route::controller(MeydPostsController::class)->group(function() {
+Route::controller(MeydPostsController::class)->group(function () {
     Route::get('/admin/meyd/{id}/edit', 'edit')->name('admin.meyd.edit')->middleware('auth');
     Route::patch('/admin/meyd/{id}/edit', 'update')->middleware('auth');
     Route::get('/admin/meyd/create', 'create')->name('admin.meyd.create')->middleware('auth');
@@ -69,7 +61,7 @@ Route::controller(MeydPostsController::class)->group(function() {
     Route::get('/admin/meyd/index', 'index')->name('admin.meyd.index')->middleware('auth');
 });
 
-Route::controller(HistoryPostController::class)->group(function() {
+Route::controller(HistoryPostController::class)->group(function () {
     Route::get('/admin/history/{id}/edit', 'edit')->name('admin.history.edit')->middleware('auth');
     Route::patch('/admin/history/{id}/edit', 'update')->middleware('auth');
     Route::get('/admin/history/create', 'create')->name('admin.history.create')->middleware('auth');
@@ -77,7 +69,7 @@ Route::controller(HistoryPostController::class)->group(function() {
     Route::get('/admin/history/index', 'index')->name('admin.history.index')->middleware('auth');
 });
 
-Route::controller(PlaatselijkBelangPostController::class)->group(function() {
+Route::controller(PlaatselijkBelangPostController::class)->group(function () {
     Route::get('/admin/plaatselijkbelang/{id}/edit', 'edit')->name('admin.plaatselijkbelang.edit')->middleware('auth');
     Route::patch('/admin/plaatselijkbelang/{id}/edit', 'update')->middleware('auth');
     Route::get('/admin/plaatselijkbelang/create', 'create')->name('admin.plaatselijkbelang.create')->middleware('auth');
@@ -85,12 +77,21 @@ Route::controller(PlaatselijkBelangPostController::class)->group(function() {
     Route::get('/admin/plaatselijkbelang/index', 'index')->name('admin.plaatselijkbelang.index')->middleware('auth');
 });
 
-Route::controller(PageAdminController::class)->group(function() {
-    Route::get('/admin/{admin}', 'index')->middleware('auth');
-    Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
-    Route::post('/admin/agenda/fullcalendarAjax', 'ajax');
-});
-
 
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
     ->name('upload.post.image');
+
+Route::controller(PageController::class)->group(function () {
+    Route::get('/', 'homepage')->name('home');
+    Route::get('/home', 'homepage')->name('home');
+    Route::get('/historie', 'historypage')->name('historie');
+    Route::get('/actueel', 'actueelpage')->name('actueel');
+    Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
+    Route::get('{page}', 'index')->name("page");
+});
+
+Route::controller(PageAdminController::class)->group(function () {
+    Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
+    Route::post('/admin/agenda/fullcalendarAjax', 'ajax');
+    Route::get('/admin/{admin}', 'index')->name('admin')->middleware('auth');
+});
