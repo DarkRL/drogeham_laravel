@@ -4,6 +4,7 @@
 <head>
     <x-imports />
     <link rel="stylesheet" href="{{URL::asset("./css/admin.css")}}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 @section('content')
 

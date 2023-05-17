@@ -29,7 +29,7 @@ class AgendaAdminController extends Controller
            case 'add':
               $event = Event::create([
                   'title' => $request->title,
-                  'fulltext' => ' ',
+                  'fulltext' => ' hh',
                   'start' => $request->start,
                   'end' => $request->end,
               ]);
@@ -40,7 +40,7 @@ class AgendaAdminController extends Controller
            case 'update':
               $event = Event::find($request->id)->update([
                   'title' => $request->title,
-                  'fulltext' => ' ',
+                  'fulltext' => 'bb ',
                   'start' => $request->start,
                   'end' => $request->end,
               ]);

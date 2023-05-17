@@ -93,5 +93,5 @@ Route::controller(PageController::class)->group(function () {
 Route::controller(AgendaAdminController::class)->group(function () {
     Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
     Route::post('/admin/agenda/fullcalendarAjax', 'ajax');
-    Route::get('/admin/{admin}', 'index')->name('admin')->middleware('auth');
 });
+Route::get('/admin/{admin}', [PageAdminController::class, 'index'])->name('admin')->middleware('auth');
