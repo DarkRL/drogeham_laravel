@@ -124,7 +124,7 @@ Route::get('/admin/meyd/index', [MeydPostsController::class, 'index'])
     ->name('admin.meyd.index')
     ->middleware('auth');
 
-    Route::put('/admin/meyd/{id}/publish', [MeydPostsController::class, 'publish'])
+Route::put('/admin/meyd/{id}/publish', [MeydPostsController::class, 'publish'])
     ->name('admin.meyd.publish')
     ->middleware('auth');
 
@@ -183,3 +183,5 @@ Route::get('{page}', [PageController::class, 'index'])
 Route::get('/admin/agenda/index', [AgendaAdminController::class, 'index'])
     ->name('admin.agenda.index')
     ->middleware('auth');
+
+Route::post('/admin/agenda/fullcalendarAjax', [AgendaAdminController::class, 'ajax']);
