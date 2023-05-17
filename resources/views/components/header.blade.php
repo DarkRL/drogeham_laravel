@@ -1,7 +1,7 @@
 <header class="sticky-top">
     <nav class="py-2 bg-light ">
         <div class="container d-flex flex-wrap text-algin align-items-center justify-content-center">
-            <a href={{route('page', ['page' => 'home'])}}><img src="{{URL::asset("./img/wapen.svg")}}" alt="Wapen Drogeham" title="Drogeham" height="50" /></a>
+            <a href="{{route('page', ['page' => 'home'])}}"><img src="{{URL::asset('/img/wapen.svg')}}" alt="Wapen Drogeham" title="Drogeham" height="50" /></a>
             <ul class="nav mx-auto">
                 <li class="nav-item"><a href="{{route('page', ['page' => 'home'])}}" class="nav-link link-dark " id="homepagelinkid" aria-current="page"><span class="hover-underline-animation hover-underline-grey">Home</span></a></li>
                 <li class="nav-item"><a href="{{route('page', ['page' => 'agenda'])}}" class="nav-link link-dark "><span class="hover-underline-animation hover-underline-grey">Agenda</span></a></li>
@@ -25,7 +25,7 @@
                 <li class="nav-item"><a href="{{route('page', ['page' => 'historie'])}}" class="nav-link link-dark "><span class="hover-underline-animation hover-underline-grey">Historie</span></a></li>
                 <li class="nav-item"><a href="{{route('page', ['page' => 'contact'])}}" class="nav-link link-dark "><span class="hover-underline-animation hover-underline-grey">Contact</span></a></li>
             </ul>
-            <a href={{route('page', ['page' => 'meyd'])}}><img src="{{URL::asset("./img/MEYD_drogeham.png")}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
+            <a href="{{route('page', ['page' => 'meyd'])}}"><img src="{{URL::asset('/img/MEYD_drogeham.png')}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
         </div>
     </nav>
     <script>

@@ -9,7 +9,7 @@
     <div class="wrapper custom_hidden_stay_fast">
         <x-header />
         <div style="align-items:center;" class="header_parallax_section d-flex flex-column justify-content-around h-100">
-            <img src="https://www.drogeham.com/assets/img/luchtfoto.jpg" class="parallax_background">
+            <img src="{{URL::asset('/img/luchtfoto.jpg')}}" class="parallax_background">
             <div></div>
             <div class="container">
                 <div class="text-center text-white text-capitalize">
