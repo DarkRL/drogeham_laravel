@@ -5,15 +5,12 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
         <div id="calendar"></div>
-    </div>
-</div>
-
-<script>
+        <script>
             $(document).ready(function() {
                 var SITEURL = "{{ url('/') }}";
                 $.ajaxSetup({
                     headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                     }
                 });
                 var calendar = $('#calendar').fullCalendar({
@@ -100,5 +97,7 @@
                 toastr.success(message, 'Event');
             }
         </script>
+    </div>
+</div>
 
 @endsection
