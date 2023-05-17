@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\admin\AgendaAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostTaskController;
@@ -11,6 +10,7 @@ use App\Http\Controllers\Admin\NewsPostsController;
 use App\Http\Controllers\Admin\MeydPostsController;
 use App\Http\Controllers\Admin\HistoryPostController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
+use App\Http\Controllers\admin\AgendaAdminController;
 use App\Http\Controllers\imagehandler\ImageController;
 
 /*
@@ -90,8 +90,9 @@ Route::controller(PageController::class)->group(function () {
     Route::get('{page}', 'index')->name("page");
 });
 
+Route::get('/admin/agenda/index', [AgendaAdminController::class, 'index'])->name('admin.agenda.index')->middleware('auth');
+Route::post('/admin/agenda/fullcalendarAjax', [AgendaAdminController::class, 'ajax']);
+
 Route::controller(PageAdminController::class)->group(function () {
-    Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
-    Route::post('/admin/agenda/fullcalendarAjax', 'ajax');
     Route::get('/admin/{admin}', 'index')->name('admin')->middleware('auth');
 });
