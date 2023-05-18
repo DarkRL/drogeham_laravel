@@ -72,11 +72,11 @@
                     data: formData,
                     dataType: 'json',
                     success: function(response) {
-                        $('#message').text(response.message);
+                        $('#message').text(response.message).addClass("alert alert-success");
                     },
                     error: function(xhr, status, error) {
                         var err = eval("(" + xhr.responseText + ")");
-                        $('#message').text(err.message);
+                        $('#message').text(err.message).addClass("alert alert-danger");
                     }
                 });
             });

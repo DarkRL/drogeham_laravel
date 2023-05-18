@@ -7,6 +7,7 @@ use App\Models\admin\NewsPosts;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class NewsPostsController extends Controller
 {
@@ -32,8 +33,14 @@ class NewsPostsController extends Controller
             'datetime' => date("Y-m-d H:m:s"),
             'public' => 0
         ]);
+
+        if ($newPost) {
+            return redirect()->route('admin.actueel.index')
+                ->withSuccess('Nieuw artikel is succesvol aangemaakt!');
+        }
+
         return redirect()->route('admin.actueel.index')
-            ->withSuccess('Nieuw artikel is succesvol aangemaakt!');
+            ->withErrors('Er is een error ontstaan, het artikel is niet aangemaakt!');
     }
 
     public function create()
@@ -77,19 +84,19 @@ class NewsPostsController extends Controller
     {
         $record = NewsPosts::findOrFail($id);
 
-        $oldValue = $record->public;
         $record->public = $request->publishValue;
-        $record->save();
+        $saved = $record->save();
 
-        if ($oldValue == 0) {
-            $returnMessage =  $request->publishValue == 0 ? "Artikel '{$request->headline}' was al inactief!" : "Artikel '{$request->headline}' is succesvol actief gezet!";
-        } else {
-            $returnMessage =  $request->publishValue == 0 ? "Artikel '{$request->headline}' is succesvol inactief gezet!" : "Artikel '{$request->headline}' was al actief!";
+        if ($saved) {
+            return response()->json([
+                'success' => true,
+                'message' => $request->publishValue == 0 ? "Artikel '{$request->headline}' is succesvol inactief gezet!" : "Artikel '{$request->headline}' is succesvol actief gezet!"
+            ]);
         }
 
         return response()->json([
-            'success' => true,
-            'message' => $returnMessage
+            'success' => false,
+            'message' => "Er is iets fout gegaan, artikel '{$request->headline}' kon niet op actief/inactief worden gezet"
         ]);
     }
 }
