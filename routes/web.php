@@ -85,6 +85,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/', 'homepage')->name('home');
     Route::get('/home', 'homepage')->name('home');
     Route::get('/historie', 'historypage')->name('historie');
+    Route::get('/plaatselijkbelang', 'plaatselijkbelangpage')->name('plaatelijkbelang');
     Route::get('/actueel', 'actueelpage')->name('actueel');
     Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
     Route::get('{page}', 'index')->name("page");

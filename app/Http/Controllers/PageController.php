@@ -16,7 +16,6 @@ class PageController extends Controller
 
     public function homepage()
     {
-        // $posts = HomePost::all();
         $posts = DB::select('SELECT * FROM home_posts WHERE id = ?' , ['1']);
         
         return view("pages/home", compact('posts'));
@@ -27,6 +26,13 @@ class PageController extends Controller
         $posts = DB::select('SELECT * FROM history_posts WHERE id = ?' , ['1']);
         
         return view("pages/historie", compact('posts'));
+    }
+
+    public function plaatselijkbelangpage()
+    {
+        $posts = DB::select('SELECT * FROM plaatselijkbelang_posts WHERE id = ?' , ['1']);
+        
+        return view("pages/plaatselijkbelang", compact('posts'));
     }
 
     public function actueelpage()
