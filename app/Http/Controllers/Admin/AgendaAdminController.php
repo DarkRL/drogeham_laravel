@@ -12,10 +12,10 @@ class AgendaAdminController extends Controller
     public function index(Request $request)
     {
         if($request->ajax()) {
-            $data = Event::whereDate('start', '>=', $request->start)
-                      ->whereDate('end',   '<=', $request->end)
-                      ->get(['id', 'title', 'start', 'end']);
-
+            // $data = Event::whereDate('start', '>=', $request->start)
+            //           ->whereDate('end',   '<=', $request->end)
+            //           ->get(['id', 'title', 'start', 'end']);
+            $data = Event::all();
             return response()->json($data);
        }
 
@@ -23,13 +23,11 @@ class AgendaAdminController extends Controller
     }
 
     public function ajax(Request $request)
-
     {
         switch ($request->type) {
            case 'add':
               $event = Event::create([
                   'title' => $request->title,
-                  'fulltext' => ' hh',
                   'start' => $request->start,
                   'end' => $request->end,
               ]);
@@ -40,7 +38,6 @@ class AgendaAdminController extends Controller
            case 'update':
               $event = Event::find($request->id)->update([
                   'title' => $request->title,
-                  'fulltext' => 'bb ',
                   'start' => $request->start,
                   'end' => $request->end,
               ]);

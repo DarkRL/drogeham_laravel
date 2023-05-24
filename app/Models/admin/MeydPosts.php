@@ -9,5 +9,5 @@ class MeydPosts extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['headline', 'fulltext', 'datetime'];
+    protected $fillable = ['headline', 'pagename', 'fulltext', 'datetime'];
 }

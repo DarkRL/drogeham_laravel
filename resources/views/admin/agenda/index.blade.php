@@ -6,6 +6,11 @@
     <div class="col-md-10">
         <div id="calendar"></div>
         <script>
+            var rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi;
+            jQuery.htmlPrefilter = function(html) {
+                return html.replace(rxhtmlTag, "<$1></$2>");
+            };
+
             $(document).ready(function() {
                 var SITEURL = "{{ url('/') }}";
                 $.ajaxSetup({
@@ -32,6 +37,8 @@
                         if (title) {
                             var start = $.fullCalendar.formatDate(start, "Y-MM-DD");
                             var end = $.fullCalendar.formatDate(end, "Y-MM-DD");
+                            console.log(start);
+                            console.log(end);
                             $.ajax({
                                 url: SITEURL + "/admin/agenda/fullcalendarAjax",
                                 data: {
@@ -91,6 +98,7 @@
                         }
                     }
                 });
+
             });
 
             function displayMessage(message) {
