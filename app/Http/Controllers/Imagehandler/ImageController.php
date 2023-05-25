@@ -32,7 +32,7 @@ class ImageController extends Controller
                     preg_match_all('/src="([^"]*)"/i', $imageData, $matches);
 
                     foreach ($matches as $urls) {
-                        foreach($urls as $url){
+                        foreach ($urls as $url) {
                             $imageNames = basename($url);
                             $ImgArr2[] = $imageNames;
                         }
@@ -52,7 +52,7 @@ class ImageController extends Controller
 
         $counter = 0;
         foreach ($differences as $delFile) {
-            Storage::delete('public/uploads/'.$delFile);
+            Storage::delete('public/uploads/' . $delFile);
             $counter++;
         }
 
@@ -63,5 +63,17 @@ class ImageController extends Controller
         // } else {
         //     return redirect()->back()->withSuccess('Er zijn geen afbeeldingen meer om te verwijderen!');
         // }
+    }
+
+    public function fixTinymceImageUrl($tinymce){
+        // Regular expression pattern to match image tags and extract the src attribute
+        $pattern = '/<img[^>]+src="([^">]+)"/';
+
+        // Callback function to replace the URLs within the image tags
+        return preg_replace_callback($pattern, function ($matches) {
+            $urltest = $matches[1];
+            $modifiedUrl = '/..' . $urltest; // Add "/.." before the URL
+            return str_replace($urltest, $modifiedUrl, $matches[0]); // Replace the URL in the image tag
+        }, $tinymce);
     }
 }

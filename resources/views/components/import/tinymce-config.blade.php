@@ -12,23 +12,25 @@
         image_title: true,
         /* enable automatic uploads of images represented by blob or data URIs*/
         automatic_uploads: true,
-        images_upload_url : '/upload/post-image',
+        images_upload_url: '/upload/post-image',
         file_picker_types: 'none',
-        file_picker_callback: function (cv, value, meta){
+        file_picker_callback: function(cv, value, meta) {
             var input = document.createElement('input');
             input.setAttribute('type', 'file');
             input.setAttribute('accept', 'image/*');
-            input.onchange = function(){
+            input.onchange = function() {
                 var file = this.files[0];
                 var reader = new FileReader();
                 reader.readAsDataURL(file);
-                render.onload = function(){
-                    var id = 'blobid'+(new Date()).getTime();
+                render.onload = function() {
+                    var id = 'blobid' + (new Date()).getTime();
                     var blobCache = tinymce.activeEditor.editorUpload.blobCache;
                     var base64 = reader.result.split(',')[1];
                     var blobInfo = blobCache.create(id, file, base64);
                     blobCache.add(blobInfo);
-                    cb(blobInfo.blobUri(), {title:file.name});
+                    cb(blobInfo.blobUri(), {
+                        title: file.name
+                    });
                 };
             };
             input.click();

@@ -26,9 +26,11 @@ class NewsPostsController extends Controller
             $url = asset('storage/' . $imgpath);
         }
 
+       $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
+
         $newPost = NewsPosts::create([
             'headline' => $request->headline,
-            'fulltext' => $request->fulltext,
+            'fulltext' => $fulltext,
             'photo' => $url,
             'datetime' => date("Y-m-d H:m:s"),
             'public' => 0
@@ -64,12 +66,14 @@ class NewsPostsController extends Controller
             ]);
         }
 
+        $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
+
         NewsPosts::find($id)->update([
             'headline' => $request->headline,
-            'fulltext' => $request->fulltext,
+            'fulltext' => $fulltext,
             'datetime' => date("Y-m-d H:m:s")
         ]);
-        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        // app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.actueel.index');
     }
 
