@@ -66,11 +66,9 @@ class NewsPostsController extends Controller
             ]);
         }
 
-        $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
-
         NewsPosts::find($id)->update([
             'headline' => $request->headline,
-            'fulltext' => $fulltext,
+            'fulltext' => $request->fulltext,
             'datetime' => date("Y-m-d H:m:s")
         ]);
         // app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
