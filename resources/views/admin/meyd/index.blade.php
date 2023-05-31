@@ -10,8 +10,6 @@
             <div class="row">
                 <!-- @foreach ($posts as $post)
 
-                <x-admin.news_post_card postid="{{ $post->id }}" headline="{{ $post-> headline }}" datetime="{{ $post->datetime }}" photo="{{ $post-> photo }}" publishid="{{ $post->public}}" />
-
                 @endforeach -->
             </div>
         </div>
