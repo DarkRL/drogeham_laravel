@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\MeydPosts;
-use DateTime;
 use Illuminate\Http\Request;
 
 class MeydPostsController extends Controller
@@ -22,7 +21,6 @@ class MeydPostsController extends Controller
             'headline' => $request->headline,
             'pagename' => $request->pagename,
             'fulltext' => $request->fulltext,
-            'updated_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
             'updated_at'=> date("Y-m-d H:m:s"),
             'public' => 0
