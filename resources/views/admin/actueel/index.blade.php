@@ -16,11 +16,10 @@
             </div>
             <a href="{{ route('admin.actueel.create') }}"><button type="button" class="btn btn-primary">Add Article</button></a>
             <div class="table-responsive">
-                <table class="table table-striped table-responsive">
+                <table class="table table-striped table-responsive w-100">
                     <tr>
                         <th>Titel</th>
-                        <th style="width:40%">Inhoud</th>
-                        <th class="small" style="width:10%">Datum</th>
+                        <th class="small" style="width:15%">Datum</th>
                         <th class="small" style="width:7%">Aanpassen</th>
                         <th class="small" style="width:7%">Preview</th>
                         <th class="small" style="width:7%">Verwijderen</th>
@@ -28,7 +27,7 @@
                     </tr>
                     @foreach ($posts as $post)
 
-                    <x-admin.news_post_card postid="{{ $post->id }}" headline="{{ $post-> headline }}" datetime="{{ $post->datetime }}" photo="{{ $post-> photo }}" publishid="{{ $post->public}}" />
+                    <x-admin.news_post_card postid="{{ $post->id }}" headline="{{ $post-> headline }}" datetime="{{ $post->datetime }}" fulltext="{{ $post-> fulltext }}" photo="{{ $post-> photo }}" publishid="{{ $post->public}}" />
 
                     @endforeach
                 </table>

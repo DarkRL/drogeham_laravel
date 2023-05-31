@@ -14,10 +14,9 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Hamster Hulp</a></li>
-                        <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Fit en Sûn</a></li>
-                        <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Doarpskeamer</a></li>
-                        <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="#">Activiteiten 2022-2023</a></li>
+                        @foreach ($meydRecords as $record)
+                        <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="{{ route('meyd.meydpost', ['pagename' => $record->pagename]) }}">{{ $record->headline }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <li class="nav-item"><a href="{{route('page', ['page' => 'plaatselijkbelang'])}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Plaatselijk belang</span></a></li>

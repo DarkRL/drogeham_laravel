@@ -16,9 +16,9 @@ return new class extends Migration
             $table->text('headline');
             $table->text('pagename');
             $table->text('fulltext');
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
-            $table->tinyInteger('public')->default('0'); 
+            $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->tinyInteger('public')->default('0');
         });
     }
 
