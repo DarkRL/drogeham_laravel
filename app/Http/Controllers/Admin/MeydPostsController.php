@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\MeydPosts;
-use DateTime;
 use Illuminate\Http\Request;
 
 class MeydPostsController extends Controller
@@ -52,7 +51,7 @@ class MeydPostsController extends Controller
             'headline' => $request->headline,
             'pagename' => $request->pagename,
             'fulltext' => $request->fulltext,
-            'datetime' => date("Y-m-d H:m:s")
+            'updated_at' => date("Y-m-d H:m:s")
         ]);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.meyd.index');
@@ -75,13 +74,13 @@ class MeydPostsController extends Controller
         if ($saved) {
             return response()->json([
                 'success' => true,
-                'message' => $request->publishValue == 0 ? "Artikel '{$request->headline}' is succesvol inactief gezet!" : "Artikel '{$request->headline}' is succesvol actief gezet!"
+                'message' => $request->publishValue == 0 ? "Pagina '{$request->headline}' is succesvol inactief gezet!" : "Artikel '{$request->headline}' is succesvol actief gezet!"
             ]);
         }
 
         return response()->json([
             'success' => false,
-            'message' => "Er is iets fout gegaan, artikel '{$request->headline}' kon niet op actief/inactief worden gezet"
+            'message' => "Er is iets fout gegaan, pagina '{$request->headline}' kon niet op actief/inactief worden gezet"
         ]);
     }
 }

@@ -7,7 +7,7 @@
 @section('content')
 
 <body>
-    <div class="custom_hidden_stay_fast"><x-header /></div>
+    <div class="custom_hidden_stay_fast"><x-header  meydData="{{ $meydRecords }}" /></div>
     <div class="parallax_fixed"></div>
     <div class="container custom_hidden_stay_fast">
         @yield('content')

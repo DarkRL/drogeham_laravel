@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('meyd_posts', function (Blueprint $table) {
+        Schema::create('project_posts', function (Blueprint $table) {
             $table->id();
             $table->text('headline');
-            $table->text('pagename');
             $table->text('fulltext');
+            $table->text('photo');
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent();
             $table->tinyInteger('public')->default('0');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('meyd_posts');
+        Schema::dropIfExists('project_posts');
     }
 };

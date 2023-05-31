@@ -7,7 +7,7 @@
 
 <body>
     <div class="wrapper custom_hidden_stay_fast">
-        <x-header />
+        <x-header meydData="{{ $meydRecords }}"/>
         <div style="align-items:center;" class="header_parallax_section d-flex flex-column justify-content-around h-100">
             <img src="{{URL::asset('/img/luchtfoto.jpg')}}" class="parallax_background">
             <div></div>
@@ -33,7 +33,6 @@
                                 <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
-
 
                             <div class="carousel-inner">
                                 <div class="carousel-item bg-dark active">

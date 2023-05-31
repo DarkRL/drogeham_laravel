@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\Admin\PageAdminController;
 use App\Http\Controllers\Admin\HomePostController;
 use App\Http\Controllers\Admin\NewsPostsController;
+use App\Http\Controllers\Admin\ProjectPostController;
 use App\Http\Controllers\Admin\MeydPostsController;
 use App\Http\Controllers\Admin\HistoryPostController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
@@ -51,6 +52,16 @@ Route::controller(NewsPostsController::class)->group(function () {
     Route::get('/admin/actueel/index', 'index')->name('admin.actueel.index')->middleware('auth');
 });
 
+Route::controller(ProjectPostController::class)->group(function () {
+    Route::get('/admin/projecten/{id}/edit', 'edit')->name('admin.projecten.edit')->middleware('auth');
+    Route::patch('/admin/projecten/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/projecten/create', 'create')->name('admin.projecten.create')->middleware('auth');
+    Route::post('/admin/projecten/create', 'store')->middleware('auth');
+    Route::get('/admin/projecten/{id}/delete', 'delete')->name('admin.projecten.delete')->middleware('auth');
+    Route::put('/admin/projecten/{id}/publish', 'publish')->name('admin.projecten.publish')->middleware('auth');
+    Route::get('/admin/projecten/index', 'index')->name('admin.projecten.index')->middleware('auth');
+});
+
 Route::controller(MeydPostsController::class)->group(function () {
     Route::get('/admin/meyd/{id}/edit', 'edit')->name('admin.meyd.edit')->middleware('auth');
     Route::patch('/admin/meyd/{id}/edit', 'update')->middleware('auth');
@@ -88,6 +99,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/plaatselijkbelang', 'plaatselijkbelangpage')->name('plaatelijkbelang');
     Route::get('/actueel', 'actueelpage')->name('actueel');
     Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
+    Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
     Route::get('{page}', 'index')->name("page");
 });
 
