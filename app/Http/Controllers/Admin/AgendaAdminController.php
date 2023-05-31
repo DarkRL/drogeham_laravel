@@ -15,4 +15,17 @@ class AgendaAdminController extends Controller
         return view('admin.agenda.index', ['posts' => $posts]);
     }
 
+    public function create(Request $request)
+    {   
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $dates = [
+            'start' => $start,
+            'end' => $end
+        ];
+        
+        return view('admin.agenda.create', ['dates' => $dates]);
+    }
+
 }
