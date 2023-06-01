@@ -88,6 +88,10 @@ Route::controller(PlaatselijkBelangPostController::class)->group(function () {
     Route::get('/admin/plaatselijkbelang/index', 'index')->name('admin.plaatselijkbelang.index')->middleware('auth');
 });
 
+Route::controller(AgendaAdminController::class)->group(function () {
+    Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
+    Route::post('/admin/agenda/create', 'create')->name('admin.agenda.create')->middleware('auth');
+});
 
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
     ->name('upload.post.image');
@@ -103,8 +107,5 @@ Route::controller(PageController::class)->group(function () {
     Route::get('{page}', 'index')->name("page");
 });
 
-Route::controller(AgendaAdminController::class)->group(function () {
-    Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
-    Route::get('/admin/agenda/create', 'create')->name('admin.agenda.create')->middleware('auth');
-});
+
 Route::get('/admin/{admin}', [PageAdminController::class, 'index'])->name('admin')->middleware('auth');
