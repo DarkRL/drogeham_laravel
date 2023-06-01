@@ -6,6 +6,7 @@ use App\Models\admin\MeydPosts;
 use Illuminate\Http\Request;
 // use App\Models\HomePost;
 use App\Models\posts\NewsPosts;
+use App\Models\admin\ProjectPost;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
@@ -61,4 +62,17 @@ class PageController extends Controller
         $post = MeydPosts::where('pagename', $pagename)->first();
         return view("templates/meydpost", compact('post'));
     }
+
+    public function projectenpage()
+    {
+        $posts = DB::select('SELECT * FROM project_posts WHERE public = 1 ORDER BY updated_at desc');
+
+        return view("pages/projecten", ['posts' => $posts]);
+    }
+
+    public function projectpost(ProjectPost $id)
+    {
+        return view("templates/projectpost", ['post' => $id]);
+    }
+
 }

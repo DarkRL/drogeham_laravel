@@ -110,8 +110,8 @@
         </div>
     </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="previewModel{{ $postid }}">
+    <!-- Modal -->
+    <div class="modal fade" id="previewModel{{ $postid }}">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">

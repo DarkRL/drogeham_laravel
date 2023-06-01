@@ -103,6 +103,8 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/plaatselijkbelang', 'plaatselijkbelangpage')->name('plaatelijkbelang');
     Route::get('/actueel', 'actueelpage')->name('actueel');
     Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
+    Route::get('/projecten', 'projectenpage')->name('projecten');
+    Route::get('/templates/{id}/projectpost', 'projectpost')->name('templates.projectpost');
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
     Route::get('{page}', 'index')->name("page");
 });

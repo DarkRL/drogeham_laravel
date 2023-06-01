@@ -1,17 +1,11 @@
 @extends('pages.layouts')
 
 @section('content')
-<div class="row">
-    <div class="col">
+<div class="row my-5">
+    @foreach ($posts as $post)
 
-    </div>
-    <div class="col-10">
-        <div class="m-5">
-            <p>Projecten pagina</p>
-        </div>
-    </div>
-    <div class="col">
+    <x-posts.project_post_thumbnail postid="{{ $post->id }}" headline="{{ $post-> headline }}" datetime="{{ $post->updated_at }}" photo="{{ $post->photo }}" />
 
-    </div>
+    @endforeach
 </div>
 @endsection
