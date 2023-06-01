@@ -14,13 +14,13 @@
                     <div class="modal-footer">
                         <div class="row">
                             <div class="col-6">
-                                <form method="POST" action="{{ route('route') }}">
+                                <!-- <form method="POST" action="">
                                     @csrf
                                     <input type="hidden" name="startdate" id="start_date">
                                     <input type="hidden" name="enddate" id="end_date">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
                                     <button type="submit" class="btn btn-success">Submit</button>
-                                </form>
+                                </form> -->
                             </div>
                         </div>
                     </div>
