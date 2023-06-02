@@ -40,9 +40,9 @@ class AgendaAdminController extends Controller
             ->withErrors('Er is een fout opgetreden, het artikel is niet aangemaakt!');
     }
 
-    public function edit(Request $request)
+    public function edit(Event $id)
     {
-        return view('admin.agenda.edit');
+        return view('admin.agenda.edit', ['post' => $id]);
     }
 
 }
