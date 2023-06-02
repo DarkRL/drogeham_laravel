@@ -91,6 +91,9 @@ Route::controller(PlaatselijkBelangPostController::class)->group(function () {
 Route::controller(AgendaAdminController::class)->group(function () {
     Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
     Route::post('/admin/agenda/create', 'create')->name('admin.agenda.create')->middleware('auth');
+    Route::post('/admin/agenda/store', 'store')->name('admin.agenda.store')->middleware('auth');
+    Route::post('/admin/agenda/edit', 'edit')->name('admin.agenda.edit')->middleware('auth');
+
 });
 
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])

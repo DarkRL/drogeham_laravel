@@ -4,8 +4,8 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <form action="{{route('admin.agenda.store')}}" method="post" class="form-group" enctype="multipart/form-data">
-            <h4>Nieuw Evenement</h4>
+        <form action="" method="post" class="form-group" enctype="multipart/form-data">
+            <h4>Evenement Aanpassen</h4>
             @csrf
             
             <input name="title" class="form-control mb-2" placeholder="Titel" required></input>
@@ -26,7 +26,7 @@
 
             <textarea name="fulltext" class="form-control" id="file-picker"></textarea>
             <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary mt-2">Annuleren</button></a>
-            <button type="submit" value="Save" class="btn btn-primary mt-2">Toevoegen</button>
+            <button type="submit" value="Save" class="btn btn-primary mt-2">Aanpassen</button>
         </form>
     </div>
 </div>

@@ -50,11 +50,15 @@
                             echo "
                             {
                                 title: '" . $post->title . "',
-                                start: '" . $post->start . "'
+                                start: '" . $post->start . "',
+                                end: '" . $post->end . "'
                             },";
                         }
                         ?>
-                    ]
+                    ],
+                    eventClick: function(info) {
+                        alert('Event: ' + info.event.title);
+                    }
                 });
                 
                 calendar.render();

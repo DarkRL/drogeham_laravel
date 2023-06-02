@@ -42,7 +42,7 @@ class NewsPostsController extends Controller
         }
 
         return redirect()->route('admin.actueel.index')
-            ->withErrors('Er is een error ontstaan, het artikel is niet aangemaakt!');
+            ->withErrors('Er is een fout opgetreden, het artikel is niet aangemaakt!');
     }
 
     public function create()
