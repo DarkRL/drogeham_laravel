@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admin\MeydPosts;
 use Illuminate\Http\Request;
-// use App\Models\HomePost;
+use App\Models\posts\Event;
 use App\Models\posts\NewsPosts;
 use Illuminate\Support\Facades\DB;
 
@@ -60,5 +60,12 @@ class PageController extends Controller
     {
         $post = MeydPosts::where('pagename', $pagename)->first();
         return view("templates/meydpost", compact('post'));
+    }
+
+    public function agendapage()
+    {
+        $posts = Event::all();
+
+        return view("pages/agenda", ['posts' => $posts]);
     }
 }

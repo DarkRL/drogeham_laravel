@@ -1,8 +1,8 @@
 @extends('pages.layouts')
 
 @section('content')
-<div class="row">
-    <div class="col">
+<div class="row m-5">
+    <div id="calendar"></div>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
