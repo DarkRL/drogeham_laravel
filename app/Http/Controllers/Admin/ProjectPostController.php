@@ -11,7 +11,6 @@ class ProjectPostController extends Controller
     public function index()
     {
         $posts = ProjectPost::all();
-        // $posts = DB::select('SELECT * FROM news_posts');
         return view('admin.projecten.index', ['posts' => $posts]);
     }
 

@@ -255,3 +255,15 @@ html {
     max-height: 30vh !important;
     padding: 0% !important;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input.phonenumber::-webkit-outer-spin-button,
+input.phonenumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number].phonenumber {
+  -moz-appearance: textfield;
+}
