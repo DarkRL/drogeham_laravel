@@ -1,43 +1,4 @@
-<footer class="bg-dark text-center text-lg-start position-absolute pb-0 w-100">
-    <!-- Grid container -->
-    <div class="container p-5">
-        <!--Grid row-->
-        <div class="row mx-5">
-            <!--Grid column-->
-            <div class="col-lg-5 col-md-12 mb-4 mb-md-0 text-white">
-                <h5>Contact</h5>
-
-                <p>
-                    Heeft u een vraag en kunt u het antwoord niet vinden op deze website? Neem dan contact met ons op.
-                </p>
-                <p>
-                    <b>Plaatselijk Belang Drogeham</b>
-                    <br>
-                    <a class="link text-white text-decoration-none hover-underline-animation hover-underline-white" href="mailto:pbdrogeham@gmail.com">Neem contact op</a>
-                </p>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-7 col-md-12 mb-4 mb-md-0 text-white">
-                <h5 class="custom_hidden_repeat">Over Drogeham</h5>
-
-                <p>
-                    Het dorp Drogeham dat lokaal ook wel 'De Ham' wordt genoemd,
-                    heeft ongeveer 1800 inwoners. Het ligt onder het Prinses Margrietkanaal
-                    in het westelijke deel van de gemeente Achtkarspelen, in het noordoosten
-                    van Friesland. Onder Drogeham vallen ook de buurtschappen: Buweklooster,
-                    Hamshorn, Hamsterpein en Westerend. Het dorp is bekend om zijn vele grote
-                    evenementen die er jaarlijks worden georganiseerd.
-                </p>
-            </div>
-            <!--Grid column-->
-        </div>
-        <!--Grid row-->
-    </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
+<footer class="bg-dark text-center text-lg-start position-absolute pb-0 pt-4 w-100">
     <div class="container mb-4">
         <div class="text-center p-3 text-white">
             <span style="user-select: none;">© Plaatselijk belang Drogeham</span> | <a class="text-decoration-none text-white hover-underline-animation hover-underline-white" href="#">Colofon & disclaimer</a> | <a class="text-decoration-none text-white hover-underline-animation hover-underline-white" href="#">Privacy verklaring</a>
@@ -71,5 +32,4 @@
             </script>
         </div>
     </div>
-    <!-- Copyright -->
 </footer>
