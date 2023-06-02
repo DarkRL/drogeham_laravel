@@ -5,7 +5,7 @@
     <div class="col"></div>
     <div class="col-10">
         <div class="m-5">
-        <div class="custom_hidden_repeat">
+            <div class="custom_hidden_repeat">
                 @foreach ($posts as $post)
                 {!! html_entity_decode($post->fulltext) !!}
                 @endforeach

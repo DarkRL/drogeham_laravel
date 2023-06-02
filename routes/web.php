@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\NewsPostsController;
 use App\Http\Controllers\Admin\ProjectPostController;
 use App\Http\Controllers\Admin\MeydPostsController;
 use App\Http\Controllers\Admin\HistoryPostController;
+use App\Http\Controllers\Admin\BrinkpraatPostController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
 use App\Http\Controllers\imagehandler\ImageController;
 
@@ -80,6 +81,14 @@ Route::controller(HistoryPostController::class)->group(function () {
     Route::get('/admin/history/index', 'index')->name('admin.history.index')->middleware('auth');
 });
 
+Route::controller(BrinkpraatPostController::class)->group(function () {
+    Route::get('/admin/brinkpraat/{id}/edit', 'edit')->name('admin.brinkpraat.edit')->middleware('auth');
+    Route::patch('/admin/brinkpraat/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/brinkpraat/create', 'create')->name('admin.brinkpraat.create')->middleware('auth');
+    Route::post('/admin/brinkpraat/create', 'store')->middleware('auth');
+    Route::get('/admin/brinkpraat/index', 'index')->name('admin.brinkpraat.index')->middleware('auth');
+});
+
 Route::controller(PlaatselijkBelangPostController::class)->group(function () {
     Route::get('/admin/plaatselijkbelang/{id}/edit', 'edit')->name('admin.plaatselijkbelang.edit')->middleware('auth');
     Route::patch('/admin/plaatselijkbelang/{id}/edit', 'update')->middleware('auth');
@@ -105,6 +114,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/agenda', 'agendapage')->name('agenda');
     Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
     Route::get('/projecten', 'projectenpage')->name('projecten');
+    Route::get('/brinkpraat', 'brinkpraatpage')->name('brinkpraat');
     Route::get('/templates/{id}/projectpost', 'projectpost')->name('templates.projectpost');
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
     Route::get('{page}', 'index')->name("page");

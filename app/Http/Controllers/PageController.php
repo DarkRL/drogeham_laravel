@@ -68,4 +68,11 @@ class PageController extends Controller
 
         return view("pages/agenda", ['posts' => $posts]);
     }
+    
+    public function brinkpraatpage()
+    {
+        $posts = DB::select('SELECT * FROM brinkpraat_posts WHERE id = ?', ['1']);
+
+        return view("pages/brinkpraat", compact('posts'));
+    }
 }
