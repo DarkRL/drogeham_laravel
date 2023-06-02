@@ -16,7 +16,8 @@
                             echo "
                             {
                                 title: '" . $post->title . "',
-                                start: '" . $post->start . "'
+                                start: '" . $post->start . "',
+                                end: '" . $post->end . "'
                             },";
                         }
                         ?>
