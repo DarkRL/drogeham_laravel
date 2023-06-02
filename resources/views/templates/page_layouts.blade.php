@@ -9,7 +9,7 @@
 <body>
     <x-header />
     <div class="parallax_fixed"></div>
-    <div class="container">
+    <div class="container custom_hidden_stay_fast">
         @yield('content')
     </div>
     <x-footer />

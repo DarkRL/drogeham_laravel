@@ -16,11 +16,12 @@ class MeydPostsController extends Controller
 
     public function store(Request $request)
     {
+        $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
 
         $newPost = MeydPosts::create([
             'headline' => $request->headline,
             'pagename' => $request->pagename,
-            'fulltext' => $request->fulltext,
+            'fulltext' => $fulltext,
             'created_at' => date("Y-m-d H:m:s"),
             'updated_at'=> date("Y-m-d H:m:s"),
             'public' => 0
