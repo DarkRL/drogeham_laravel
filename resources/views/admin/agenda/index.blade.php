@@ -5,22 +5,22 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
         <div id="calendar"></div>
-        <div class="modal fade" id="previewModel">
+        <div class="modal fade" id="eventModal">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Wil je <span id="startdate"> tot en met <span id="enddate"></h5>
+                        <h5 class="modal-title">Wil je een evenement van <span id="startdate"></span> tot en met <span id="enddate"></span> toevoegen?</h5>
                     </div>
                     <div class="modal-footer">
                         <div class="row">
                             <div class="col-6">
-                                <!-- <form method="POST" action="">
+                                <form method="POST" action="{{ route('admin.agenda.create') }}">
                                     @csrf
-                                    <input type="hidden" name="startdate" id="start_date">
-                                    <input type="hidden" name="enddate" id="end_date">
+                                    <input type="hidden" name="start" id="start_date">
+                                    <input type="hidden" name="end" id="end_date">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
                                     <button type="submit" class="btn btn-success">Submit</button>
-                                </form> -->
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -33,30 +33,16 @@
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'dayGridMonth',
                     locale: 'nl',
+                    firstDay: 1,
                     selectable: true,
                     select: function(info) { //wanneer je een aantal dagen selecteer of op een dag klikt wordt deze code uitgevoerd
                         // alert('Clicked on: ' + info.startStr + ' to ' + info.endStr);
                         $("#start_date").val(info.startStr);
                         $("#end_date").val(info.endStr);
-                        $.ajax({
-                            url: "{{ route('admin.agenda.create') }}",
-                            type: "POST",
-                            data: {
-                                start: info.startStr,
-                                end: info.endStr,
-                                // voeg meer variabelen toe indien nodig
-                            },
-                            success: function(response) {
-                                console.log(response);
-                            },
-                            error: function(xhr, status, error) {
-                                // verwerk eventuele fouten hier
-                                console.log(xhr);
-                                console.log(status);
-                                console.log(error);
-                                console.log(info);
-                            }
-                        });
+                        $("#startdate").text(info.startStr);
+                        $("#enddate").text(info.endStr);
+
+                        $('#eventModal').modal('show');
                     },
                     events: [
                         <?php
@@ -70,6 +56,7 @@
                         ?>
                     ]
                 });
+                
                 calendar.render();
             });
         </script>
