@@ -27,7 +27,9 @@
                         ?>
                     ],
                     eventClick: function(info) {
-                        console.log(info.event.id);
+                        $("#clickedevent").text(info.event.title);
+
+                        $('#eventModal').modal('show');
                     }
                 });
                 calendar.render();
@@ -35,4 +37,20 @@
         </script>
     </div>
 </div>
+<div class="modal fade" id="eventModal"> <!--  modal voor display event -->
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><span id="clickedevent"></span></h5>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
