@@ -10,6 +10,9 @@
                     initialView: 'dayGridMonth',
                     locale: 'nl',
                     firstDay: 1,
+                    buttonText: {
+                        today: 'vandaag'
+                    },
                     events: [
                         <?php
                         foreach ($posts as $post) {
@@ -17,11 +20,15 @@
                             {
                                 title: '" . $post->title . "',
                                 start: '" . $post->start . "',
-                                end: '" . $post->end . "'
+                                end: '" . $post->end . "',
+                                id: '" . $post->id . "'
                             },";
                         }
                         ?>
-                    ]
+                    ],
+                    eventClick: function(info) {
+                        console.log(info.event.id);
+                    }
                 });
                 calendar.render();
             });

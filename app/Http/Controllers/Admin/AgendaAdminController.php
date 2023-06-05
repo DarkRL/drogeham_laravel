@@ -16,17 +16,17 @@ class AgendaAdminController extends Controller
     }
 
     public function create(Request $request)
-    {   
+    {
         return view('admin.agenda.create', ['start' => $request->start, 'end' => $request->end]);
     }
 
     public function store(Request $request)
     {
-    //    $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
+        $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
 
         $newEvent = Event::create([
             'title' => $request->title,
-            'fulltext' => $request->fulltext,
+            'fulltext' => $fulltext,
             'start' => $request->startdate,
             'end' => $request->enddate
         ]);
@@ -45,4 +45,17 @@ class AgendaAdminController extends Controller
         return view('admin.agenda.edit', ['post' => $id]);
     }
 
+    public function update(Request $request, $id)
+    {
+        $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
+
+        Event::find($id)->update([
+            'title' => $request->title,
+            'fulltext' => $fulltext,
+            'start' => $request->startdate,
+            'end' => $request->enddate
+        ]);
+        
+        return redirect()->route('admin.agenda.index');
+    }
 }
