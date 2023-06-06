@@ -25,9 +25,14 @@ class PageController extends Controller
 
     public function homepage()
     {
-        $posts = DB::select('SELECT * FROM home_posts WHERE id = ?', ['1']);
+      $posts = DB::select('SELECT * FROM home_posts WHERE id = ?', ['1']);
+      $carouselProjecten = DB::select('SELECT  * FROM project_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 4');
+      $carouselNewsPosts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY datetime desc LIMIT 6');
 
-        return view("pages/home", compact('posts'));
+      if (count($carouselNewsPosts) > 3) { // split het int twee arrays met drie items is makkelijker voor de front-end
+        $carouselNewsPosts = array_chunk($carouselNewsPosts, 3);
+      }
+      return view("pages/home", compact('posts', 'carouselProjecten', 'carouselNewsPosts'));
     }
 
     public function historypage()
@@ -91,7 +96,7 @@ class PageController extends Controller
             'text' => $fulltext
         ]);
     }
-    
+
     public function brinkpraatpage()
     {
         $posts = DB::select('SELECT * FROM brinkpraat_posts WHERE id = ?', ['1']);
