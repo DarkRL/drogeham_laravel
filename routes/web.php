@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\HistoryPostController;
 use App\Http\Controllers\Admin\BrinkpraatPostController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
 use App\Http\Controllers\imagehandler\ImageController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,13 @@ use App\Http\Controllers\imagehandler\ImageController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('send-mail', [MailController::class, "index"]);
+
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::controller(HomePostController::class)->group(function () {
     Route::get('/admin/home/index', 'index')->name('admin.home.index')->middleware('auth');
@@ -103,8 +112,6 @@ Route::controller(AgendaAdminController::class)->group(function () {
     Route::post('/admin/agenda/store', 'store')->name('admin.agenda.store')->middleware('auth');
     // Route::post('/admin/agenda/{id}/edit', 'edit')->name('admin.agenda.edit')->middleware('auth');
     Route::post('/admin/agenda/edit/{id}', 'edit')->name('admin.agenda.edit')->middleware('auth');
-
-
 });
 
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
