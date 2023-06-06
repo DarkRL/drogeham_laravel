@@ -28,29 +28,27 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 |
 */
 
-Route::get('send-mail', [MailController::class, "index"]);
-
-Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
-Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-
 Route::controller(HomePostController::class)->group(function () {
     Route::get('/admin/home/index', 'index')->name('admin.home.index')->middleware('auth');
     Route::get('/admin/home/{id}/edit', 'edit')->name('admin.home.edit')->middleware('auth');
     Route::patch('/admin/home/{id}/edit', 'update')->middleware('auth');
     Route::get('/admin/home/create', 'create')->name('admin.home.create')->middleware('auth');
-
 });
 
 Route::controller(LoginRegisterController::class)->group(function () {
-    Route::get('/register', 'register')->name('register');
-    Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
     Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::get('/admin/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+Route::controller(ForgotPasswordController::class)->group(function () {
+    Route::get('forget-password', 'showForgetPasswordForm')->name('forget.password.get');
+    Route::post('forget-password', 'submitForgetPasswordForm')->name('forget.password.post');
+    Route::get('reset-password/{token}', 'showResetPasswordForm')->name('reset.password.get');
+    Route::post('reset-password', 'submitResetPasswordForm')->name('reset.password.post');
+});
+
 
 Route::controller(NewsPostsController::class)->group(function () {
     Route::get('/admin/actueel/{id}/edit', 'edit')->name('admin.actueel.edit')->middleware('auth');

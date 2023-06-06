@@ -27,63 +27,52 @@
             <div class="row justify-content-center">
                 <div class="col-10">
                     <div class="m-5">
-                        <div id="CarouselProjecten" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-
-                            <div class="carousel-inner">
-                                <div class="carousel-item bg-dark active">
-                                    <div class="d-flex">
-                                        <div class="col-8">
-                                            <img src="https://via.placeholder.com/800x400?text=Slide+1" class="d-block w-100" alt="Slide 3">
-                                        </div>
-                                        <div class="col-4 d-flex align-items-center text-white">
-                                            <div class="w-100 p-4 ">
-                                                <p>Hier komt een project te staan.</p>
-                                            </div>
-                                        </div>
+                    <div id="CarouselProjecten" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        @for ($i = 0; $i < count($carouselProjecten); $i++)
+                        <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="{{$i}}" @if ($i === 0) class="active" aria-current="true" @endif aria-label="Slide {{ ($i + 1) }}"></button>
+                        @endfor
+                    </div>
+                    <div class="carousel-inner">
+                        @forelse ($carouselProjecten as $key => $carouselProject)
+                        <div class="carousel-item bg-dark @if ($key === 0) active @endif" style="min-height: 400px; ">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <img src="{{$carouselProject->photo}}" class="d-block w-100" height="400" alt="Slide {{ ($key + 1) }}">
                                     </div>
-                                </div>
-                                <div class="carousel-item bg-dark">
-                                    <div class="d-flex">
-                                        <div class="col-8">
-                                            <img src="https://via.placeholder.com/800x400?text=Slide+2" class="d-block w-100" alt="Slide 3">
-                                        </div>
-                                        <div class="col-4 d-flex align-items-center text-white">
-                                            <div class="w-100 p-4 ">
-                                                <p>Hier komt een project te staan.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item bg-dark">
-                                    <div class="d-flex">
-                                        <div class="col-8">
-                                            <img src="https://via.placeholder.com/800x400?text=Slide+3" class="d-block w-100" alt="Slide 3">
-                                        </div>
-                                        <div class="col-4 d-flex align-items-center text-white">
-                                            <div class="w-100 p-4 ">
-                                                <p>Hier komt een project te staan.</p>
+                                    <div class="col-4">
+                                        <div class="text-white">
+                                            <div class="p-2 mw-50">
+                                                {!! html_entity_decode($carouselProject->headline) !!}
+                                                <div class="p-2"></div>
+                                                {!! html_entity_decode($carouselProject->fulltext) !!}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         </div>
+                        @empty
+                        @endforelse
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+
                         <div class="pt-5 pb-3 custom_hidden_repeat">
+
                             @foreach ($posts as $post)
                             {!! html_entity_decode($post->fulltext) !!}
+
                             @endforeach
                         </div>
                     </div>
@@ -91,34 +80,35 @@
                 <div class="col-10 mt-5">
                     <div class="mb-5">
                         <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay_up" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col">
-                                            <img src="https://via.placeholder.com/300x200?text=Image+1" class="d-block w-100" alt="Image 1">
-                                        </div>
-                                        <div class="col">
-                                            <img src="https://via.placeholder.com/300x200?text=Image+2" class="d-block w-100" alt="Image 2">
-                                        </div>
-                                        <div class="col">
-                                            <img src="https://via.placeholder.com/300x200?text=Image+3" class="d-block w-100" alt="Image 3">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col">
-                                            <img src="https://via.placeholder.com/300x200?text=Image+4" class="d-block w-100" alt="Image 4">
-                                        </div>
-                                        <div class="col">
-                                            <img src="https://via.placeholder.com/300x200?text=Image+5" class="d-block w-100" alt="Image 5">
-                                        </div>
-                                        <div class="col">
-                                            <img src="https://via.placeholder.com/300x200?text=Image+6" class="d-block w-100" alt="Image 6">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="carousel-inner">
+                          @if (gettype($carouselNewsPosts[0]) === "array")
+                              @forelse ($carouselNewsPosts as $key => $carouselNewsPost)
+                                  <div class="carousel-item @if ($key === 0) active @endif">
+                                      <div class="row">
+                                          @forelse ($carouselNewsPost as $NewsPost)
+                                              <div class="col">
+                                                  <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                              </div>
+                                          @empty
+                                          @endforelse
+                                      </div>
+                                  </div>
+                              @empty
+                              @endforelse
+                              @elseif (gettype($carouselNewsPosts[0]) === "object")
+                              @forelse ($carouselNewsPosts as $key => $NewsPost)
+                                  <div class="carousel-item @if ($key === 0) active @endif">
+                                      <div class="row">
+                                          <div class="col">
+                                              <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                          </div>
+                                      </div>
+                                  </div>
+                              @empty
+                              @endforelse
+                              @else
+                          @endif
+                      </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#CarouselArtikelen" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
