@@ -56,6 +56,9 @@
                     locale: 'nl',
                     firstDay: 1,
                     selectable: true,
+                    buttonText: {
+                        today: 'vandaag'
+                    },
                     select: function(info) { //wanneer je een aantal dagen selecteer of op een dag klikt wordt deze code uitgevoerd
                         // alert('Clicked on: ' + info.startStr + ' to ' + info.endStr);
                         $("#start_date").val(info.startStr);
