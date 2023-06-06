@@ -124,6 +124,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/plaatselijkbelang', 'plaatselijkbelangpage')->name('plaatelijkbelang');
     Route::get('/actueel', 'actueelpage')->name('actueel');
     Route::get('/agenda', 'agendapage')->name('agenda');
+    Route::post('/eventajax/{id}', 'eventajax')->name('eventajax');
     Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
     Route::get('/projecten', 'projectenpage')->name('projecten');
     Route::get('/brinkpraat', 'brinkpraatpage')->name('brinkpraat');

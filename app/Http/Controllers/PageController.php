@@ -81,6 +81,16 @@ class PageController extends Controller
 
         return view("pages/agenda", ['posts' => $posts]);
     }
+
+    public function eventajax(Request $request, $id) // query for ajax call to load calendar event data
+    {
+        $post = Event::findOrFail($id);
+        $fulltext = $post->fulltext;
+
+        return response()->json([
+            'text' => $fulltext
+        ]);
+    }
     
     public function brinkpraatpage()
     {
