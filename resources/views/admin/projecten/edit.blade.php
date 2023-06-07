@@ -12,7 +12,7 @@
             <textarea name="fulltext" class="form-control" id="file-picker" required>{{ $post->fulltext }}</textarea>
             <div class="my-2">
                 <label for="thumbnail" class="form-label">Upload Thumbnail</label>
-                <input class="form-control" type="file" id="thumbnail" name="photo" required>
+                <input class="form-control" type="file" id="thumbnail" name="photo">
             </div>
             <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Update" class="btn btn-primary">Submit</button>
