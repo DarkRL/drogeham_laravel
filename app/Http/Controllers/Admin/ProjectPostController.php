@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Models\admin\ProjectPost;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class ProjectPostController extends Controller
 {
     public function index()
     {
-        $posts = ProjectPost::all();
+        $posts = DB::table('project_posts')->paginate(15);
         return view('admin.projecten.index', ['posts' => $posts]);
     }
 
