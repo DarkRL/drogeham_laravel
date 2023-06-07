@@ -45,6 +45,7 @@
                         success: function(response) {
                             // console.log(response);
                             $('#eventText').html(response.text);
+                            $('#eventModal').modal('show');
                         },
                         error: function(xhr, status, error) {
                             console.log(xhr);
@@ -52,8 +53,6 @@
                             console.log(error);
                         }
                     });
-
-                    $('#eventModal').modal('show');
                 }
             });
             calendar.render();

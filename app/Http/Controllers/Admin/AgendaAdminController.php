@@ -58,4 +58,9 @@ class AgendaAdminController extends Controller
         
         return redirect()->route('admin.agenda.index');
     }
+
+    public function delete()
+    {
+        return redirect()->route('admin.agenda.index');
+    }
 }

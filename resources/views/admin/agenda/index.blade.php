@@ -10,6 +10,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Wil je een evenement van <span id="startdate"></span> tot en met <span id="enddate"></span> toevoegen?</h5>
+                        <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-footer">
                         <div class="row">
@@ -32,6 +33,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Evenement: <span id="clickedevent"></span></h5>
+                        <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-footer">
                         <div class="row">
@@ -40,6 +42,9 @@
                                     @csrf
                                     <input type="hidden" name="id" id="event_id">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
+                                    <a href="{{ route('admin.agenda.delete', ['id' => 0]) }}">
+                                        <button type="button" class="btn btn-danger">Verwijderen</button>
+                                    </a>
                                     <button type="submit" class="btn btn-success">Aanpassen</button>
                                 </form>
                             </div>
