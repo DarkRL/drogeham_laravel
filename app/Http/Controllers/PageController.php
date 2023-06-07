@@ -27,7 +27,7 @@ class PageController extends Controller
     {
       $posts = DB::select('SELECT * FROM home_posts WHERE id = ?', ['1']);
       $carouselProjecten = DB::select('SELECT  * FROM project_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 4');
-      $carouselNewsPosts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY datetime desc LIMIT 6');
+      $carouselNewsPosts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 6');
 
       if (count($carouselNewsPosts) > 3) { // split het int twee arrays met drie items is makkelijker voor de front-end
         $carouselNewsPosts = array_chunk($carouselNewsPosts, 3);
@@ -51,7 +51,7 @@ class PageController extends Controller
 
     public function actueelpage()
     {
-        $posts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY datetime desc');
+        $posts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY updated_at desc');
 
         return view("pages/actueel", ['posts' => $posts]);
     }

@@ -40,6 +40,8 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::get('/admin/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
+    Route::get('/register', 'register')->name('register');
+    Route::post('/store', 'store')->name('store');
 });
 
 Route::controller(ForgotPasswordController::class)->group(function () {
