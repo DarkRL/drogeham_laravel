@@ -269,6 +269,10 @@ html {
     text-decoration: none;
 }
 
+.fc-event{
+    cursor: pointer;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input.phonenumber::-webkit-outer-spin-button,
 input.phonenumber::-webkit-inner-spin-button {

@@ -13,17 +13,17 @@
                         <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-footer">
-                        <div class="row">
-                            <div class="col-6">
-                                <form method="POST" action="{{ route('admin.agenda.create') }}">
-                                    @csrf
-                                    <input type="hidden" name="start" id="start_date">
-                                    <input type="hidden" name="end" id="end_date">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
-                                    <button type="submit" class="btn btn-success">Toevoegen</button>
-                                </form>
+
+                        <form method="POST" action="{{ route('admin.agenda.create') }}">
+                            @csrf
+                            <input type="hidden" name="start" id="start_date">
+                            <input type="hidden" name="end" id="end_date">
+                            <div class="btn-toolbar">
+                                <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Sluiten</button>
+                                <button type="submit" class="btn btn-success mx-1">Toevoegen</button>
                             </div>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -39,19 +39,18 @@
                         <div id="eventText"></div>
                     </div>
                     <div class="modal-footer">
-                        <div class="row">
-                            <div class="col-6">
-                                <form method="POST" id="editform" action="">
-                                    @csrf
-                                    <input type="hidden" name="id" id="event_id">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
-                                    <a href="{{ route('admin.agenda.delete', ['id' => 0]) }}">
-                                        <button type="button" class="btn btn-danger">Verwijderen</button>
-                                    </a>
-                                    <button type="submit" class="btn btn-success">Aanpassen</button>
-                                </form>
+
+                        <form method="POST" id="editform" action="">
+                            @csrf
+                            <input type="hidden" name="id" id="event_id">
+                            <div class="btn-toolbar">
+                                <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Sluiten</button>
+                                <a href="{{ route('admin.agenda.delete', ['id' => 0]) }}">
+                                    <button type="button" class="btn btn-danger mx-1">Verwijderen</button>
+                                </a>
+                                <button type="submit" class="btn btn-success mx-1">Aanpassen</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
