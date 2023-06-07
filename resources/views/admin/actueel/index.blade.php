@@ -32,6 +32,9 @@
                     @endforeach
                 </table>
             </div>
+            <div class="d-flex">
+                {!! $posts->links() !!}
+            </div>
         </div>
     </div>
 </div>

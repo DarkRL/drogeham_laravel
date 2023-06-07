@@ -13,7 +13,7 @@ class NewsPostsController extends Controller
 {
     public function index()
     {
-        $posts = NewsPosts::all();
+        $posts = DB::table('news_posts')->paginate(15);
         return view('admin.actueel.index', ['posts' => $posts]);
     }
 

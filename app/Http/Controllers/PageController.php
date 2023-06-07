@@ -71,7 +71,7 @@ class PageController extends Controller
 
     public function projectenpage()
     {
-        $posts = DB::select('SELECT * FROM project_posts WHERE public = 1 ORDER BY updated_at desc');
+        $posts = DB::table('project_posts')->orderBy('id','desc')->paginate(15);
 
         return view("pages/projecten", ['posts' => $posts]);
     }

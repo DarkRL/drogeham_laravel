@@ -8,4 +8,8 @@
 
     @endforeach
 </div>
+
+<div class="d-flex">
+    {!! $posts->links() !!}
+</div>
 @endsection
