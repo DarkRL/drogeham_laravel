@@ -28,7 +28,8 @@ class ProjectPostController extends Controller
             'headline' => $request->headline,
             'fulltext' => $fulltext,
             'photo' => $url,
-            'datetime' => date("Y-m-d H:m:s"),
+            'updated_at' => date("Y-m-d H:m:s"),
+            'created_at' => date("Y-m-d H:m:s"),
             'public' => 0
         ]);
 
@@ -65,7 +66,7 @@ class ProjectPostController extends Controller
         ProjectPost::find($id)->update([
             'headline' => $request->headline,
             'fulltext' => $request->fulltext,
-            'datetime' => date("Y-m-d H:m:s")
+            'updated_at' => date("Y-m-d H:m:s"),
         ]);
         // app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.projecten.index');
