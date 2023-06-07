@@ -107,7 +107,7 @@
                             }
                         });
 
-                        var idRoute = "{{ route('eventdragajax', ':id') }}";
+                        var idRoute = "{{ route('admin.agenda.eventdragajax', ':id') }}";
                         var newRoute = idRoute.replace(':id', info.event.id);
 
                         $.ajax({
