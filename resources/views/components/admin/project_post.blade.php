@@ -1,4 +1,4 @@
-<tr>
+<tr id="record-{{$postid}}">
     <td>
         <p>{!! html_entity_decode($headline) !!}</p>
     </td>
@@ -79,9 +79,32 @@
                 });
             });
         });
-    </script>
 
-    </div>
+        $(document).ready(function() {
+            $('#delete_{{ $postid }}').submit(function(event) {
+                event.preventDefault();
+
+                var id = "{{ $postid }}";
+                var formElement = $(this);
+                var formData = $(formElement).serialize();
+
+                $.ajax({
+                    url: "{{ route('admin.projecten.delete', ['id' => $postid]) }}",
+                    type: 'PUT',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#record-' + id).remove();
+                        $('#message').text(response.message).addClass("alert alert-success");
+                    },
+                    error: function(xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        $('#message').text(err.message).addClass("alert alert-danger");
+                    }
+                });
+            });
+        });
+    </script>
 
 
     <!-- Modal -->
@@ -100,9 +123,11 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nee</button>
                         </div>
                         <div class="col-6">
-                            <a href="{{ route('admin.projecten.delete', ['id' => $postid]) }}">
-                                <button type="button" class="btn btn-danger">Ja</button>
-                            </a>
+                        <form method="post" id="delete_{{ $postid }}">
+                                @csrf
+                                <input class="form-control" type="hidden" name="headline" value="{{ $headline  }}">
+                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Ja</button>
+                            </form>
                         </div>
                     </div>
                 </div>

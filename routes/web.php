@@ -57,7 +57,7 @@ Route::controller(NewsPostsController::class)->group(function () {
     Route::patch('/admin/actueel/{id}/edit', 'update')->middleware('auth');
     Route::get('/admin/actueel/create', 'create')->name('admin.actueel.create')->middleware('auth');
     Route::post('/admin/actueel/create', 'store')->middleware('auth');
-    Route::get('/admin/actueel/{id}/delete', 'delete')->name('admin.actueel.delete')->middleware('auth');
+    Route::put('/admin/actueel/{id}/delete', 'delete')->name('admin.actueel.delete')->middleware('auth');
     Route::put('/admin/actueel/{id}/publish', 'publish')->name('admin.actueel.publish')->middleware('auth');
     Route::get('/admin/actueel/index', 'index')->name('admin.actueel.index')->middleware('auth');
 });
@@ -67,7 +67,7 @@ Route::controller(ProjectPostController::class)->group(function () {
     Route::patch('/admin/projecten/{id}/edit', 'update')->middleware('auth');
     Route::get('/admin/projecten/create', 'create')->name('admin.projecten.create')->middleware('auth');
     Route::post('/admin/projecten/create', 'store')->middleware('auth');
-    Route::get('/admin/projecten/{id}/delete', 'delete')->name('admin.projecten.delete')->middleware('auth');
+    Route::put('/admin/projecten/{id}/delete', 'delete')->name('admin.projecten.delete')->middleware('auth');
     Route::put('/admin/projecten/{id}/publish', 'publish')->name('admin.projecten.publish')->middleware('auth');
     Route::get('/admin/projecten/index', 'index')->name('admin.projecten.index')->middleware('auth');
 });

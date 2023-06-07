@@ -74,9 +74,19 @@ class ProjectPostController extends Controller
 
     public function delete(Request $request, $id)
     {
-        ProjectPost::find($id)->delete();
+        $deleted = ProjectPost::find($id)->delete();
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
-        return redirect()->route('admin.projecten.index');
+        if ($deleted) {
+            return response()->json([
+                'success' => true,
+                'message' => "Bestand " . $request->headline . " is succesvol verwijderd!"
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => "Er is iets fout gegaan, Bestand " . $request->headline . " is niet verwijderd!"
+        ]);
     }
 
     public function publish(Request $request, $id)
