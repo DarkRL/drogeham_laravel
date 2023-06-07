@@ -16,7 +16,8 @@ return new class extends Migration
             $table->text('headline');
             $table->text('fulltext');
             $table->text('photo');
-            $table->timestamp('datetime')->useCurrent;
+            $table->timestamp('updated_at')->useCurrent;
+            $table->timestamp('created_at')->useCurrent;
             $table->tinyInteger('public')->default('0'); 
         });
     }

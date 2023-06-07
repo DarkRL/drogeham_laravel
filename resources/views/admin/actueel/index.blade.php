@@ -27,7 +27,7 @@
                     </tr>
                     @foreach ($posts as $post)
 
-                    <x-admin.news_post_card postid="{{ $post->id }}" headline="{{ $post-> headline }}" datetime="{{ $post->datetime }}" fulltext="{{ $post-> fulltext }}" photo="{{ $post-> photo }}" publishid="{{ $post->public}}" />
+                    <x-admin.news_post_card postid="{{ $post->id }}" headline="{{ $post-> headline }}" datetime="{{ $post->updated_at }}" fulltext="{{ $post-> fulltext }}" photo="{{ $post-> photo }}" publishid="{{ $post->public}}" />
 
                     @endforeach
                 </table>

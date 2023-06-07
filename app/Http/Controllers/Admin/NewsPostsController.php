@@ -14,7 +14,6 @@ class NewsPostsController extends Controller
     public function index()
     {
         $posts = NewsPosts::all();
-        // $posts = DB::select('SELECT * FROM news_posts');
         return view('admin.actueel.index', ['posts' => $posts]);
     }
 
@@ -32,7 +31,7 @@ class NewsPostsController extends Controller
             'headline' => $request->headline,
             'fulltext' => $fulltext,
             'photo' => $url,
-            'datetime' => date("Y-m-d H:m:s"),
+            'updated_at' => date("Y-m-d H:m:s"),
             'public' => 0
         ]);
 
@@ -69,7 +68,7 @@ class NewsPostsController extends Controller
         NewsPosts::find($id)->update([
             'headline' => $request->headline,
             'fulltext' => $request->fulltext,
-            'datetime' => date("Y-m-d H:m:s")
+            'updated_at' => date("Y-m-d H:m:s")
         ]);
         // app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.actueel.index');
