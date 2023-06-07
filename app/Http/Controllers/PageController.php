@@ -51,7 +51,7 @@ class PageController extends Controller
 
     public function actueelpage()
     {
-        $posts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY updated_at desc');
+        $posts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY id desc');
 
         return view("pages/actueel", ['posts' => $posts]);
     }
