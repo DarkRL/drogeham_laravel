@@ -35,6 +35,9 @@
                         <h5 class="modal-title">Evenement: <span id="clickedevent"></span></h5>
                         <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
+                    <div class="modal-body mx-4 my-3">
+                        <div id="eventText"></div>
+                    </div>
                     <div class="modal-footer">
                         <div class="row">
                             <div class="col-6">
@@ -90,8 +93,34 @@
                         // alert('Event: ' + info.event.title);
                         $('#event_id').val(info.event.id);
                         $("#clickedevent").text(info.event.title);
-                        $('#eventEditModal').modal('show');
 
+                        // ajax for getting the event text
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+
+                        var textIdRoute = "{{ route('admin.agenda.eventajax', ':id') }}";
+                        var dataRoute = textIdRoute.replace(':id', info.event.id);
+
+                        $.ajax({
+                            url: dataRoute,
+                            type: 'POST',
+                            dataType: 'json',
+                            success: function(response) {
+                                // console.log(response);
+                                $('#eventText').html(response.text);
+                                $('#eventEditModal').modal('show');
+                            },
+                            error: function(xhr, status, error) {
+                                console.log(xhr);
+                                console.log(status);
+                                console.log(error);
+                            }
+                        });
+
+                        // route for the edit button
                         var idRoute = "{{ route('admin.agenda.edit', ':id') }}";
                         var newRoute = idRoute.replace(':id', info.event.id);
                         $('#editform').attr('action', newRoute);
@@ -114,10 +143,13 @@
                             url: newRoute,
                             type: 'POST',
                             dataType: 'json',
-                            data: {start: info.event.startStr, end: info.event.endStr},
+                            data: {
+                                start: info.event.startStr,
+                                end: info.event.endStr
+                            },
                             success: function(response) {
                                 // console.log(response);
-                            
+
                             },
                             error: function(xhr, status, error) {
                                 console.log(xhr);
