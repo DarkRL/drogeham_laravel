@@ -49,7 +49,38 @@
                 @endforelse
             </div>
         </div>
-    </div>
-</div>
+        <div class="mt-3">
+            <div id="message">
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    {{ $message }}
+                </div>
+                @endif
+            </div>
+        </div>
+        <a href="{{ route('admin.brinkpraat.create.files') }}"><button type="button" class="btn btn-primary m-2">Voeg een nieuw bestand toe</button></a>
+        <div>
+            <div class="table-responsive">
+                <table class="table table-striped table-responsive w-100">
+                    <tr>
+                        <th>Bestand</th>
+                        <th class="small text-center" style="width:15%">Publicatiedatum</th>
+                        <th class="small text-center" style="width:7%">Aanpassen</th>
+                        <th class="small text-center" style="width:7%">Verwijderen</th>
+                        <th class="small text-center" style="width:10%">Actief zetten</th>
+                    </tr>
+                    @forelse ($posts_files as $posts_file)
 
-@endsection
+                    <x-admin.brinkpraatfile_post filepath="{{$posts_file->filepath}}" filename="{{ $posts_file->filename }}" datetime="{{ date('d-m-Y', strtotime($posts_file->datetime)) }}" postid="{{ $posts_file->id }}" public="{{ $posts_file->public }}" />
+
+                    @empty
+
+                    Geen bestanden geüpload
+
+                    @endforelse
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @endsection

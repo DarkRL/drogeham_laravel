@@ -96,6 +96,13 @@ Route::controller(BrinkpraatPostController::class)->group(function () {
     Route::get('/admin/brinkpraat/create', 'create')->name('admin.brinkpraat.create')->middleware('auth');
     Route::post('/admin/brinkpraat/create', 'store')->middleware('auth');
     Route::get('/admin/brinkpraat/index', 'index')->name('admin.brinkpraat.index')->middleware('auth');
+
+    Route::get('/admin/brinkpraat/files/{id}/edit', 'edit_files')->name('admin.brinkpraat.edit.files')->middleware('auth');
+    Route::patch('/admin/brinkpraat/files/{id}/edit', 'update_files')->middleware('auth');
+    Route::get('/admin/brinkpraat/files/create', 'create_files')->name('admin.brinkpraat.create.files')->middleware('auth');
+    Route::post('/admin/brinkpraat/files/create', 'store_files')->middleware('auth');
+    Route::put('/admin/brinkpraat/{id}/publish', 'publish_files')->name('admin.brinkpraat.publish.files')->middleware('auth');
+    Route::put('/admin/brinkpraat/{id}/delete', 'delete_files')->name('admin.brinkpraat.delete.files')->middleware('auth');
 });
 
 Route::controller(PlaatselijkBelangPostController::class)->group(function () {
@@ -134,6 +141,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/templates/{id}/projectpost', 'projectpost')->name('templates.projectpost');
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
     Route::get('{page}', 'index')->name("page");
+    Route::post('/contact/post', 'contactSumbit')->name("contact post");
 });
 
 
