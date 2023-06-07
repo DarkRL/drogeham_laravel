@@ -120,6 +120,8 @@ Route::controller(AgendaAdminController::class)->group(function () {
     Route::post('/admin/agenda/edit/{id}', 'edit')->name('admin.agenda.edit')->middleware('auth');
     Route::patch('/admin/agenda/update/{id}', 'update')->name('admin.agenda.update')->middleware('auth');
     Route::get('/admin/agenda/delete/{id}', 'delete')->name('admin.agenda.delete')->middleware('auth');
+    Route::post('/admin/agenda/eventdragajax/{id}', 'eventdragajax')->name('admin.agenda.eventdragajax')->middleware('auth');
+    Route::post('/admin/agenda/eventajax/{id}', 'eventajax')->name('admin.agenda.eventajax')->middleware('auth');
 });
 
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
@@ -139,6 +141,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/templates/{id}/projectpost', 'projectpost')->name('templates.projectpost');
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
     Route::get('{page}', 'index')->name("page");
+    Route::post('/contact/post', 'contactSumbit')->name("contact post");
 });
 
 

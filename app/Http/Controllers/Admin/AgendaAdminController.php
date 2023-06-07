@@ -63,4 +63,26 @@ class AgendaAdminController extends Controller
     {
         return redirect()->route('admin.agenda.index');
     }
+
+    public function eventdragajax(Request $request, $id)
+    {
+        Event::find($id)->update([
+            'start' => $request->start,
+            'end' => $request->end
+        ]);
+
+        return response()->json([
+            'success' => 'success'
+        ]);
+    }
+
+    public function eventajax(Request $request, $id) // query for ajax call to load calendar event data
+    {
+        $post = Event::findOrFail($id);
+        $fulltext = $post->fulltext;
+
+        return response()->json([
+            'text' => $fulltext
+        ]);
+    }
 }

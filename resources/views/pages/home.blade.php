@@ -37,9 +37,10 @@
                         @forelse ($carouselProjecten as $key => $carouselProject)
                         <div class="carousel-item bg-dark @if ($key === 0) active @endif" style="min-height: 400px; ">
                             <div class="container">
-                                <div class="row">
+
+                                <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
                                     <div class="col-8">
-                                        <img src="{{$carouselProject->photo}}" class="d-block w-100" height="400" alt="Slide {{ ($key + 1) }}">
+                                      <img src="{{$carouselProject->photo}}" class="d-block w-100" height="400" alt="Slide {{ ($key + 1) }}">
                                     </div>
                                     <div class="col-4">
                                         <div class="text-white">
@@ -50,7 +51,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    </a>
+
                             </div>
                         </div>
                         @empty
@@ -84,10 +86,15 @@
                           @if (gettype($carouselNewsPosts[0]) === "array")
                               @forelse ($carouselNewsPosts as $key => $carouselNewsPost)
                                   <div class="carousel-item @if ($key === 0) active @endif">
-                                      <div class="row">
+                                      <div class="row ">
                                           @forelse ($carouselNewsPost as $NewsPost)
                                               <div class="col">
+                                                <div class="text-center bg-dark text-light">
+                                                  {{$NewsPost->headline}}
+                                                </div>
+                                                <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
                                                   <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                                </a>
                                               </div>
                                           @empty
                                           @endforelse
@@ -99,9 +106,14 @@
                               @forelse ($carouselNewsPosts as $key => $NewsPost)
                                   <div class="carousel-item @if ($key === 0) active @endif">
                                       <div class="row">
-                                          <div class="col">
-                                              <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                        <div class="col ">
+                                          <div class="text-center bg-dark text-light">
+                                            {{$NewsPost->headline}}
                                           </div>
+                                          <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
+                                            <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                          </a>
+                                        </div>
                                       </div>
                                   </div>
                               @empty
@@ -125,22 +137,23 @@
                         <div class="col-md-8 mx-auto">
                             <h2 class="text-center custom_hidden_repeat">Nieuw in Drogeham?</h2>
                             <p class="text-mute text-center mb-4"><i>Namens de hele gemeenschap van Drogeham wil ik je van harte welkom heten in ons prachtige dorp. We zijn verheugd dat je ervoor hebt gekozen om hier te komen wonen en deel uit te maken van onze hechte gemeenschap.</i></p>
-                            <form>
+                            <form action="/contact/post" method="post">
+                                @csrf
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Naam*</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Vul je naam hier in..." required>
+                                     <label for="name" class="form-label">Naam*</label>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Vul je naam hier in..." required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email*</label>
-                                    <input type="email" class="form-control" id="email" required>
+                                    <input type="email" name="email" class="form-control" id="email" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="tel" class="form-label">Telefoonnummer</label>
-                                    <input type="number" class="form-control phonenumber" id="tel" min="6" max="15">
+                                    <input type="text" name="Tel" class="form-control phonenumber" id="tel" min="6" max="15">
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Bericht</label>
-                                    <textarea class="form-control" id="message" rows="5" placeholder="Vertel hier wat over jezelf..." required></textarea>
+                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Vertel hier wat over jezelf..." required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary custom_hidden_repeat">Verstuur</button>
                             </form>
