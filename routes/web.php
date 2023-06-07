@@ -113,6 +113,7 @@ Route::controller(AgendaAdminController::class)->group(function () {
     Route::post('/admin/agenda/edit/{id}', 'edit')->name('admin.agenda.edit')->middleware('auth');
     Route::patch('/admin/agenda/update/{id}', 'update')->name('admin.agenda.update')->middleware('auth');
     Route::get('/admin/agenda/delete/{id}', 'delete')->name('admin.agenda.delete')->middleware('auth');
+    Route::post('/admin/agenda/eventdragajax/{id}', 'eventdragajax')->name('eventdragajax')->middleware('auth');
 });
 
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])

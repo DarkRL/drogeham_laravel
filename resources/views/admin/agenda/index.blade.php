@@ -91,13 +91,43 @@
                         $('#event_id').val(info.event.id);
                         $("#clickedevent").text(info.event.title);
                         $('#eventEditModal').modal('show');
-              
+
                         var idRoute = "{{ route('admin.agenda.edit', ':id') }}";
                         var newRoute = idRoute.replace(':id', info.event.id);
                         $('#editform').attr('action', newRoute);
+                    },
+                    editable: true,
+                    eventDrop: function(info) {
+                        // console.log(info.event.startStr);
+                        // console.log(info.event.endStr);
+
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+
+                        var idRoute = "{{ route('eventdragajax', ':id') }}";
+                        var newRoute = idRoute.replace(':id', info.event.id);
+
+                        $.ajax({
+                            url: newRoute,
+                            type: 'POST',
+                            dataType: 'json',
+                            data: {start: info.event.startStr, end: info.event.endStr},
+                            success: function(response) {
+                                // console.log(response);
+                            
+                            },
+                            error: function(xhr, status, error) {
+                                console.log(xhr);
+                                console.log(status);
+                                console.log(error);
+                            }
+                        });
                     }
                 });
-                
+
                 calendar.render();
             });
         </script>
