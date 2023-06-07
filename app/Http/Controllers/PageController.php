@@ -8,6 +8,7 @@ use App\Models\posts\Event;
 use App\Models\posts\NewsPosts;
 use App\Models\admin\ProjectPost;
 use Illuminate\Support\Facades\DB;
+use App\Models\posts\ContactPosts;
 
 class PageController extends Controller
 {
@@ -103,4 +104,17 @@ class PageController extends Controller
 
         return view("pages/brinkpraat", compact('posts'));
     }
+      public function contactSumbit(request $request)
+      {
+        $NewContract = ContactPosts::create([
+          'naam' => $request->name,
+          'email' => $request->email,
+          'tel' => $request->Tel,
+          'bericht' => $request->message,
+          'updated_at' => date("Y-m-d Hs"),
+          'created_at' => date("Y-m-d Hs"),
+        ]);
+        return back();
+    }
+
 }

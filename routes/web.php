@@ -134,6 +134,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/templates/{id}/projectpost', 'projectpost')->name('templates.projectpost');
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
     Route::get('{page}', 'index')->name("page");
+    Route::post('/contact/post', 'contactSumbit')->name("contact post");
 });
 
 
