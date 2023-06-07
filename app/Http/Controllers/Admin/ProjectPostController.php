@@ -80,13 +80,13 @@ class ProjectPostController extends Controller
         if ($deleted) {
             return response()->json([
                 'success' => true,
-                'message' => "Bestand " . $request->headline . " is succesvol verwijderd!"
+                'message' => "Het project " . $request->headline . " is succesvol verwijderd!"
             ]);
         }
 
         return response()->json([
             'success' => false,
-            'message' => "Er is iets fout gegaan, Bestand " . $request->headline . " is niet verwijderd!"
+            'message' => "Er is iets fout gegaan, Het project " . $request->headline . " is niet verwijderd!"
         ]);
     }
 

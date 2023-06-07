@@ -6,7 +6,7 @@
     <div class="col-md-10">
         <div>
             <div id="message"></div>
-            <a href="{{ route('admin.projecten.create') }}"><button type="button" class="btn btn-primary">Add Article</button></a>
+            <a href="{{ route('admin.projecten.create') }}"><button type="button" class="btn btn-primary">Voeg Artikel Toe</button></a>
             <div class="table-responsive">
                 <table class="table table-striped table-responsive w-100">
                     <tr>
