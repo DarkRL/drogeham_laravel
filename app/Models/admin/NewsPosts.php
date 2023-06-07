@@ -9,5 +9,5 @@ class NewsPosts extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['headline', 'fulltext', 'photo', 'datetime'];
+    protected $fillable = ['headline', 'fulltext', 'photo', 'updated_at', 'created_at'];
 }

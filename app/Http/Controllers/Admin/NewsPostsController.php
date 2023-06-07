@@ -32,6 +32,7 @@ class NewsPostsController extends Controller
             'fulltext' => $fulltext,
             'photo' => $url,
             'updated_at' => date("Y-m-d H:m:s"),
+            'created_at' => date("Y-m-d H:m:s"),
             'public' => 0
         ]);
 
