@@ -48,13 +48,15 @@ class MeydPostsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $beforeUpdate = MeydPosts::where('pagename', $request->pagename)->first();
         MeydPosts::find($id)->update([
             'headline' => $request->headline,
             'pagename' => $request->pagename,
             'fulltext' => $request->fulltext,
             'updated_at' => date("Y-m-d H:m:s")
         ]);
-        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        $afterUpdate = MeydPosts::where('pagename', $request->pagename)->first();
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
         return redirect()->route('admin.meyd.index');
     }
 

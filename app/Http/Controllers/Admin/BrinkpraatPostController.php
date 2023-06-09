@@ -44,10 +44,13 @@ class BrinkpraatPostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $beforeUpdate = BrinkpraatPosts::findOrFail($id);
         BrinkpraatPosts::find($id)->update([
             'fulltext' => $request->fulltext
         ]);
-        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        $afterUpdate = BrinkpraatPosts::findOrFail($id);
+
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
         return redirect()->route('admin.brinkpraat.index')
             ->withSuccess('De inhoud is succesvol aangepast!');
     }

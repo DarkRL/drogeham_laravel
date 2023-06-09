@@ -42,10 +42,13 @@ class PlaatselijkBelangPostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $beforeUpdate = PlaatselijkbelangPosts::findOrFail($id);
+
         PlaatselijkbelangPosts::find($id)->update([
             'fulltext' => $request->fulltext
         ]);
-        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        $afterUpdate = PlaatselijkbelangPosts::findOrFail($id);
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
         return redirect()->route('admin.plaatselijkbelang.index')
             ->withSuccess('De inhoud is succesvol aangepast!');
     }

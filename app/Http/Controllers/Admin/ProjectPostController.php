@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Models\admin\ProjectPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectPostController extends Controller
 {
@@ -55,9 +56,12 @@ class ProjectPostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $beforeUpdate = ProjectPost::findOrFail($id);
         if ($request->hasFile('photo')) {
             $imgpath = request()->file('photo')->store('uploads', 'public');
             $url = asset('storage/' . $imgpath);
+
+            Storage::delete('public/uploads/' . basename($beforeUpdate->photo));
 
             ProjectPost::find($id)->update([
                 'photo' => $url
@@ -69,14 +73,17 @@ class ProjectPostController extends Controller
             'fulltext' => $request->fulltext,
             'updated_at' => date("Y-m-d H:m:s"),
         ]);
-        // app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        $afterUpdate = ProjectPost::findOrFail($id);
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
         return redirect()->route('admin.projecten.index');
     }
 
     public function delete(Request $request, $id)
     {
+        $beforeDel = ProjectPost::findOrFail($id);
         $deleted = ProjectPost::find($id)->delete();
-        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        Storage::delete('public/uploads/' . basename($beforeDel->photo));
+
         if ($deleted) {
             return response()->json([
                 'success' => true,
