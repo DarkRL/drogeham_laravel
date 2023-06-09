@@ -43,7 +43,8 @@
                             <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Sluiten</button>
                             <form method="POST" id="deleteFunction" action="">
                                 @csrf
-                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Ja</button>
+                                <input type="hidden" name="del_id" id="del_id">
+                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Verwijderen</button>
                             </form>
                             <form method="POST" id="editform" action="">
                                 @csrf
@@ -123,9 +124,33 @@
                         var idRoute = "{{ route('admin.agenda.edit', ':id') }}";
                         var newRoute = idRoute.replace(':id', info.event.id);
                         $('#editform').attr('action', newRoute);
-                        // var idRoute2 = "{{ route('admin.agenda.delete', ':id') }}";
-                        // var newRoute2 = idRoute2.replace(':id', info.event.id);
-                        // $('#deleteFunction').attr('action', newRoute2);
+
+                        $('#deleteFunction').attr('action', "{{ route('admin.agenda.delete') }}");
+                        $('#del_id').val(info.event.id);
+
+                        $('#deleteFunction').submit(function(event) {
+                            event.preventDefault();
+
+                            var id = info.event.id;
+                            var formElement = $(this);
+                            var formData = $(formElement).serialize();
+
+                            var event = calendar.getEventById(info.event.id);
+
+                            $.ajax({
+                                url: "{{ route('admin.agenda.delete') }}",
+                                type: 'PUT',
+                                data: formData,
+                                dataType: 'json',
+                                success: function(response) {
+                                    event.remove();
+                                },
+                                error: function(xhr, status, error) {
+                                    var err = eval("(" + xhr.responseText + ")");
+                                    $('#message').text(err.message).addClass("alert alert-danger");
+                                }
+                            });
+                        });
                     },
                     editable: true,
                     eventDrop: function(info) {
@@ -158,34 +183,6 @@
                                 console.log(status);
                                 console.log(error);
                             }
-                        });
-
-                        $('#deleteFunction').submit(function(event) {
-                            event.preventDefault();
-
-                            var id = info.event.id;
-                            var formElement = $(this);
-                            var formData = $(formElement).serialize();
-
-                            var event = calendar.getEventById(info.event.id);
-
-                            var idRoute3 = "{{ route('admin.agenda.delete', ':id') }}";
-                            var newRoute3 = idRoute3.replace(':id', info.event.id);
-
-                            $.ajax({
-                                url: newRoute3,
-                                type: 'POST',
-                                data: formData,
-                                dataType: 'json',
-                                success: function(response) {
-                                    event.remove();
-                                    console.log("WORKS");
-                                },
-                                error: function(xhr, status, error) {
-                                    var err = eval("(" + xhr.responseText + ")");
-                                    $('#message').text(err.message).addClass("alert alert-danger");
-                                }
-                            });
                         });
                     },
                     eventResize: function(info) {

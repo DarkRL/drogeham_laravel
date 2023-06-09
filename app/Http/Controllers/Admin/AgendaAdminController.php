@@ -55,13 +55,19 @@ class AgendaAdminController extends Controller
             'start' => $request->startdate,
             'end' => $request->enddate
         ]);
-        
+
         return redirect()->route('admin.agenda.index');
     }
 
-    public function delete($id)
+    // public function delete($id)
+    // {
+    //     $deleted = Event::find($id)->delete();
+    //     return response()->json($deleted);
+    // }
+
+    public function delete(Request $request)
     {
-        $deleted = Event::find($id)->delete();
+        $deleted = Event::find($request->del_id)->delete();
         return response()->json($deleted);
     }
 
