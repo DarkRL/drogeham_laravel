@@ -48,22 +48,18 @@ class AgendaAdminController extends Controller
     public function update(Request $request, $id)
     {
         $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
-
+        $beforeUpdate = Event::findOrFail($id);
         Event::find($id)->update([
             'title' => $request->title,
             'fulltext' => $fulltext,
             'start' => $request->startdate,
             'end' => $request->enddate
         ]);
+        $afterUpdate = Event::findOrFail($id);
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
 
         return redirect()->route('admin.agenda.index');
     }
-
-    // public function delete($id)
-    // {
-    //     $deleted = Event::find($id)->delete();
-    //     return response()->json($deleted);
-    // }
 
     public function delete(Request $request)
     {

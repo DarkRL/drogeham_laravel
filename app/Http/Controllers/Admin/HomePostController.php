@@ -43,10 +43,12 @@ class HomePostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $beforeUpdate = HomePost::findOrFail($id);
         HomePost::find($id)->update([
             'fulltext' => $request->fulltext
         ]);
-        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        $afterUpdate = HomePost::findOrFail($id);
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
         return redirect()->route('admin.home.index')
             ->withSuccess('De inhoud is succesvol aangepast!');
     }

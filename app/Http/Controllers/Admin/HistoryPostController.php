@@ -11,7 +11,6 @@ class HistoryPostController extends Controller
 {
     public function index()
     {
-        // $posts = HomePost::all();
         $posts = DB::select('SELECT * FROM history_posts WHERE id = ?', ['1']);
         return view('admin.history.index', ['posts' => $posts]);
     }
@@ -42,10 +41,12 @@ class HistoryPostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $beforeUpdate = HistoryPosts::findOrFail($id);
         HistoryPosts::find($id)->update([
             'fulltext' => $request->fulltext
         ]);
-        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        $afterUpdate = HistoryPosts::findOrFail($id);
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
         return redirect()->route('admin.history.index')
             ->withSuccess('De inhoud is succesvol aangepast!');
     }
