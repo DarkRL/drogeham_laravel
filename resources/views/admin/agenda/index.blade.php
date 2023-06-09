@@ -39,18 +39,18 @@
                         <div id="eventText"></div>
                     </div>
                     <div class="modal-footer">
-
-                        <form method="POST" id="editform" action="">
-                            @csrf
-                            <input type="hidden" name="id" id="event_id">
-                            <div class="btn-toolbar">
-                                <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Sluiten</button>
-                                <a href="{{ route('admin.agenda.delete', ['id' => 0]) }}">
-                                    <button type="button" class="btn btn-danger mx-1">Verwijderen</button>
-                                </a>
+                        <div class="btn-toolbar">
+                            <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Sluiten</button>
+                            <form method="POST" id="deleteFunction" action="">
+                                @csrf
+                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Ja</button>
+                            </form>
+                            <form method="POST" id="editform" action="">
+                                @csrf
+                                <input type="hidden" name="id" id="event_id">
                                 <button type="submit" class="btn btn-success mx-1">Aanpassen</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -123,6 +123,9 @@
                         var idRoute = "{{ route('admin.agenda.edit', ':id') }}";
                         var newRoute = idRoute.replace(':id', info.event.id);
                         $('#editform').attr('action', newRoute);
+                        // var idRoute2 = "{{ route('admin.agenda.delete', ':id') }}";
+                        // var newRoute2 = idRoute2.replace(':id', info.event.id);
+                        // $('#deleteFunction').attr('action', newRoute2);
                     },
                     editable: true,
                     eventDrop: function(info) {
@@ -155,6 +158,34 @@
                                 console.log(status);
                                 console.log(error);
                             }
+                        });
+
+                        $('#deleteFunction').submit(function(event) {
+                            event.preventDefault();
+
+                            var id = info.event.id;
+                            var formElement = $(this);
+                            var formData = $(formElement).serialize();
+
+                            var event = calendar.getEventById(info.event.id);
+
+                            var idRoute3 = "{{ route('admin.agenda.delete', ':id') }}";
+                            var newRoute3 = idRoute3.replace(':id', info.event.id);
+
+                            $.ajax({
+                                url: newRoute3,
+                                type: 'POST',
+                                data: formData,
+                                dataType: 'json',
+                                success: function(response) {
+                                    event.remove();
+                                    console.log("WORKS");
+                                },
+                                error: function(xhr, status, error) {
+                                    var err = eval("(" + xhr.responseText + ")");
+                                    $('#message').text(err.message).addClass("alert alert-danger");
+                                }
+                            });
                         });
                     },
                     eventResize: function(info) {

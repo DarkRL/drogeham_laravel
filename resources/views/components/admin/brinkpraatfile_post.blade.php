@@ -117,7 +117,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nee</button>
                         </div>
                         <div class="col-6">
-                            <form method="post" id="delete_{{ $postid }}">
+                            <form id="delete_{{ $postid }}">
                                 @csrf
                                 <input class="form-control" type="hidden" name="filename" value="{{ $filename  }}">
                                 <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Ja</button>

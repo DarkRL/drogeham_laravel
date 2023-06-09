@@ -59,9 +59,10 @@ class AgendaAdminController extends Controller
         return redirect()->route('admin.agenda.index');
     }
 
-    public function delete()
+    public function delete($id)
     {
-        return redirect()->route('admin.agenda.index');
+        $deleted = Event::find($id)->delete();
+        return response()->json($deleted);
     }
 
     public function eventdragajax(Request $request, $id)

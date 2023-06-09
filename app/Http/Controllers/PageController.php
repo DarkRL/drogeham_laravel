@@ -30,6 +30,14 @@ class PageController extends Controller
       $carouselProjecten = DB::select('SELECT  * FROM project_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 4');
       $carouselNewsPosts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 6');
 
+      if (count($carouselProjecten) < 6){
+        $carouselProjecten = [];
+      }
+
+      if (count($carouselNewsPosts) < 6){
+        $carouselNewsPosts = [];
+      }
+
       if (count($carouselNewsPosts) > 3) { // split het int twee arrays met drie items is makkelijker voor de front-end
         $carouselNewsPosts = array_chunk($carouselNewsPosts, 3);
       }

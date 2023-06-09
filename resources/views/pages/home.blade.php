@@ -27,47 +27,46 @@
             <div class="row justify-content-center">
                 <div class="col-10">
                     <div class="m-5">
-                    <div id="CarouselProjecten" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        @for ($i = 0; $i < count($carouselProjecten); $i++)
-                        <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="{{$i}}" @if ($i === 0) class="active" aria-current="true" @endif aria-label="Slide {{ ($i + 1) }}"></button>
-                        @endfor
-                    </div>
-                    <div class="carousel-inner">
-                        @forelse ($carouselProjecten as $key => $carouselProject)
-                        <div class="carousel-item bg-dark @if ($key === 0) active @endif" style="min-height: 400px; ">
-                            <div class="container">
-
-                                <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
-                                    <div class="col-8">
-                                      <img src="{{$carouselProject->photo}}" class="d-block w-100" height="400" alt="Slide {{ ($key + 1) }}">
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="text-white">
-                                            <div class="p-2 mw-50">
-                                                {!! html_entity_decode($carouselProject->headline) !!}
-                                                <div class="p-2"></div>
-                                                {!! html_entity_decode($carouselProject->fulltext) !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
-
+                        <div id="CarouselProjecten" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                @for ($i = 0; $i < count($carouselProjecten); $i++) <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="{{$i}}" @if ($i===0) class="active" aria-current="true" @endif aria-label="Slide {{ ($i + 1) }}"></button>
+                                    @endfor
                             </div>
-                        </div>
-                        @empty
-                        @endforelse
-                    </div>
+                            <div class="carousel-inner">
+                                @forelse ($carouselProjecten as $key => $carouselProject)
+                                <div class="carousel-item bg-dark @if ($key === 0) active @endif" style="min-height: 400px; ">
+                                    <div class="container">
 
-                    <button class="carousel-control-prev" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+                                        <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
+                                            <div class="col-8">
+                                                <img src="{{$carouselProject->photo}}" class="d-block w-100" height="400" alt="Slide {{ ($key + 1) }}">
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="text-white">
+                                                    <div class="p-2 mw-50">
+                                                        {!! html_entity_decode($carouselProject->headline) !!}
+                                                        <div class="p-2"></div>
+                                                        {!! html_entity_decode($carouselProject->fulltext) !!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                @empty
+                                @endforelse
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
 
 
                         <div class="pt-5 pb-3 custom_hidden_repeat">
@@ -82,45 +81,47 @@
                 <div class="col-10 mt-5">
                     <div class="mb-5">
                         <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay_up" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                          @if (gettype($carouselNewsPosts[0]) === "array")
-                              @forelse ($carouselNewsPosts as $key => $carouselNewsPost)
-                                  <div class="carousel-item @if ($key === 0) active @endif">
-                                      <div class="row ">
-                                          @forelse ($carouselNewsPost as $NewsPost)
-                                              <div class="col">
-                                                <div class="text-center bg-dark text-light">
-                                                  {{$NewsPost->headline}}
-                                                </div>
-                                                <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
-                                                  <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
-                                                </a>
-                                              </div>
-                                          @empty
-                                          @endforelse
-                                      </div>
-                                  </div>
-                              @empty
-                              @endforelse
-                              @elseif (gettype($carouselNewsPosts[0]) === "object")
-                              @forelse ($carouselNewsPosts as $key => $NewsPost)
-                                  <div class="carousel-item @if ($key === 0) active @endif">
-                                      <div class="row">
-                                        <div class="col ">
-                                          <div class="text-center bg-dark text-light">
-                                            {{$NewsPost->headline}}
-                                          </div>
-                                          <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
-                                            <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
-                                          </a>
+                            <div class="carousel-inner">
+                                @if (count($carouselNewsPosts) > 0)
+                                @if (gettype($carouselNewsPosts[0]) === "array")
+                                @forelse ($carouselNewsPosts as $key => $carouselNewsPost)
+                                <div class="carousel-item @if ($key === 0) active @endif">
+                                    <div class="row ">
+                                        @forelse ($carouselNewsPost as $NewsPost)
+                                        <div class="col">
+                                            <div class="text-center bg-dark text-light">
+                                                {{$NewsPost->headline}}
+                                            </div>
+                                            <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
+                                                <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                            </a>
                                         </div>
-                                      </div>
-                                  </div>
-                              @empty
-                              @endforelse
-                              @else
-                          @endif
-                      </div>
+                                        @empty
+                                        @endforelse
+                                    </div>
+                                </div>
+                                @empty
+                                @endforelse
+                                @elseif (gettype($carouselNewsPosts[0]) === "object")
+                                @forelse ($carouselNewsPosts as $key => $NewsPost)
+                                <div class="carousel-item @if ($key === 0) active @endif">
+                                    <div class="row">
+                                        <div class="col ">
+                                            <div class="text-center bg-dark text-light">
+                                                {{$NewsPost->headline}}
+                                            </div>
+                                            <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
+                                                <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @empty
+                                @endforelse
+                                @else
+                                @endif
+                                @endif
+                            </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#CarouselArtikelen" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
@@ -140,7 +141,7 @@
                             <form action="/contact/post" method="post">
                                 @csrf
                                 <div class="mb-3">
-                                     <label for="name" class="form-label">Naam*</label>
+                                    <label for="name" class="form-label">Naam*</label>
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Vul je naam hier in..." required>
                                 </div>
                                 <div class="mb-3">
