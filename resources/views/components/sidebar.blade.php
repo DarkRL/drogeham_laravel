@@ -93,7 +93,7 @@
             </a>
             <div id="collapseOne" class="w-100 accordion-collapse collapse show bg-dark" aria-labelledby="headingOne" data-bs-parent=".accordion">
               <div class="d-none d-sm-inline">
-                <a class="text-white text-decoration-none" href="#">- Pagina's aanmaken</a><br>
+                <a class="text-white text-decoration-none" href="{{route('admin.extra.index')}}">- Pagina's aanmaken</a><br>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@
               <span class="ms-2  d-none d-sm-inline">Tools</span>
             </a>
             <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">- Pagina's aanmaken</a>
+              <a class="dropdown-item" href="{{route('admin.extra.index')}}">- Pagina's aanmaken</a>
             </div>
           </div>
         </li>
