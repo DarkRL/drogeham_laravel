@@ -19,19 +19,16 @@
             @endif
         </h5>
 
-        <div class="card mt-3">
-            <div class="card-header">Feedback</div>
-            <div class="card-body">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    {{ $message }}
-                </div>
-                @endif
+        <div id="message">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                {{ $message }}
             </div>
+            @endif
         </div>
     </div>
 </div>
-<div class="row justify-content-center mt-5">
+<div class="row justify-content-center mt-1">
     <div class="col-md-10">
         <div class="card">
             <div class="card-header">
@@ -47,15 +44,6 @@
                 none
 
                 @endforelse
-            </div>
-        </div>
-        <div class="mt-3">
-            <div id="message">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    {{ $message }}
-                </div>
-                @endif
             </div>
         </div>
         <a href="{{ route('admin.brinkpraat.create.files') }}"><button type="button" class="btn btn-primary m-2">Voeg een nieuw bestand toe</button></a>
@@ -75,7 +63,9 @@
 
                     @empty
 
-                    Geen bestanden geüpload
+                    <tr>
+                        <td colspan="5">Geen bestanden geüpload</td>
+                    </tr>
 
                     @endforelse
                 </table>

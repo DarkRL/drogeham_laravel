@@ -16,7 +16,7 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">Publicatiedatum</div>
                 </div>
-                <input name="startdate" class="form-control" type="date" value="{{ $post->datetime }}"></input>
+                <input name="datetime" class="form-control" type="date" value="{{ date('Y-m-d', strtotime($post->datetime)) }}"></input>
             </div>         
             <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Save" class="btn btn-primary">Toevoegen</button>

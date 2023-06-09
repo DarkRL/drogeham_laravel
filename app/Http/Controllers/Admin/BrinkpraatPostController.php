@@ -7,7 +7,7 @@ use App\Models\admin\BrinkpraatPosts;
 use App\Models\admin\BrinkpraatfilePosts;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BrinkpraatPostController extends Controller
 {
@@ -96,7 +96,11 @@ class BrinkpraatPostController extends Controller
 
             $fileName = time() . '.' . $request->filepath->extension();
 
-            $url = $request->filepath->move(public_path('storage/files'), $fileName);
+            $beforeUpdate = BrinkpraatfilePosts::findOrFail($id);
+            Storage::delete('public/files/' . basename($beforeUpdate->filepath));
+
+            // $url = $request->filepath->move(public_path('storage/files'), $fileName);
+            $url = request()->file('filepath')->store('files', 'public');
 
             BrinkpraatfilePosts::find($id)->update([
                 'filepath' => $url
@@ -136,7 +140,9 @@ class BrinkpraatPostController extends Controller
     
     public function delete_files(Request $request, $id)
     {
+        $beforeDel = BrinkpraatfilePosts::findOrFail($id);
         $deleted = BrinkpraatfilePosts::find($id)->delete();
+        Storage::delete('public/files/' . basename($beforeDel->filepath));
 
         if ($deleted) {
             return response()->json([

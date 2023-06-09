@@ -119,7 +119,6 @@ Route::controller(AgendaAdminController::class)->group(function () {
     Route::post('/admin/agenda/store', 'store')->name('admin.agenda.store')->middleware('auth');
     Route::post('/admin/agenda/edit/{id}', 'edit')->name('admin.agenda.edit')->middleware('auth');
     Route::patch('/admin/agenda/update/{id}', 'update')->name('admin.agenda.update')->middleware('auth');
-    // Route::put('/admin/agenda/delete/{id}', 'delete')->name('admin.agenda.delete')->middleware('auth');
     Route::put('/admin/agenda/delete', 'delete')->name('admin.agenda.delete')->middleware('auth');
     Route::post('/admin/agenda/eventdragajax/{id}', 'eventdragajax')->name('admin.agenda.eventdragajax')->middleware('auth');
     Route::post('/admin/agenda/eventajax/{id}', 'eventajax')->name('admin.agenda.eventajax')->middleware('auth');
