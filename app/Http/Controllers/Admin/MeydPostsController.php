@@ -75,7 +75,7 @@ class MeydPostsController extends Controller
         if ($saved) {
             return response()->json([
                 'success' => true,
-                'message' => $request->publishValue == 0 ? "Pagina '{$request->headline}' is succesvol inactief gezet!" : "Artikel '{$request->headline}' is succesvol actief gezet!"
+                'message' => $request->publishValue == 0 ? "Pagina '{$request->headline}' is succesvol inactief gezet!" : "Pagina '{$request->headline}' is succesvol actief gezet!"
             ]);
         }
 

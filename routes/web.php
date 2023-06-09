@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProjectPostController;
 use App\Http\Controllers\Admin\MeydPostsController;
 use App\Http\Controllers\Admin\HistoryPostController;
 use App\Http\Controllers\Admin\BrinkpraatPostController;
+use App\Http\Controllers\admin\ExtraPagesAdminController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
 use App\Http\Controllers\imagehandler\ImageController;
 use App\Http\Controllers\MailController;
@@ -123,6 +124,10 @@ Route::controller(AgendaAdminController::class)->group(function () {
     Route::put('/admin/agenda/delete', 'delete')->name('admin.agenda.delete')->middleware('auth');
     Route::post('/admin/agenda/eventdragajax/{id}', 'eventdragajax')->name('admin.agenda.eventdragajax')->middleware('auth');
     Route::post('/admin/agenda/eventajax/{id}', 'eventajax')->name('admin.agenda.eventajax')->middleware('auth');
+});
+
+Route::controller(ExtraPagesAdminController::class)->group(function() {
+    Route::get('/admin/extra/index', 'index')->name('admin.extra.index')->middleware('auth');
 });
 
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
