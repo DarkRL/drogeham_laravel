@@ -65,10 +65,16 @@ class PageController extends Controller
         return view("pages/actueel", ['posts' => $posts]);
     }
 
-
     public function newspost(NewsPosts $id)
     {
         return view("templates/newspost", ['post' => $id]);
+    }
+    
+    public function meydinfopage()
+    {
+        $posts = DB::select('SELECT * FROM meydinfo_posts WHERE id = ?', ['1']);
+
+        return view("pages/meydinfo", compact('posts'));
     }
 
     public function meydpost($pagename)

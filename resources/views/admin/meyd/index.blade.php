@@ -4,6 +4,22 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-center">Preview:</h5>
+            </div>
+            <div class="card-body">
+                @forelse ($posts_info as $posts_inf)
+
+                <x-admin.meydinfo_post postid="{{ $posts_inf->id }}" fulltext="{{ $posts_inf->fulltext }}" datetime="{{ $posts_inf->updated_at }}" />
+
+                @empty
+
+                Leeg
+
+                @endforelse
+            </div>
+        </div>
         <div>
             <div class="mt-3">
                 <div id="message">

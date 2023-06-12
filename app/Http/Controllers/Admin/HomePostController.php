@@ -12,7 +12,6 @@ class HomePostController extends Controller
 {
     public function index()
     {
-        // $posts = HomePost::all();
         $posts = DB::select('SELECT * FROM home_posts WHERE id = ?' , ['1']);
         return view('admin.home.index', ['posts' => $posts]);
     }

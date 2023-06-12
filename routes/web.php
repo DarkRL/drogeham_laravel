@@ -78,6 +78,10 @@ Route::controller(MeydPostsController::class)->group(function () {
     Route::patch('/admin/meyd/{id}/edit', 'update')->middleware('auth');
     Route::get('/admin/meyd/create', 'create')->name('admin.meyd.create')->middleware('auth');
     Route::post('/admin/meyd/create', 'store')->middleware('auth');
+    Route::get('/admin/meydinfo/{id}/edit', 'edit_info')->name('admin.meydinfo.edit')->middleware('auth');
+    Route::patch('/admin/meydinfo/{id}/edit', 'update_info')->middleware('auth');
+    Route::get('/admin/meydinfo/create', 'create_info')->name('admin.meydinfo.create')->middleware('auth');
+    Route::post('/admin/meydinfo/create', 'store_info')->middleware('auth');
     Route::get('/admin/meyd/{id}/delete', 'delete')->name('admin.meyd.delete')->middleware('auth');
     Route::put('/admin/meyd/{id}/publish', 'publish')->name('admin.meyd.publish')->middleware('auth');
     Route::get('/admin/meyd/index', 'index')->name('admin.meyd.index')->middleware('auth');
@@ -144,9 +148,10 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/projecten', 'projectenpage')->name('projecten');
     Route::get('/brinkpraat', 'brinkpraatpage')->name('brinkpraat');
     Route::get('/templates/{id}/projectpost', 'projectpost')->name('templates.projectpost');
+    Route::get('/meydinfo', 'meydinfopage')->name('meydinfo');
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
-    Route::get('{page}', 'index')->name("page");
     Route::post('/contact/post', 'contactSumbit')->name("contact post");
+    Route::get('{page}', 'index')->name("page");
 });
 
 

@@ -8,12 +8,14 @@
                 <li class="nav-item"><a href="{{route('page', ['page' => 'actueel'])}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Actueel</span></a></li>
                 <li class="nav-item"><a href="{{route('page', ['page' => 'projecten'])}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Projecten</span></a></li>
                 <div class="dropdown nav-link link-dark">
-                    <a class="text-decoration-none text-reset" href="{{route('page', ['page' => 'meyd'])}}">
+                    <a class="text-decoration-none text-reset" href="{{route('page', ['page' => 'meydinfo'])}}">
                         <div class="dropdown-toggle" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
                             MEYD
                         </div>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="{{route('page', ['page' => 'meydinfo'])}}">MEYD Informatie</a></li>
+
                         @foreach ($meydRecords as $record)
                         <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="{{ route('meyd.meydpost', ['pagename' => $record->pagename]) }}">{{ $record->headline }}</a></li>
                         @endforeach
