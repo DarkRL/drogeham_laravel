@@ -12,7 +12,7 @@ class MeydPostsController extends Controller
 {
     public function index()
     {
-        $posts_info = DB::select('SELECT * FROM meydinfo_posts WHERE id = ?' , ['1']);
+        $posts_info = DB::select('SELECT * FROM meydinfo_posts WHERE id = ?', ['1']);
         $posts = MeydPosts::all();
         return view('admin.meyd.index', ['posts' => $posts, 'posts_info' => $posts_info]);
     }
@@ -26,17 +26,17 @@ class MeydPostsController extends Controller
             'pagename' => str_replace(' ', '-', $request->pagename),
             'fulltext' => $fulltext ?? " ",
             'created_at' => date("Y-m-d H:m:s"),
-            'updated_at'=> date("Y-m-d H:m:s"),
+            'updated_at' => date("Y-m-d H:m:s"),
             'public' => 0
         ]);
 
         if ($newPost) {
             return redirect()->route('admin.meyd.index')
-                ->withSuccess('Nieuw artikel is succesvol aangemaakt!');
+                ->withSuccess('"' . $request->headline . '" is succesvol aangemaakt!');
         }
 
         return redirect()->route('admin.meyd.index')
-            ->withErrors('Er is een error ontstaan, het artikel is niet aangemaakt!');
+            ->withFail('Er is een error ontstaan, "' . $request->headline . '" kon niet aangemaakt worden!');
     }
 
     public function create()
@@ -53,7 +53,7 @@ class MeydPostsController extends Controller
     {
         $beforeUpdate = MeydPosts::where('pagename', str_replace(' ', '-', $request->pagename))->first();
 
-        MeydPosts::find($id)->update([
+        $saved = MeydPosts::find($id)->update([
             'headline' => $request->headline,
             'pagename' => str_replace(' ', '-', $request->pagename),
             'fulltext' => $request->fulltext ?? " ",
@@ -63,7 +63,13 @@ class MeydPostsController extends Controller
         $afterUpdate = MeydPosts::findOrFail($beforeUpdate->id);
 
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
-        return redirect()->route('admin.meyd.index');
+
+        if ($saved) {
+            return redirect()->route('admin.meyd.index')
+                ->withSuccess('"' . $request->headline . '" is succesvol aangepast!');
+        }
+        return redirect()->route('admin.meyd.index')
+            ->withFail('Er is een probleem opgetreden, "' . $request->headline . '" kon niet aangepast worden!');
     }
 
     public function delete($id)
@@ -102,8 +108,12 @@ class MeydPostsController extends Controller
             'fulltext' => $request->fulltext ?? " ",
             'updated_at' => date("Y-m-d H:m:s")
         ]);
+        if ($newPost) {
+            return redirect()->route('admin.meyd.index')
+                ->withSuccess('De inhoud voor algemene info MEYD is succesvol aangemaakt!');
+        }
         return redirect()->route('admin.meyd.index')
-            ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
+            ->withFail('Er is een probleem opgetreden, inhoud algemene info MEYD is niet aangemaakt!');
     }
 
     public function create_info()
@@ -123,12 +133,17 @@ class MeydPostsController extends Controller
     public function update_info(Request $request, $id)
     {
         $beforeUpdate = MeydinfoPosts::findOrFail($id);
-        MeydinfoPosts::find($id)->update([
+        $saved = MeydinfoPosts::find($id)->update([
             'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = MeydinfoPosts::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
+
+        if ($saved) {
+            return redirect()->route('admin.meyd.index')
+                ->withSuccess('De inhoud voor algemene info MEYD is succesvol aangepast!');
+        }
         return redirect()->route('admin.meyd.index')
-            ->withSuccess('De inhoud voor algemene info is succesvol aangepast!');
+            ->withFail('Er is een probleem opgetreden, inhoud algemene info MEYD is niet aangepast!');
     }
 }

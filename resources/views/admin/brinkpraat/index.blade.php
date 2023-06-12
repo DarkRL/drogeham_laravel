@@ -24,6 +24,10 @@
             <div class="alert alert-success">
                 {{ $message }}
             </div>
+            @elseif ($message = Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @endif
         </div>
     </div>

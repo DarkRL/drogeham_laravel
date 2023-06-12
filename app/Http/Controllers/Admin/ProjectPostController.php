@@ -24,7 +24,7 @@ class ProjectPostController extends Controller
             $url = asset('storage/' . $imgpath);
         }
 
-       $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
+        $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
 
         $newPost = ProjectPost::create([
             'headline' => $request->headline,
@@ -37,11 +37,11 @@ class ProjectPostController extends Controller
 
         if ($newPost) {
             return redirect()->route('admin.projecten.index')
-                ->withSuccess('Nieuw artikel is succesvol aangemaakt!');
+                ->withSuccess('Project "' . $request->headline . '" is succesvol aangemaakt!');
         }
 
         return redirect()->route('admin.projecten.index')
-            ->withErrors('Er is een error ontstaan, het artikel is niet aangemaakt!');
+            ->withErrors('Er is een error ontstaan, artikel "' . $request->headline . '" is niet aangemaakt!');
     }
 
     public function create()
@@ -68,14 +68,20 @@ class ProjectPostController extends Controller
             ]);
         }
 
-        ProjectPost::find($id)->update([
+        $saved = ProjectPost::find($id)->update([
             'headline' => $request->headline,
             'fulltext' => $request->fulltext ?? " ",
             'updated_at' => date("Y-m-d H:m:s"),
         ]);
         $afterUpdate = ProjectPost::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
-        return redirect()->route('admin.projecten.index');
+
+        if ($saved) {
+            return redirect()->route('admin.projecten.index')
+                ->withSuccess('Project "' . $request->headline . '" is succesvol aangepast!');
+        }
+        return redirect()->route('admin.projecten.index')
+            ->withFail('Er is een probleem opgetreden, project "' . $request->headline . '" is niet aangepast!');
     }
 
     public function delete(Request $request, $id)
@@ -87,13 +93,13 @@ class ProjectPostController extends Controller
         if ($deleted) {
             return response()->json([
                 'success' => true,
-                'message' => "Het project " . $request->headline . " is succesvol verwijderd!"
+                'message' => "Het project '" . $request->headline . "' is succesvol verwijderd!"
             ]);
         }
 
         return response()->json([
             'success' => false,
-            'message' => "Er is iets fout gegaan, Het project " . $request->headline . " is niet verwijderd!"
+            'message' => "Er is iets fout gegaan, Het project '" . $request->headline . "' is niet verwijderd!"
         ]);
     }
 
@@ -107,13 +113,13 @@ class ProjectPostController extends Controller
         if ($saved) {
             return response()->json([
                 'success' => true,
-                'message' => $request->publishValue == 0 ? "Artikel '{$request->headline}' is succesvol inactief gezet!" : "Artikel '{$request->headline}' is succesvol actief gezet!"
+                'message' => $request->publishValue == 0 ? "Project '{$request->headline}' is succesvol inactief gezet!" : "Project '{$request->headline}' is succesvol actief gezet!"
             ]);
         }
 
         return response()->json([
             'success' => false,
-            'message' => "Er is iets fout gegaan, artikel '{$request->headline}' kon niet op actief/inactief worden gezet"
+            'message' => "Er is iets fout gegaan, project '{$request->headline}' kon niet op actief/inactief worden gezet"
         ]);
     }
 }

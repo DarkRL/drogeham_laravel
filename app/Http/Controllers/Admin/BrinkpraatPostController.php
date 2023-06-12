@@ -24,8 +24,12 @@ class BrinkpraatPostController extends Controller
             'fulltext' => $request->fulltext ?? " ",
             'datetime' => date("Y-m-d H:m:s")
         ]);
+        if ($newPost) {
+            return redirect()->route('admin.brinkpraat.index')
+                ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
+        }
         return redirect()->route('admin.brinkpraat.index')
-            ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
+            ->withFail('Er is een probleem opgetreden, inhoud is niet goed aangemaakt!');
     }
 
     public function create()
@@ -45,14 +49,19 @@ class BrinkpraatPostController extends Controller
     public function update(Request $request, $id)
     {
         $beforeUpdate = BrinkpraatPosts::findOrFail($id);
-        BrinkpraatPosts::find($id)->update([
+        $saved = BrinkpraatPosts::find($id)->update([
             'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = BrinkpraatPosts::findOrFail($id);
 
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
+
+        if ($saved) {
+            return redirect()->route('admin.brinkpraat.index')
+                ->withSuccess('Nieuwe inhoud is succesvol aangepast!');
+        }
         return redirect()->route('admin.brinkpraat.index')
-            ->withSuccess('De inhoud is succesvol aangepast!');
+            ->withFail('Er is een probleem opgetreden, inhoud is niet goed aangepast!');
     }
 
     //-------\\
@@ -76,8 +85,12 @@ class BrinkpraatPostController extends Controller
             'updated_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s")
         ]);
+        if ($newPost) {
+            return redirect()->route('admin.brinkpraat.index')
+                ->withSuccess('Nieuwe inhoud is succesvol aangepast!');
+        }
         return redirect()->route('admin.brinkpraat.index')
-            ->withSuccess('Nieuwe file is toegevoegd!');
+            ->withFail('Er is een probleem opgetreden, inhoud is niet aangepast!');
     }
 
     public function create_files()
@@ -102,7 +115,6 @@ class BrinkpraatPostController extends Controller
             $beforeUpdate = BrinkpraatfilePosts::findOrFail($id);
             Storage::delete('public/files/' . basename($beforeUpdate->filepath));
 
-            // $url = $request->filepath->move(public_path('storage/files'), $fileName);
             $url = request()->file('filepath')->store('files', 'public');
 
             BrinkpraatfilePosts::find($id)->update([
@@ -110,14 +122,18 @@ class BrinkpraatPostController extends Controller
             ]);
         }
 
-        BrinkpraatfilePosts::find($id)->update([
+        $saved = BrinkpraatfilePosts::find($id)->update([
             'filename' => $request->filename,
             'datetime' => $request->datetime,
             'updated_at' => date("Y-m-d H:m:s"),
         ]);
 
+        if ($saved) {
+            return redirect()->route('admin.brinkpraat.index')
+                ->withSuccess('Nieuw bestand is succesvol aangepast!');
+        }
         return redirect()->route('admin.brinkpraat.index')
-            ->withSuccess('De inhoud is succesvol aangepast!');
+            ->withFail('Er is een probleem opgetreden, bestand is niet goed aangepast!');
     }
 
     public function publish_files(Request $request, $id)
@@ -140,7 +156,7 @@ class BrinkpraatPostController extends Controller
         ]);
     }
 
-    
+
     public function delete_files(Request $request, $id)
     {
         $beforeDel = BrinkpraatfilePosts::findOrFail($id);

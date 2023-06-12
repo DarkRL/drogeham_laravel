@@ -37,11 +37,11 @@ class NewsPostsController extends Controller
 
         if ($newPost) {
             return redirect()->route('admin.actueel.index')
-                ->withSuccess('Nieuw artikel is succesvol aangemaakt!');
+                ->withSuccess('Artikel "' . $request->headline . '" is succesvol aangemaakt!');
         }
 
         return redirect()->route('admin.actueel.index')
-            ->withErrors('Er is een fout opgetreden, het artikel is niet aangemaakt!');
+            ->withFail('Er is een fout opgetreden, het artikel "' . $request->headline . '" is niet aangemaakt!');
     }
 
     public function create()
@@ -68,7 +68,7 @@ class NewsPostsController extends Controller
             ]);
         }
 
-        NewsPosts::find($id)->update([
+        $saved = NewsPosts::find($id)->update([
             'headline' => $request->headline,
             'fulltext' => $request->fulltext ?? " ",
             'updated_at' => date("Y-m-d H:m:s")
@@ -77,7 +77,13 @@ class NewsPostsController extends Controller
         $afterUpdate = NewsPosts::findOrFail($id);
 
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
-        return redirect()->route('admin.actueel.index');
+
+        if ($saved) {
+            return redirect()->route('admin.actueel.index')
+                ->withSuccess('Artikel "' . $request->headline . '" is succevol aangemaakt');
+        }
+        return redirect()->route('admin.actueel.index')
+            ->withFail('Er is een probleem ontstaan. Artikel "' . $request->headline . '" kon niet aangemaakt worden!');
     }
 
     public function delete(Request $request, $id)
@@ -90,13 +96,13 @@ class NewsPostsController extends Controller
         if ($deleted) {
             return response()->json([
                 'success' => true,
-                'message' => "Het artikel " . $request->headline . " is succesvol verwijderd!"
+                'message' => "Het artikel '" . $request->headline . "' is succesvol verwijderd!"
             ]);
         }
 
         return response()->json([
             'success' => false,
-            'message' => "Er is iets fout gegaan, het artikel " . $request->headline . " is niet verwijderd!"
+            'message' => "Er is iets fout gegaan, het artikel '" . $request->headline . "' is niet verwijderd!"
         ]);
     }
 

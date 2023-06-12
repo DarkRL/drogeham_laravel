@@ -12,7 +12,7 @@ class PlaatselijkBelangPostController extends Controller
 {
     public function index()
     {
-        $posts = DB::select('SELECT * FROM plaatselijkbelang_posts WHERE id = ?' , ['1']);
+        $posts = DB::select('SELECT * FROM plaatselijkbelang_posts WHERE id = ?', ['1']);
         return view('admin.plaatselijkbelang.index', ['posts' => $posts]);
     }
 
@@ -22,8 +22,13 @@ class PlaatselijkBelangPostController extends Controller
             'fulltext' => $request->fulltext ?? " ",
             'datetime' => date("Y-m-d H:m:s")
         ]);
+
+        if ($newPost) {
+            return redirect()->route('admin.plaatselijkbelang.index')
+                ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
+        }
         return redirect()->route('admin.plaatselijkbelang.index')
-            ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
+            ->withFail('Er is een probleem opgetreden, inhoud is niet aangemaakt!');
     }
 
     public function create()
@@ -44,12 +49,17 @@ class PlaatselijkBelangPostController extends Controller
     {
         $beforeUpdate = PlaatselijkbelangPosts::findOrFail($id);
 
-        PlaatselijkbelangPosts::find($id)->update([
+        $saved = PlaatselijkbelangPosts::find($id)->update([
             'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = PlaatselijkbelangPosts::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
+
+        if ($saved) {
+            return redirect()->route('admin.plaatselijkbelang.index')
+                ->withSuccess('Nieuwe inhoud is succesvol aangepast!');
+        }
         return redirect()->route('admin.plaatselijkbelang.index')
-            ->withSuccess('De inhoud is succesvol aangepast!');
+            ->withFail('Er is een probleem opgetreden, inhoud is niet aangepast!');
     }
 }

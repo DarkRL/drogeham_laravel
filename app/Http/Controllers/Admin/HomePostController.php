@@ -22,8 +22,13 @@ class HomePostController extends Controller
             'fulltext' => $request->fulltext ?? " ",
             'datetime' => date("Y-m-d H:m:s")
         ]);
-        return redirect()->route('admin.home.index')
+
+        if($newPost){
+            return redirect()->route('admin.home.index')
             ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
+        }
+        return redirect()->route('admin.home.index')
+        ->withFail('Er is een probleem opgetreden, nieuw infoblok is niet aangemaakt!');
     }
 
     public function create()
@@ -43,12 +48,17 @@ class HomePostController extends Controller
     public function update(Request $request, $id)
     {
         $beforeUpdate = HomePost::findOrFail($id);
-        HomePost::find($id)->update([
+        $saved = HomePost::find($id)->update([
             'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = HomePost::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
+        
+        if($saved){
+            return redirect()->route('admin.home.index')
+            ->withSuccess('Nieuwe inhoud is succesvol aangepast!');
+        }
         return redirect()->route('admin.home.index')
-            ->withSuccess('De inhoud is succesvol aangepast!');
+        ->withFail('Er is een probleem opgetreden, inhoud is niet aangepast!');
     }
 }

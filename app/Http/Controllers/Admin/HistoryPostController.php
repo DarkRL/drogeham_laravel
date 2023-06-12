@@ -21,8 +21,13 @@ class HistoryPostController extends Controller
             'fulltext' => $request->fulltext ?? " ",
             'datetime' => date("Y-m-d H:m:s")
         ]);
-        return redirect()->route('admin.history.index')
+        
+        if($newPost){
+            return redirect()->route('admin.history.index')
             ->withSuccess('Nieuwe inhoud is succesvol aangemaakt!');
+        }
+        return redirect()->route('admin.history.index')
+        ->withFail('Er is een probleem opgetreden, nieuw infoblok is niet aangemaakt!');
     }
 
     public function create()
@@ -42,12 +47,17 @@ class HistoryPostController extends Controller
     public function update(Request $request, $id)
     {
         $beforeUpdate = HistoryPosts::findOrFail($id);
-        HistoryPosts::find($id)->update([
+        $saved = HistoryPosts::find($id)->update([
             'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = HistoryPosts::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
+
+        if($saved){
+            return redirect()->route('admin.history.index')
+            ->withSuccess('Nieuwe inhoud is succesvol aangepast!');
+        }
         return redirect()->route('admin.history.index')
-            ->withSuccess('De inhoud is succesvol aangepast!');
+        ->withFail('Er is een probleem opgetreden, inhoud is niet aangepast!');
     }
 }

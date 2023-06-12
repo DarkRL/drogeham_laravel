@@ -5,7 +5,17 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
         <div>
-            <div id="message"></div>
+            <div id="message">
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    {{ $message }}
+                </div>
+                @elseif ($message = Session::get('fail'))
+                <div class="alert alert-danger">
+                    {{ $message }}
+                </div>
+                @endif
+            </div>
             <a href="{{ route('admin.projecten.create') }}"><button type="button" class="btn btn-primary">Voeg Artikel Toe</button></a>
             <div class="table-responsive">
                 <table class="table table-striped table-responsive w-100">
@@ -24,7 +34,7 @@
                     @endforeach
                 </table>
             </div>
-            
+
             <div class="d-flex">
                 {!! $posts->links() !!}
             </div>
