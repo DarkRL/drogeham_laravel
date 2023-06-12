@@ -20,7 +20,7 @@ class HomePostController extends Controller
     public function store(Request $request)
     {
         $newPost = HomePost::create([
-            'fulltext' => $request->fulltext,
+            'fulltext' => $request->fulltext ?? " ",
             'datetime' => date("Y-m-d H:m:s")
         ]);
         return redirect()->route('admin.home.index')
@@ -45,7 +45,7 @@ class HomePostController extends Controller
     {
         $beforeUpdate = HomePost::findOrFail($id);
         HomePost::find($id)->update([
-            'fulltext' => $request->fulltext
+            'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = HomePost::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);

@@ -19,7 +19,7 @@ class PlaatselijkBelangPostController extends Controller
     public function store(Request $request)
     {
         $newPost = PlaatselijkbelangPosts::create([
-            'fulltext' => $request->fulltext,
+            'fulltext' => $request->fulltext ?? " ",
             'datetime' => date("Y-m-d H:m:s")
         ]);
         return redirect()->route('admin.plaatselijkbelang.index')
@@ -45,7 +45,7 @@ class PlaatselijkBelangPostController extends Controller
         $beforeUpdate = PlaatselijkbelangPosts::findOrFail($id);
 
         PlaatselijkbelangPosts::find($id)->update([
-            'fulltext' => $request->fulltext
+            'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = PlaatselijkbelangPosts::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);

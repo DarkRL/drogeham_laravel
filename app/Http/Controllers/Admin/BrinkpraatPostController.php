@@ -21,7 +21,7 @@ class BrinkpraatPostController extends Controller
     public function store(Request $request)
     {
         $newPost = BrinkpraatPosts::create([
-            'fulltext' => $request->fulltext,
+            'fulltext' => $request->fulltext ?? " ",
             'datetime' => date("Y-m-d H:m:s")
         ]);
         return redirect()->route('admin.brinkpraat.index')
@@ -46,7 +46,7 @@ class BrinkpraatPostController extends Controller
     {
         $beforeUpdate = BrinkpraatPosts::findOrFail($id);
         BrinkpraatPosts::find($id)->update([
-            'fulltext' => $request->fulltext
+            'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = BrinkpraatPosts::findOrFail($id);
 

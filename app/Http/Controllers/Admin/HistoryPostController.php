@@ -18,7 +18,7 @@ class HistoryPostController extends Controller
     public function store(Request $request)
     {
         $newPost = HistoryPosts::create([
-            'fulltext' => $request->fulltext,
+            'fulltext' => $request->fulltext ?? " ",
             'datetime' => date("Y-m-d H:m:s")
         ]);
         return redirect()->route('admin.history.index')
@@ -43,7 +43,7 @@ class HistoryPostController extends Controller
     {
         $beforeUpdate = HistoryPosts::findOrFail($id);
         HistoryPosts::find($id)->update([
-            'fulltext' => $request->fulltext
+            'fulltext' => $request->fulltext ?? " "
         ]);
         $afterUpdate = HistoryPosts::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);

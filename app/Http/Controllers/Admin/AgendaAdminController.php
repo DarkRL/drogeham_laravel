@@ -26,7 +26,7 @@ class AgendaAdminController extends Controller
 
         $newEvent = Event::create([
             'title' => $request->title,
-            'fulltext' => $fulltext,
+            'fulltext' => $fulltext ?? " ",
             'start' => $request->startdate,
             'end' => $request->enddate
         ]);
@@ -51,7 +51,7 @@ class AgendaAdminController extends Controller
         $beforeUpdate = Event::findOrFail($id);
         Event::find($id)->update([
             'title' => $request->title,
-            'fulltext' => $fulltext,
+            'fulltext' => $fulltext ?? " ",
             'start' => $request->startdate,
             'end' => $request->enddate
         ]);
@@ -82,7 +82,7 @@ class AgendaAdminController extends Controller
     public function eventajax(Request $request, $id) // query for ajax call to load calendar event data
     {
         $post = Event::findOrFail($id);
-        $fulltext = $post->fulltext;
+        $fulltext = $post->fulltext ?? " ";
 
         return response()->json([
             'text' => $fulltext

@@ -28,7 +28,7 @@ class NewsPostsController extends Controller
 
         $newPost = NewsPosts::create([
             'headline' => $request->headline,
-            'fulltext' => $fulltext,
+            'fulltext' => $fulltext ?? " ",
             'photo' => $url,
             'updated_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
@@ -70,7 +70,7 @@ class NewsPostsController extends Controller
 
         NewsPosts::find($id)->update([
             'headline' => $request->headline,
-            'fulltext' => $request->fulltext,
+            'fulltext' => $request->fulltext ?? " ",
             'updated_at' => date("Y-m-d H:m:s")
         ]);
 

@@ -20,7 +20,7 @@ class MeydPostsController extends Controller
 
         $newPost = MeydPosts::create([
             'headline' => $request->headline,
-            'pagename' => $request->pagename,
+            'pagename' => str_replace(' ', '-', $request->pagename),
             'fulltext' => $fulltext,
             'created_at' => date("Y-m-d H:m:s"),
             'updated_at'=> date("Y-m-d H:m:s"),
@@ -48,23 +48,25 @@ class MeydPostsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $beforeUpdate = MeydPosts::where('pagename', $request->pagename)->first();
+        $beforeUpdate = MeydPosts::where('pagename', str_replace(' ', '-', $request->pagename))->first();
 
         MeydPosts::find($id)->update([
             'headline' => $request->headline,
-            'pagename' => $request->pagename,
-            'fulltext' => $request->fulltext,
+            'pagename' => str_replace(' ', '-', $request->pagename),
+            'fulltext' => $request->fulltext ?? " ",
             'updated_at' => date("Y-m-d H:m:s")
         ]);
+
         $afterUpdate = MeydPosts::findOrFail($beforeUpdate->id);
+
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
         return redirect()->route('admin.meyd.index');
     }
 
     public function delete(Request $request, $id)
     {
-        MeydPosts::find($id)->delete();
-        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        $deleted = MeydPosts::find($id)->delete();
+        // app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
         return redirect()->route('admin.meyd.index');
     }
 
