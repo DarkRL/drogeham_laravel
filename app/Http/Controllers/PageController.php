@@ -14,7 +14,7 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        $meydRecords = MeydPosts::all();
+        $meydRecords = MeydPosts::all()->where('public', '=', 1);
 
         view()->share('meydRecords', $meydRecords);
     }
@@ -60,7 +60,7 @@ class PageController extends Controller
 
     public function actueelpage()
     {
-        $posts = DB::table('news_posts')->orderBy('id','desc')->paginate(15);
+        $posts = DB::table('news_posts')->where('public', '=', 1)->orderBy('id','desc')->paginate(15);
 
         return view("pages/actueel", ['posts' => $posts]);
     }
@@ -85,7 +85,7 @@ class PageController extends Controller
 
     public function projectenpage()
     {
-        $posts = DB::table('project_posts')->orderBy('id','desc')->paginate(15);
+        $posts = DB::table('project_posts')->where('public', '=', 1)->orderBy('id','desc')->paginate(15);
 
         return view("pages/projecten", ['posts' => $posts]);
     }

@@ -26,7 +26,7 @@
                 <li class="nav-item"><a href="{{route('page', ['page' => 'historie'])}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Historie</span></a></li>
                 <li class="nav-item"><a href="{{route('page', ['page' => 'contact'])}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Contact</span></a></li>
             </ul>
-            <a href="{{route('page', ['page' => 'meyd'])}}"><img src="{{URL::asset('/img/MEYD_drogeham.png')}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
+            <a href="{{route('page', ['page' => 'meydinfo'])}}"><img src="{{URL::asset('/img/MEYD_drogeham.png')}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
         </div>
     </nav>
     <script>
