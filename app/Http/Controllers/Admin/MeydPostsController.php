@@ -21,7 +21,7 @@ class MeydPostsController extends Controller
         $newPost = MeydPosts::create([
             'headline' => $request->headline,
             'pagename' => str_replace(' ', '-', $request->pagename),
-            'fulltext' => $fulltext,
+            'fulltext' => $fulltext ?? " ",
             'created_at' => date("Y-m-d H:m:s"),
             'updated_at'=> date("Y-m-d H:m:s"),
             'public' => 0
@@ -63,10 +63,11 @@ class MeydPostsController extends Controller
         return redirect()->route('admin.meyd.index');
     }
 
-    public function delete(Request $request, $id)
+    public function delete($id)
     {
+        $beforeDel = MeydPosts::findOrFail($id);
         $deleted = MeydPosts::find($id)->delete();
-        // app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages();
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeDel->fulltext, '');
         return redirect()->route('admin.meyd.index');
     }
 

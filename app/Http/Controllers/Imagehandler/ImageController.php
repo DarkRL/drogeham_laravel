@@ -34,10 +34,15 @@ class ImageController extends Controller
     {
         $pattern = '/src="([^"]*)"/i';
         preg_match_all($pattern, $content, $matches);
-        return $matches[1];
+        $new_arr = [];
+        foreach ($matches[1] as $urls) {
+            $new_arr[] = basename($urls);
+        }
+        return $new_arr;
     }
 
-    public function fixTinymceImageUrl($tinymce){
+    public function fixTinymceImageUrl($tinymce)
+    {
         $pattern = '/<img[^>]+src="([^">]+)"/';
 
         return preg_replace_callback($pattern, function ($matches) {

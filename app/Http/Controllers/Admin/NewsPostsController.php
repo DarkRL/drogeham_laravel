@@ -77,7 +77,6 @@ class NewsPostsController extends Controller
         $afterUpdate = NewsPosts::findOrFail($id);
 
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
-
         return redirect()->route('admin.actueel.index');
     }
 
@@ -86,21 +85,7 @@ class NewsPostsController extends Controller
         $beforeDel = NewsPosts::findOrFail($id);
         $deleted = NewsPosts::find($id)->delete();
         Storage::delete('public/uploads/' . basename($beforeDel->photo));
-
-        $ImgArr = [];
-        preg_match_all('/src="([^"]*)"/i', $beforeDel->fulltext, $matches);
-        if (!empty($matches)) {
-            foreach ($matches as $urls) {
-                foreach ($urls as $url) {
-                    $imageNames = basename($url);
-                    $ImgArr[] = $imageNames;
-                }
-            }
-
-            foreach ($ImgArr as $delFile) {
-                Storage::delete('public/uploads/' . $delFile);
-            }
-        }
+        app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeDel->fulltext, '');
 
         if ($deleted) {
             return response()->json([
