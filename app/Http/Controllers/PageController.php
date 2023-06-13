@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\posts\Event;
 use App\Models\posts\NewsPosts;
 use App\Models\admin\ProjectPost;
+use App\Models\admin\BrinkpraatfilePosts;
 use Illuminate\Support\Facades\DB;
 use App\Models\posts\ContactPosts;
 
@@ -26,22 +27,22 @@ class PageController extends Controller
 
     public function homepage()
     {
-      $posts = DB::select('SELECT * FROM home_posts WHERE id = ?', ['1']);
-      $carouselProjecten = DB::select('SELECT  * FROM project_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 4');
-      $carouselNewsPosts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 6');
+        $posts = DB::select('SELECT * FROM home_posts WHERE id = ?', ['1']);
+        $carouselProjecten = DB::select('SELECT  * FROM project_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 4');
+        $carouselNewsPosts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 6');
 
-      if (count($carouselProjecten) < 6){
-        $carouselProjecten = [];
-      }
+        if (count($carouselProjecten) < 6) {
+            $carouselProjecten = [];
+        }
 
-      if (count($carouselNewsPosts) < 6){
-        $carouselNewsPosts = [];
-      }
+        if (count($carouselNewsPosts) < 6) {
+            $carouselNewsPosts = [];
+        }
 
-      if (count($carouselNewsPosts) > 3) { // split het int twee arrays met drie items is makkelijker voor de front-end
-        $carouselNewsPosts = array_chunk($carouselNewsPosts, 3);
-      }
-      return view("pages/home", compact('posts', 'carouselProjecten', 'carouselNewsPosts'));
+        if (count($carouselNewsPosts) > 3) { // split het int twee arrays met drie items is makkelijker voor de front-end
+            $carouselNewsPosts = array_chunk($carouselNewsPosts, 3);
+        }
+        return view("pages/home", compact('posts', 'carouselProjecten', 'carouselNewsPosts'));
     }
 
     public function historypage()
@@ -60,7 +61,7 @@ class PageController extends Controller
 
     public function actueelpage()
     {
-        $posts = DB::table('news_posts')->where('public', '=', 1)->orderBy('id','desc')->paginate(15);
+        $posts = DB::table('news_posts')->where('public', '=', 1)->orderBy('id', 'desc')->paginate(15);
 
         return view("pages/actueel", ['posts' => $posts]);
     }
@@ -69,7 +70,7 @@ class PageController extends Controller
     {
         return view("templates/newspost", ['post' => $id]);
     }
-    
+
     public function meydinfopage()
     {
         $posts = DB::select('SELECT * FROM meydinfo_posts WHERE id = ?', ['1']);
@@ -85,7 +86,7 @@ class PageController extends Controller
 
     public function projectenpage()
     {
-        $posts = DB::table('project_posts')->where('public', '=', 1)->orderBy('id','desc')->paginate(15);
+        $posts = DB::table('project_posts')->where('public', '=', 1)->orderBy('id', 'desc')->paginate(15);
 
         return view("pages/projecten", ['posts' => $posts]);
     }
@@ -115,20 +116,25 @@ class PageController extends Controller
     public function brinkpraatpage()
     {
         $posts = DB::select('SELECT * FROM brinkpraat_posts WHERE id = ?', ['1']);
+        $posts_files = BrinkpraatfilePosts::where('public', 1)->orderBy('datetime', 'asc')->get();
 
-        return view("pages/brinkpraat", compact('posts'));
+        $groupedFiles = $posts_files->groupBy(function ($file) {
+            return date('Y', strtotime($file->datetime));
+        });
+
+        return view("pages/brinkpraat", compact('posts', 'groupedFiles'));
     }
-      public function contactSumbit(request $request)
-      {
+
+    public function contactSumbit(request $request)
+    {
         $NewContract = ContactPosts::create([
-          'naam' => $request->name,
-          'email' => $request->email,
-          'tel' => $request->Tel,
-          'bericht' => $request->message,
-          'updated_at' => date("Y-m-d Hs"),
-          'created_at' => date("Y-m-d Hs"),
+            'naam' => $request->name,
+            'email' => $request->email,
+            'tel' => $request->Tel,
+            'bericht' => $request->message,
+            'updated_at' => date("Y-m-d Hs"),
+            'created_at' => date("Y-m-d Hs"),
         ]);
         return back();
     }
-
 }

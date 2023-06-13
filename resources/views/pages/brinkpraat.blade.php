@@ -11,6 +11,17 @@
                 @endforeach
             </div>
         </div>
+        <div class="border-bottom border-secondary"></div>
+        <div class="m-5">
+            @foreach($groupedFiles as $year => $files)
+            <h4>Publicaties {{ $year }}</h4>
+            <ul>
+                @foreach($files as $file)
+                <li><a href="{{ $file->filepath }}">{{ $file->filename }}</a></li>
+                @endforeach
+            </ul>
+            @endforeach
+        </div>
     </div>
     <div class="col"></div>
 </div>
