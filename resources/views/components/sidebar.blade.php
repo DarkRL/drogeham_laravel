@@ -89,11 +89,17 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-right: 5px; margin-left: -5px;">
                 <path d="M4.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-4 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
               </svg>
-              <span class="ms-2 d-none d-sm-inline">Tools</span>
+              <span class="ms-2 d-none d-sm-inline">Overig</span>
             </a>
-            <div id="collapseOne" class="w-100 accordion-collapse collapse show bg-dark" aria-labelledby="headingOne" data-bs-parent=".accordion">
+            <div id="collapseOne" class="w-100 accordion-collapse collapse bg-dark" aria-labelledby="headingOne" data-bs-parent=".accordion">
               <div class="d-none d-sm-inline">
-                <a class="text-white text-decoration-none" href="{{route('admin.extra.index')}}">- Pagina's aanmaken</a><br>
+                <a class="text-white text-decoration-none hover-underline-animation hover-underline-white" href="{{route('admin.extra.index')}}">- Pagina's aanmaken</a><br>
+              </div>
+              <div class="d-none d-sm-inline">
+                <a class="text-white text-decoration-none hover-underline-animation hover-underline-white" href="{{route('admin.privacy.index')}}">- Privacy aanpassen</a><br>
+              </div>
+              <div class="d-none d-sm-inline">
+                <a class="text-white text-decoration-none hover-underline-animation hover-underline-white" href="{{route('admin.disclaimer.index')}}">- Disclaimer aanpassen</a><br>
               </div>
             </div>
           </div>
@@ -104,10 +110,16 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                 <path d="M4.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-4 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
               </svg>
-              <span class="ms-2  d-none d-sm-inline">Tools</span>
+              <span class="ms-2  d-none d-sm-inline">Overig</span>
             </a>
             <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{route('admin.extra.index')}}">- Pagina's aanmaken</a>
+            </div>
+            <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{route('admin.privacy.index')}}">- Privacy aanpassen</a>
+            </div>
+            <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{route('admin.disclaimer.index')}}">- Disclaimer aanpassen</a>
             </div>
           </div>
         </li>

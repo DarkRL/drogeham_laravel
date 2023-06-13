@@ -14,8 +14,8 @@ use App\Http\Controllers\Admin\HistoryPostController;
 use App\Http\Controllers\Admin\BrinkpraatPostController;
 use App\Http\Controllers\admin\ExtraPagesAdminController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
-use App\Http\Controllers\imagehandler\ImageController;
-use App\Http\Controllers\MailController;
+use App\Http\Controllers\Admin\PrivacyPostController;
+use App\Http\Controllers\Admin\DisclaimerPostController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
@@ -118,6 +118,22 @@ Route::controller(PlaatselijkBelangPostController::class)->group(function () {
     Route::get('/admin/plaatselijkbelang/index', 'index')->name('admin.plaatselijkbelang.index')->middleware('auth');
 });
 
+Route::controller(PrivacyPostController::class)->group(function () {
+    Route::get('/admin/privacy/{id}/edit', 'edit')->name('admin.privacy.edit')->middleware('auth');
+    Route::patch('/admin/privacy/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/privacy/create', 'create')->name('admin.privacy.create')->middleware('auth');
+    Route::post('/admin/privacy/create', 'store')->middleware('auth');
+    Route::get('/admin/privacy/index', 'index')->name('admin.privacy.index')->middleware('auth');
+});
+
+Route::controller(DisclaimerPostController::class)->group(function () {
+    Route::get('/admin/disclaimer/{id}/edit', 'edit')->name('admin.disclaimer.edit')->middleware('auth');
+    Route::patch('/admin/disclaimer/{id}/edit', 'update')->middleware('auth');
+    Route::get('/admin/disclaimer/create', 'create')->name('admin.disclaimer.create')->middleware('auth');
+    Route::post('/admin/disclaimer/create', 'store')->middleware('auth');
+    Route::get('/admin/disclaimer/index', 'index')->name('admin.disclaimer.index')->middleware('auth');
+});
+
 Route::controller(AgendaAdminController::class)->group(function () {
     Route::get('/admin/agenda/index', 'index')->name('admin.agenda.index')->middleware('auth');
     Route::post('/admin/agenda/create', 'create')->name('admin.agenda.create')->middleware('auth');
@@ -147,6 +163,8 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/templates/{id}/newspost', 'newspost')->name('templates.newspost');
     Route::get('/projecten', 'projectenpage')->name('projecten');
     Route::get('/brinkpraat', 'brinkpraatpage')->name('brinkpraat');
+    Route::get('/privacy', 'privacypage')->name('privacy');
+    Route::get('/disclaimer', 'disclaimerpage')->name('disclaimer');
     Route::get('/templates/{id}/projectpost', 'projectpost')->name('templates.projectpost');
     Route::get('/meydinfo', 'meydinfopage')->name('meydinfo');
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');

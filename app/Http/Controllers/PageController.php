@@ -96,6 +96,20 @@ class PageController extends Controller
         return view("templates/projectpost", ['post' => $id]);
     }
 
+    public function privacypage()
+    {
+        $posts = DB::select('SELECT * FROM privacy_posts WHERE id = ?', ['1']);
+
+        return view("pages/privacy", compact('posts'));
+    }
+
+    public function disclaimerpage()
+    {
+        $posts = DB::select('SELECT * FROM disclaimer_posts WHERE id = ?', ['1']);
+
+        return view("pages/disclaimer", compact('posts'));
+    }
+
     public function agendapage()
     {
         $posts = Event::all();
