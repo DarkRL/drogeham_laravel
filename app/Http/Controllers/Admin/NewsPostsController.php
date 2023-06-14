@@ -10,10 +10,20 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsPostsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = DB::table('news_posts')->paginate(15);
-        return view('admin.actueel.index', ['posts' => $posts]);
+        // $posts = DB::table('news_posts')->paginate(3);
+        // return view('admin.actueel.index', ['posts' => $posts]);
+        $search = $request->query('search');
+
+        $posts = NewsPosts::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('headline', 'like', '%' . $search . '%');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+    
+        return view('admin.actueel.index', compact('posts'));
     }
 
     public function store(Request $request)

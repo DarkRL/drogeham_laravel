@@ -19,6 +19,16 @@
                 </div>
             </div>
             <a href="{{ route('admin.actueel.create') }}"><button type="button" class="btn btn-primary">Voeg Artikel Toe</button></a>
+            <div class="my-3">
+                <form action="{{ route('admin.actueel.index') }}" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Zoek...">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit">Zoek</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped table-responsive w-100">
                     <tr>
@@ -36,8 +46,13 @@
                     @endforeach
                 </table>
             </div>
-            <div class="d-flex">
-                {!! $posts->links() !!}
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    {{ $posts->withQueryString()->links() }}
+                </div>
+                <div>
+                    <p class="mb-0">Resultaten: {{ $posts->total() }}</p>
+                </div>
             </div>
         </div>
     </div>
