@@ -14,12 +14,12 @@
                     @endif
                 </div>
             </div>
-            <a href="{{ route('admin.meyd.create') }}"><button type="button" class="btn btn-primary">Voeg pagina toe</button></a>
+            <a href="{{ route('admin.extra.create') }}"><button type="button" class="btn btn-primary">Voeg pagina toe</button></a>
             <div class="table-responsive">
                 <table class="table table-striped table-responsive w-100">
                     <tr>
                         <th>Titel</th>
-                        <th class="small" style="width:15%">Datum</th>
+                        <th class="small" style="width:15%">Pagina Naam</th>
                         <th class="small" style="width:7%">Aanpassen</th>
                         <th class="small" style="width:7%">Preview</th>
                         <th class="small" style="width:7%">Verwijderen</th>

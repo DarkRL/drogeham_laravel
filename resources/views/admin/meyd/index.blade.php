@@ -39,7 +39,7 @@
                 <table class="table table-striped table-responsive w-100">
                     <tr>
                         <th>Titel</th>
-                        <th class="small" style="width:15%">Datum</th>
+                        <th class="small" style="width:15%">Pagina Naam</th>
                         <th class="small" style="width:7%">Aanpassen</th>
                         <th class="small" style="width:7%">Preview</th>
                         <th class="small" style="width:7%">Verwijderen</th>
