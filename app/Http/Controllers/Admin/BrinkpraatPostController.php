@@ -14,7 +14,7 @@ class BrinkpraatPostController extends Controller
     public function index()
     {
         $posts = DB::select('SELECT * FROM brinkpraat_posts WHERE id = ?', ['1']);
-        $posts_files = BrinkpraatfilePosts::all();
+        $posts_files = DB::table('brinkpraatfile_posts')->paginate(4);
         return view('admin.brinkpraat.index', ['posts' => $posts, 'posts_files' => $posts_files]);
     }
 

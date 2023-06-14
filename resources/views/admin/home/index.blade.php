@@ -18,30 +18,24 @@
             </a>
             @endif
         </h5>
-
-        <div class="card mt-3">
-            <div class="card-header">Feedback</div>
-            <div class="card-body">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    {{ $message }}
-                </div>
-                @elseif ($message = Session::get('fail'))
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-                @endif
-            </div>
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            {{ $message }}
         </div>
+        @elseif ($message = Session::get('fail'))
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
+        @endif
     </div>
 </div>
-<div class="row justify-content-center mt-5">
+<div class="row justify-content-center mt-2">
     <div class="col-md-10">
         <div class="card">
             <div class="card-header">
                 <h5 class="text-center">Preview:</h5>
             </div>
-            <div class="card-body">
+            <div class="m-3">
                 @forelse ($posts as $post)
 
                 <x-admin.home_post postid="{{ $post->id }}" fulltext="{{ $post->fulltext }}" datetime="{{ $post->datetime }}" />

@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
-        <h5>Homepagina
+        <h5>Brinkpraat
             @php
             use App\Models\admin\BrinkpraatPosts;
             @endphp
@@ -52,7 +52,9 @@
         </div>
         <a href="{{ route('admin.brinkpraat.create.files') }}"><button type="button" class="btn btn-primary m-2">Voeg een nieuw bestand toe</button></a>
         <div>
-            <div class="table-responsive">
+            <input type="text" id="searchInput" class="form-control" placeholder="Zoek..." aria-label="Zoeken" aria-describedby="addon-wrapping">
+            <ul id="searchResults"></ul>
+            <div class="table-responsive mt-2">
                 <table class="table table-striped table-responsive w-100">
                     <tr>
                         <th>Bestand</th>
@@ -73,7 +75,51 @@
 
                     @endforelse
                 </table>
+                <div class="d-flex">
+                    {!! $posts_files->links() !!}
+                </div>
             </div>
+            <script>
+                $(document).ready(function() {
+                    var searchInput = $('#searchInput');
+                    var searchResults = $('#searchResults');
+
+                    var rows = $('.searchable-table-row'); // Fetch all rows initially
+
+                    searchInput.on('input', function() {
+                        var searchTerm = searchInput.val().toLowerCase();
+
+                        searchResults.empty(); // Clear previous search results
+                        if (searchTerm.length > 3) {
+                            rows.each(function() {
+                                var row = $(this);
+                                var text = row.text().toLowerCase();
+
+                                if (text.includes(searchTerm)) {
+                                    // Generate a unique ID for the row
+                                    var rowId = 'row-' + Math.random().toString(36).substr(2, 9);
+
+                                    // Add the ID to the row
+                                    row.attr('id', rowId);
+
+                                    // Create an anchor tag with the link to the row
+                                    var anchorTag = $('<a>')
+                                        .attr('href', '#' + rowId)
+                                        .addClass('text-decoration-none')
+                                        .html(row.text() + ' <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>');
+
+                                    // Append the anchor tag and the row to the search results
+                                    var resultContainer = $('<li>').addClass('my-3');
+                                    resultContainer.append(anchorTag);
+                                    searchResults.append(resultContainer);
+                                }
+                            });
+                        } else {
+                            searchResults.empty(); // Clear previous search results
+                        }
+                    });
+                });
+            </script>
         </div>
     </div>
 
