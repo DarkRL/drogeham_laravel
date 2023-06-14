@@ -32,7 +32,7 @@ class PageController extends Controller
         $carouselProjecten = DB::select('SELECT  * FROM project_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 4');
         $carouselNewsPosts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 6');
 
-        if (count($carouselProjecten) < 6) {
+        if (count($carouselProjecten) < 4) {
             $carouselProjecten = [];
         }
 
