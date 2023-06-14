@@ -4,17 +4,17 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\ExtraPages;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ExtraPagesAdminController extends Controller
 {
-    //
     public function index()
     {
         $posts = ExtraPages::all();
         return view('admin.extra.index', ['posts' => $posts]);
     }
-    
+
     public function create()
     {
         return view('admin.extra.create');
@@ -22,6 +22,15 @@ class ExtraPagesAdminController extends Controller
 
     public function store(Request $request)
     {
+        $count = DB::table('extra_pages')
+            ->where('pagename', str_replace(' ', '-', $request->pagename))
+            ->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.extra.create')
+                ->withFail('"' . $request->pagename . '" bestaat al, kies een andere naam!');
+        }
+
         $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
 
         $newPost = ExtraPages::create([
