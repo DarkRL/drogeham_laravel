@@ -118,7 +118,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Voorbeeld</h5>
                 </div>
-                {!! html_entity_decode($fulltext) !!}
+                <div class="m-2">{!! html_entity_decode($fulltext) !!}</div>
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col-6">

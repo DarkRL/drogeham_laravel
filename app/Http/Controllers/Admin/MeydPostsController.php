@@ -30,6 +30,15 @@ class MeydPostsController extends Controller
 
     public function store(Request $request)
     {
+        $count = DB::table('meyd_posts')
+            ->where('pagename', str_replace(' ', '-', $request->pagename))
+            ->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.meyd.edit')
+                ->withFail('"' . $request->pagename . '" bestaat al, kies een andere naam!');
+        }
+
         $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
 
         $newPost = MeydPosts::create([

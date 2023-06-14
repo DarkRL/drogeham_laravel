@@ -11,6 +11,10 @@
                     <div class="alert alert-success">
                         {{ $message }}
                     </div>
+                    @elseif ($message = Session::get('fail'))
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
                     @endif
                 </div>
             </div>
@@ -29,14 +33,14 @@
                 <table class="table table-striped table-responsive w-100">
                     <tr>
                         <th>Titel</th>
-                        <th class="small" style="width:15%">Pagina Url</th>
+                        <th class="small" style="width:35%">Pagina url</th>
                         <th class="small" style="width:7%">Aanpassen</th>
                         <th class="small" style="width:7%">Preview</th>
                         <th class="small" style="width:7%">Verwijderen</th>
                     </tr>
                     @foreach ($posts as $post)
 
-                    <x-admin.extra_post postid="{{ $post->id }}" fulltext="{{ $post->fulltext }}" headline="{{ $post-> headline }}" pagename="{{ $post->pagename }}" updated_at="{{ $post->updated_at }}" />
+                    <x-admin.extra_post postid="{{ $post->id }}" fulltext="{{ $post->fulltext }}" headline="{{ $post-> headline }}" pagename="{{ url('custom/'.$post->pagename) }}" updated_at="{{ $post->updated_at }}" />
 
                     @endforeach
                 </table>

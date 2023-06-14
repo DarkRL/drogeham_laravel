@@ -2,7 +2,7 @@
     <td>
         <p>{!! html_entity_decode($headline) !!}</p>
     </td>
-    <td>{!! html_entity_decode($pagename) !!}</td>
+    <td id="pagename_{{ $postid }}">{!! html_entity_decode($pagename) !!}</td>
     <td class="text-center">
         <a href="{{ route('admin.extra.edit', ['id' => $postid]) }}">
             <button type="button" class="btn btn-primary btn-sm" title="Aanpassen">
@@ -64,7 +64,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Voorbeeld</h5>
                 </div>
-                {!! html_entity_decode($fulltext) !!}
+                <div class="m-2">{!! html_entity_decode($fulltext) !!}</div>
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col-6">
@@ -75,4 +75,35 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            // Attach a click event handler to the element
+            $('#pagename_{{ $postid }}').click(function() {
+                // Get the text of the element
+                var textToCopy = $(this).text();
+
+                // Create a temporary input element
+                var $tempInput = $('<input>');
+
+                // Add the text to the input element
+                $tempInput.val(textToCopy);
+
+                // Append the input element to the document body
+                $('body').append($tempInput);
+
+                // Select the text inside the input element
+                $tempInput.select();
+
+                // Copy the selected text to the clipboard
+                document.execCommand('copy');
+
+                // Remove the temporary input element
+                $tempInput.remove();
+
+                // Optionally, display a message to indicate that the text has been copied
+                alert('Tekst "' + textToCopy + '" is gekopieerd.');
+            });
+        });
+    </script>
 </tr>

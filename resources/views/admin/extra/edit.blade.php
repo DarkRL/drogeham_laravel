@@ -5,6 +5,11 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
         <form action="" method="post" class="form-group">
+            @if ($message = Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @endif
             <h6>Pagina Aanpassen</h6>
             @csrf
             @method('PATCH')
