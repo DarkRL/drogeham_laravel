@@ -175,6 +175,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
     Route::post('/contact/post', 'contactSumbit')->name("contact post");
     Route::get('{page}', 'index')->name("page");
+    Route::get('/custom/{pagename}', 'extrapage')->name('custom.extrapage');
 });
 
 

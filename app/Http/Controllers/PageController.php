@@ -8,6 +8,7 @@ use App\Models\posts\Event;
 use App\Models\posts\NewsPosts;
 use App\Models\admin\ProjectPost;
 use App\Models\admin\BrinkpraatfilePosts;
+use App\Models\admin\ExtraPages;
 use Illuminate\Support\Facades\DB;
 use App\Models\posts\ContactPosts;
 
@@ -82,6 +83,12 @@ class PageController extends Controller
     {
         $post = MeydPosts::where('pagename', $pagename)->first();
         return view("templates/meydpost", compact('post'));
+    }
+
+    public function extrapage($pagename)
+    {
+        $post = ExtraPages::where('pagename', $pagename)->first();
+        return view("templates/extrapage", compact('post'));
     }
 
     public function projectenpage()
