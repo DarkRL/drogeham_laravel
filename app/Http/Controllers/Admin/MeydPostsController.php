@@ -10,10 +10,21 @@ use Illuminate\Support\Facades\DB;
 
 class MeydPostsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $posts_info = DB::select('SELECT * FROM meydinfo_posts WHERE id = ?', ['1']);
-        $posts = MeydPosts::all();
+        
+        $search = $request->query('search');
+
+        $posts = MeydPosts::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('headline', 'like', '%' . $search . '%');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+    
+        // return view('admin.actueel.index', compact('posts'));
+
         return view('admin.meyd.index', ['posts' => $posts, 'posts_info' => $posts_info]);
     }
 

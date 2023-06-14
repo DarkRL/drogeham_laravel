@@ -10,10 +10,18 @@ use Illuminate\Support\Facades\Storage;
 
 class ProjectPostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = DB::table('project_posts')->paginate(15);
-        return view('admin.projecten.index', ['posts' => $posts]);
+        $search = $request->query('search');
+
+        $posts = ProjectPost::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('headline', 'like', '%' . $search . '%');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+    
+        return view('admin.projecten.index', compact('posts'));
     }
 
     public function store(Request $request)

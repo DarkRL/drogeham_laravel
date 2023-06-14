@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 class ExtraPagesAdminController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $posts = ExtraPages::all();
-        return view('admin.extra.index', ['posts' => $posts]);
+        $search = $request->query('search');
+
+        $posts = ExtraPages::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('headline', 'like', '%' . $search . '%');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+    
+        return view('admin.extra.index', compact('posts'));
     }
     
     public function create()

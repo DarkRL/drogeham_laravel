@@ -12,8 +12,6 @@ class NewsPostsController extends Controller
 {
     public function index(Request $request)
     {
-        // $posts = DB::table('news_posts')->paginate(3);
-        // return view('admin.actueel.index', ['posts' => $posts]);
         $search = $request->query('search');
 
         $posts = NewsPosts::query()
