@@ -60,11 +60,18 @@ class PageController extends Controller
         return view("pages/plaatselijkbelang", compact('posts'));
     }
 
-    public function actueelpage()
+    public function actueelpage(Request $request)
     {
-        $posts = DB::table('news_posts')->where('public', '=', 1)->orderBy('id', 'desc')->paginate(15);
+        $search = $request->query('search');
 
-        return view("pages/actueel", ['posts' => $posts]);
+        $posts = NewsPosts::query()->where('public', 1)
+            ->when($search, function ($query, $search) {
+                return $query->where('headline', 'like', '%' . $search . '%');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+    
+        return view('pages/actueel', compact('posts'));
     }
 
     public function newspost(NewsPosts $id)
@@ -91,11 +98,18 @@ class PageController extends Controller
         return view("templates/extrapage", compact('post'));
     }
 
-    public function projectenpage()
+    public function projectenpage(Request $request)
     {
-        $posts = DB::table('project_posts')->where('public', '=', 1)->orderBy('id', 'desc')->paginate(15);
+        $search = $request->query('search');
 
-        return view("pages/projecten", ['posts' => $posts]);
+        $posts = ProjectPost::query()->where('public', 1)
+            ->when($search, function ($query, $search) {
+                return $query->where('headline', 'like', '%' . $search . '%');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+    
+        return view('pages/projecten', compact('posts'));
     }
 
     public function projectpost(ProjectPost $id)
