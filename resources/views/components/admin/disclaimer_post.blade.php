@@ -7,7 +7,7 @@
             </svg>
         </button>
     </a>
-    <div class="pt-2 pb-2">
+    <div class="pt-2 pb-2 container-fluid">
         {!! html_entity_decode($fulltext) !!}
     </div>
 </section>

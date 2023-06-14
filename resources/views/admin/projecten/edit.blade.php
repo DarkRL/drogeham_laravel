@@ -11,8 +11,9 @@
             <input name="headline" class="form-control" placeholder="Titel" value="{{ $post->headline }}" required></input>
             <textarea name="fulltext" class="form-control" id="file-picker" required>{{ $post->fulltext }}</textarea>
             <div class="my-2">
-                <label for="thumbnail" class="form-label">Upload Thumbnail</label>
+                <label for="thumbnail" class="form-label">Upload een nieuwe thumbnail om de huidige te veranderen</label>
                 <input class="form-control" type="file" id="thumbnail" name="photo">
+                <a href="{{ $post->photo }}" target="_blank">Bestaande thumbnail</a>
             </div>
             <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Update" class="btn btn-primary">Submit</button>

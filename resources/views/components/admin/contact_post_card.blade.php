@@ -24,7 +24,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Voorbeeld</h5>
                 </div>
-                <div class="m-4">
+                <div class="m-2 container-fluid">
                   {!! html_entity_decode($fulltext) !!}
                 </div>
                 <div class="modal-footer">

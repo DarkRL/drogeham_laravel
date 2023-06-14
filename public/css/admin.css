@@ -26,3 +26,8 @@ body {
 .accordion-button:not(.collapsed) {
   box-shadow: none !important;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}

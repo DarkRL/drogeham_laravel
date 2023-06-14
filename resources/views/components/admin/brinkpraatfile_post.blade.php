@@ -114,13 +114,13 @@
                 <div class="modal-footer justify-content-center">
                     <div class="row">
                         <div class="col-6">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nee</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuleren</button>
                         </div>
                         <div class="col-6">
                             <form id="delete_{{ $postid }}">
                                 @csrf
                                 <input class="form-control" type="hidden" name="filename" value="{{ $filename  }}">
-                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Ja</button>
+                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Verwijderen</button>
                             </form>
                         </div>
                     </div>
