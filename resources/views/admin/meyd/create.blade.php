@@ -12,8 +12,14 @@
             @endif
             <h6>Nieuwe meyd pagina</h6>
             @csrf
-            <input name="headline" class="form-control" placeholder="Titel" required></input>
-            <input name="pagename" class="form-control" placeholder="Pagina naam" required></input>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-headlinetxt">Titel</span>
+                <input name="headline" type="text" class="form-control" placeholder="Titel..." aria-describedby="basic-headlinetxt">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-pagenametxt">Pagina naam</span>
+                <input name="pagename" class="form-control" placeholder="Paginanaam..." aria-describedby="basic-pagenametxt" required></input>
+            </div>
             <textarea name="fulltext" class="form-control" id="file-picker"></textarea>
             <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Save" class="btn btn-primary">Toevoegen</button>

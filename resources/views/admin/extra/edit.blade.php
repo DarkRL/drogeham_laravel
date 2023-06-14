@@ -13,8 +13,14 @@
             <h6>Pagina Aanpassen</h6>
             @csrf
             @method('PATCH')
-            <input name="headline" class="form-control" placeholder="Titel" value="{{ $post->headline }}" required></input>
-            <input name="pagename" class="form-control" placeholder="Pagina naam" value="{{ $post->pagename }}" required></input>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-headlinetxt">Titel</span>
+                <input name="headline" type="text" class="form-control" placeholder="Titel" value="{{ $post->headline }}" aria-describedby="basic-headlinetxt">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-pagenametxt">Pagina naam</span>
+                <input name="pagename" class="form-control" placeholder="Pagina naam" value="{{ $post->pagename }}" aria-describedby="basic-pagenametxt" required></input>
+            </div>
             <textarea name="fulltext" class="form-control" id="file-picker" required>{{ $post->fulltext }}</textarea>
             <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Update" class="btn btn-primary">Submit</button>
