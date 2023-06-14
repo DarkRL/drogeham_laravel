@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
 use App\Http\Controllers\Admin\PrivacyPostController;
 use App\Http\Controllers\Admin\DisclaimerPostController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-
+use App\Http\Controllers\Admin\Contact;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -178,5 +178,5 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/custom/{pagename}', 'extrapage')->name('custom.extrapage');
 });
 
-
+Route::get("/admin/contact", [Contact::class, "index"])->name("admin.contact.index");
 Route::get('/admin/{admin}', [PageAdminController::class, 'index'])->name('admin')->middleware('auth');

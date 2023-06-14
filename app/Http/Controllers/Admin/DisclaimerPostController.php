@@ -12,7 +12,7 @@ class DisclaimerPostController extends Controller
     public function index()
     {
         $posts = DB::select('SELECT * FROM disclaimer_posts WHERE id = ?' , ['1']);
-        return view('admin.overig.disclaimerindex', ['posts' => $posts]);
+        return view('admin.overig.disclaimerindex', ['posts' => $posts]);return view('admin.overig.disclaimerindex', ['posts' => $posts]);
     }
 
     public function store(Request $request)
@@ -52,7 +52,7 @@ class DisclaimerPostController extends Controller
         ]);
         $afterUpdate = DisclaimerPosts::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);
-        
+
         if($saved){
             return redirect()->route('admin.disclaimer.index')
             ->withSuccess('Nieuwe inhoud is succesvol aangepast!');
