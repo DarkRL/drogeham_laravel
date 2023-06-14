@@ -11,10 +11,19 @@ use Illuminate\Support\Facades\Storage;
 
 class BrinkpraatPostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $posts = DB::select('SELECT * FROM brinkpraat_posts WHERE id = ?', ['1']);
-        $posts_files = DB::table('brinkpraatfile_posts')->paginate(4);
+        
+        $search = $request->query('search');
+
+        $posts_files = BrinkpraatfilePosts::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('filename', 'like', '%' . $search . '%');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+
         return view('admin.brinkpraat.index', ['posts' => $posts, 'posts_files' => $posts_files]);
     }
 
