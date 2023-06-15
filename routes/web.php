@@ -161,7 +161,7 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/', 'homepage')->name('home');
     Route::get('/home', 'homepage')->name('home');
     Route::get('/historie', 'historypage')->name('historie');
-    Route::get('/plaatselijkbelang', 'plaatselijkbelangpage')->name('plaatelijkbelang');
+    Route::get('/plaatselijkbelang', 'plaatselijkbelangpage')->name('plaatselijkbelang');
     Route::get('/actueel', 'actueelpage')->name('actueel');
     Route::get('/agenda', 'agendapage')->name('agenda');
     Route::post('/eventajax/{id}', 'eventajax')->name('eventajax');
@@ -173,10 +173,10 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/templates/{id}/projectpost', 'projectpost')->name('templates.projectpost');
     Route::get('/meydinfo', 'meydinfopage')->name('meydinfo');
     Route::get('/meyd/{pagename}', 'meydpost')->name('meyd.meydpost');
-    Route::post('/contact/post', 'contactSumbit')->name("contact post");
-    Route::get('{page}', 'index')->name("page");
+    Route::get('/contact', 'contactpage')->name('contact');
+    Route::post('/contact/post', 'contactSumbit')->name("contact.post");
     Route::get('/custom/{pagename}', 'extrapage')->name('custom.extrapage');
 });
 
 Route::get("/admin/contact", [Contact::class, "index"])->name("admin.contact.index");
-Route::get('/admin/{admin}', [PageAdminController::class, 'index'])->name('admin')->middleware('auth');
+Route::get('/admin/dashboard', [PageAdminController::class, 'index'])->name('admin')->middleware('auth');

@@ -10,7 +10,7 @@
                     <div class="col-md-10 mx-auto">
                         <h2 class="text-center custom_hidden_repeat">Nieuw in Drogeham?</h2>
                         <p class="text-mute text-center mb-4"><i>Namens de hele gemeenschap van Drogeham wil ik je van harte welkom heten in ons prachtige dorp. We zijn verheugd dat je ervoor hebt gekozen om hier te komen wonen en deel uit te maken van onze hechte gemeenschap.</i></p>
-                        <form action="/contact/post" method="post">
+                        <form action="{{route('contact.post')}}" method="post">
                                 @csrf
                                 <div class="mb-3">
                                      <label for="name" class="form-label">Naam*</label>

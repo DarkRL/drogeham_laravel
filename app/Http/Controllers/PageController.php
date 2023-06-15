@@ -32,7 +32,7 @@ class PageController extends Controller
         $carouselProjecten = DB::select('SELECT  * FROM project_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 4');
         $carouselNewsPosts = DB::select('SELECT * FROM news_posts WHERE public = 1 ORDER BY updated_at desc LIMIT 6');
 
-        if (count($carouselProjecten) < 4) {
+        if (count($carouselProjecten) < 2) {
             $carouselProjecten = [];
         }
 
@@ -171,5 +171,10 @@ class PageController extends Controller
             'created_at' => date("Y-m-d Hs"),
         ]);
         return back();
+    }
+
+    public function contactpage()
+    {
+        return view('pages/contact');
     }
 }

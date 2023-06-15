@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="text-center text-white text-capitalize">
                     <h1 class="roboto custom_hidden_stay">Plaatselijk belang drogeham</h1>
-                    <a href="{{route('page', ['page' => 'contact'])}}" class="custom_lid_button_home text-decoration-none custom_hidden_stay">Word lid</a>
+                    <a href="{{route('contact')}}" class="custom_lid_button_home text-decoration-none custom_hidden_stay">Word lid</a>
                 </div>
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">

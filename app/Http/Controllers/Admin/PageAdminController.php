@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class PageAdminController extends Controller
 {
-    public function index($admin)
+    public function index()
     {
         if (Auth::check()) {
-            return view("admin/" . $admin);
+            return view("admin/dashboard");
         } else {
             return redirect()->route('login')
                 ->withErrors([

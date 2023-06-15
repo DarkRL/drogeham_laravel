@@ -1,7 +1,7 @@
 <footer class="bg-dark text-center text-lg-start position-absolute pb-0 pt-4 w-100">
     <div class="container mb-4">
         <div class="text-center p-3 text-white">
-            <span style="user-select: none;">© Plaatselijk belang Drogeham</span> | <a class="text-decoration-none text-white hover-underline-animation hover-underline-white" href="{{route('page', ['page' => 'disclaimer'])}}">Colofon & disclaimer</a> | <a class="text-decoration-none text-white hover-underline-animation hover-underline-white" href="{{route('page', ['page' => 'privacy'])}}">Privacy verklaring</a>
+            <span style="user-select: none;">© Plaatselijk belang Drogeham</span> | <a class="text-decoration-none text-white hover-underline-animation hover-underline-white" href="{{route('disclaimer')}}">Colofon & disclaimer</a> | <a class="text-decoration-none text-white hover-underline-animation hover-underline-white" href="{{route('privacy')}}">Privacy verklaring</a>
         </div>
         <div class="container text-center custom_hidden_repeat">
             <button type="button" class="btn btn-primary" onclick="goToLink_facebook()">
