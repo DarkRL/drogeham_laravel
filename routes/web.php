@@ -179,4 +179,4 @@ Route::controller(PageController::class)->group(function () {
 });
 
 Route::get("/admin/contact", [Contact::class, "index"])->name("admin.contact.index");
-Route::get('/admin/dashboard', [PageAdminController::class, 'index'])->name('admin')->middleware('auth');
+Route::get('/admin/dashboard', [PageAdminController::class, 'index'])->name('admin.dashboard')->middleware('auth');
