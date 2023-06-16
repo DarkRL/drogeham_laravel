@@ -137,7 +137,7 @@
                     <div class="row">
                         <div class="col-md-8 mx-auto">
                             <h2 class="text-center custom_hidden_repeat">Nieuw in Drogeham?</h2>
-                            <p class="text-mute text-center mb-4"><i>Namens de hele gemeenschap van Drogeham wil ik je van harte welkom heten in ons prachtige dorp. We zijn verheugd dat je ervoor hebt gekozen om hier te komen wonen en deel uit te maken van onze hechte gemeenschap.</i></p>
+                            <p class="text-mute text-center mb-4"><i>Namens de hele gemeenschap van Drogeham wil ik u van harte welkom heten in ons prachtige dorp. We zijn verheugd dat u ervoor heeft gekozen om hier te komen wonen en deel uit te maken van onze hechte gemeenschap.</i></p>
                             <form action="/contact/post" method="post">
                                 @csrf
                                 <div class="mb-3">
