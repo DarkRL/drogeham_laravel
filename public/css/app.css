@@ -314,3 +314,11 @@ input[type=number].phonenumber {
     width: 100%;
     display: block;
 }
+
+.custom-text {
+    transition: transform 0.1s ease;
+}
+
+.custom-badge:hover .custom-text {
+    transform: translateY(-20px);
+}
