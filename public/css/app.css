@@ -256,17 +256,13 @@ html {
     transform-origin: bottom left;
 }
 
-.img-thumbnail {
-    max-height: 30vh !important;
-    padding: 0% !important;
-}
-
-.fc-daygrid-day-number, .fc-col-header-cell-cushion {
+.fc-daygrid-day-number,
+.fc-col-header-cell-cushion {
     color: black;
     text-decoration: none;
 }
 
-.fc-event{
+.fc-event {
     cursor: pointer;
 }
 
@@ -280,4 +276,41 @@ input.phonenumber::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number].phonenumber {
     -moz-appearance: textfield;
+}
+
+.w-30 {
+    min-width: 30% !important;
+    padding-right: 3%;
+}
+
+.img-thumbnail {
+    min-width: 30vh !important;
+    padding: 0% !important;
+}
+
+.img-caption {
+    z-index: 1;
+    font-size: 1.2em;
+}
+
+.left-50 {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom-n10 {
+    bottom: 10%;
+}
+
+.text-top-left {
+    text-align: left;
+    vertical-align: top;
+}
+
+.hideOverflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
 }

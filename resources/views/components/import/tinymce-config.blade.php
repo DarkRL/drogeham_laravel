@@ -2,9 +2,9 @@
 <script>
     tinymce.init({
         selector: 'textarea#file-picker',
-        plugins: 'image code link autoresize',
+        plugins: 'image code link autoresize lists',
         menubar: 'edit insert view format table tools',
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image link',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | image link',
         autoresize_bottom_margin: 50,
         promotion: false,
         branding: false,

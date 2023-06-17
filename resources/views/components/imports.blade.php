@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="{{URL::asset("./css/app.css")}}" />
 <link rel="icon" href="{{URL::asset("./img/favicon.ico")}}">
 <script defer src="{{URL::asset("./js/app.js")}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
-
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
 <script src='fullcalendar/dist/index.global.js'></script>
 <script src='fullcalendar/locale/nl.js'></script>

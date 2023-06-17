@@ -12,12 +12,37 @@
     </form>
 </div>
 
-<div class="row my-5">
-    @foreach ($posts as $post)
+<div class="container">
+    <div class="row">
+        @php
+        $startingArray = $posts;
+        $sortedArrays = [[], [], []];
 
-    <x-posts.news_post_thumbnail postid="{{ $post->id }}" headline="{{ $post-> headline }}" datetime="{{ $post->updated_at }}" photo="{{ $post->photo }}" />
+        $chunkSize = ceil(count($startingArray) / 3);
 
-    @endforeach
+        for ($i = 0; $i < count($startingArray); $i++) { $sortedArrays[$i % 3][]=$startingArray[$i]; } 
+        @endphp 
+        @foreach ($sortedArrays as $chunks_arrays) 
+        <div class="col-lg-4 mb-4 mb-lg-0">
+            @foreach ($chunks_arrays as $post)
+
+            <div class="position-relative">
+                <div class="d-flex align-items-end">
+                    <a class="mt-5 mb-3" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
+                        <img src="{{ $post->photo }}" class="img-fluid rounded" alt="thumbnail">
+
+                        <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light badge w-75 shadow-lg p-3">
+                            <div class="text-dark h6 text-top-left hideOverflow">{!! html_entity_decode($post->headline) !!}</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            @endforeach
+        </div>
+        @endforeach
+    </div>
 </div>
 
 <div class="d-flex justify-content-between align-items-center">

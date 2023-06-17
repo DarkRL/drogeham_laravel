@@ -69,7 +69,7 @@ class PageController extends Controller
                 return $query->where('headline', 'like', '%' . $search . '%');
             })
             ->orderBy('id', 'desc')
-            ->paginate(15);
+            ->paginate(20);
     
         return view('pages/actueel', compact('posts'));
     }
