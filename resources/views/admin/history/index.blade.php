@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
-        <h5>Homepagina
+        <h5>Historiepagina
             @php
             use App\Models\admin\HistoryPosts;
             @endphp
