@@ -30,14 +30,19 @@
 
                         <div class="custom-text">
                             <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light badge w-75 shadow-lg p-3" style="transform: translateZ(0);">
-                                <div class="text-dark h6 text-top-left hideOverflow">{!! html_entity_decode($post->headline) !!}</div>
+                                <div class="text-dark h6 text-top-left hideOverflow h-100">{!! html_entity_decode($post->headline) !!}</div>
+                                <div class="text-dark mt-3 text-top-left hideOverflow h-100 text-smaller-badge">
+                                    <span class="hover-underline-animation hover-underline-grey mb-1">Lees meer
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-
-
             @endforeach
     </div>
     @endforeach

@@ -35,7 +35,7 @@
                         <h5 class="modal-title">Evenement: <span id="clickedevent"></span></h5>
                         <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="modal-body mx-4 my-3">
+                    <div class="m-2 container-fluid">
                         <div id="eventText"></div>
                     </div>
                     <div class="modal-footer">
