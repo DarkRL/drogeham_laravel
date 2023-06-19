@@ -92,7 +92,13 @@ class LoginRegisterController extends Controller
     
     public function register()
     {
-        return view('auth.register');
+        $tableIsEmpty = User::count() === 0;
+
+        if ($tableIsEmpty){
+            return view('auth.register');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -103,6 +109,12 @@ class LoginRegisterController extends Controller
      */
     public function store(Request $request)
     {
+        $tableIsEmpty = User::count() === 0;
+
+        if (!$tableIsEmpty){
+            return redirect()->route('login');
+        } 
+
         $request->validate([
             'name' => 'required|string|max:250',
             'email' => 'required|email|max:250|unique:users',
@@ -118,7 +130,7 @@ class LoginRegisterController extends Controller
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
         $request->session()->regenerate();
-        return redirect()->route('dashboard')
+        return redirect()->route('admin.dashboard')
         ->withSuccess('U bent nu geregistreerd en ingelogd!');
     }
 
