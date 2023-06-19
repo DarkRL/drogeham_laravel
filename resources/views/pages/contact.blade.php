@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Bericht</label>
-                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Vertel hier wat over jezelf..." required></textarea>
+                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Vertel hier wat over jezelf..."></textarea>
                                 </div>
                                 <div class="mb-3">
                                   <div class="h-captcha" data-sitekey="13d3c42a-ca96-4cc5-876a-9b403e08db0d" data-theme="licht" required></div>

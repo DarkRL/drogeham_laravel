@@ -34,7 +34,7 @@
                     @endif
                 </div>
             </div>
-            <a href="{{ route('admin.meyd.create') }}"><button type="button" class="btn btn-primary">Voeg pagina toe</button></a>
+            <a href="{{ route('admin.meyd.create') }}"><button type="button" class="btn btn-success">Voeg een nieuwe pagina toe</button></a>
             <div class="my-3">
                 <form action="{{ route('admin.meyd.index') }}" method="GET">
                     <div class="input-group">
