@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
-        <div id="calendar"></div>
+        <div id="calendar" class="vh-100 w-100"></div>
         <div class="modal fade" id="eventModal"> <!--  modal voor toevoegen event -->
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
@@ -31,11 +31,11 @@
         <div class="modal fade" id="eventEditModal"> <!--  modal voor aanpassen event -->
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header modal-header-custom">
                         <h5 class="modal-title">Evenement: <span id="clickedevent"></span></h5>
                         <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="m-2 container-fluid">
+                    <div class="m-2 container-fluid modal-header-custom">
                         <div id="eventText"></div>
                     </div>
                     <div class="modal-footer">

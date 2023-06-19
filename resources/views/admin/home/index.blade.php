@@ -4,8 +4,7 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
-        <h5>Homepagina
-            @php
+        <h5>Homepagina @php
             use App\Models\admin\HomePost;
             @endphp
             @if (!HomePost::where('id', 1)->exists())

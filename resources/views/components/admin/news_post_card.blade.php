@@ -144,7 +144,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Voorbeeld</h5>
                 </div>
-                <div class="m-2 container-fluid">
+                <div class="m-2 container-fluid modal-header-custom">
                     <div class="mb-4 mt-2">
                         <h2><b>{!! html_entity_decode($headline) !!}</b></h2>
                     </div>

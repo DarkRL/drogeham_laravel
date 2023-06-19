@@ -361,3 +361,7 @@ input[type=number].phonenumber {
     margin-left: 5px;
     /* Adjust the spacing between the text and the arrow as needed */
 }
+
+.modal-header-custom {
+    overflow-x: auto;
+  }

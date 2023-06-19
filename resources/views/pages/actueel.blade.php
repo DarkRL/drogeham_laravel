@@ -7,6 +7,7 @@
             <input type="text" class="form-control" name="search" placeholder="Zoek...">
             <div class="input-group-append">
                 <button class="btn btn-secondary" type="submit">Zoek</button>
+                <a href="{{ route('actueel') }}" class="btn btn-secondary" type="submit">Alle artikelen</a>
             </div>
         </div>
     </form>
@@ -25,9 +26,10 @@
 
             <div class="position-relative">
                 <div class="d-flex align-items-end custom-badge">
-                    <a class="mt-5 mb-3" title="{!! html_entity_decode($post->headline) !!}" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
-                        <img src="{{ $post->photo }}" class="img-fluid rounded" alt="thumbnail">
-
+                    <a class="mt-5 mb-3 w-100" title="{!! html_entity_decode($post->headline) !!}" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
+                        <div class="justify-content-center text-center align-center">
+                        <img src="{{ $post->photo }}" style="min-width: 22rem" class="img-fluid rounded w-100" alt="thumbnail">
+                        </div>
                         <div class="custom-text">
                             <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light badge w-75 shadow-lg p-3" style="transform: translateZ(0);">
                                 <div class="text-dark h6 text-top-left hideOverflow h-100">{!! html_entity_decode($post->headline) !!}</div>
