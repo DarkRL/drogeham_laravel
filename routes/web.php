@@ -150,7 +150,7 @@ Route::controller(ExtraPagesAdminController::class)->group(function() {
     Route::get('/admin/extra/index', 'index')->name('admin.extra.index')->middleware('auth');
     Route::get('/admin/extra/create', 'create')->name('admin.extra.create')->middleware('auth');
     Route::post('/admin/extra/create', 'store')->middleware('auth');
-    Route::get('/admin/extra/{id}/delete', 'delete')->name('admin.extra.delete')->middleware('auth');
+    Route::put('/admin/extra/{id}/delete', 'delete')->name('admin.extra.delete')->middleware('auth');
     Route::get('/admin/extra/{id}/edit', 'edit')->name('admin.extra.edit')->middleware('auth');
     Route::patch('/admin/extra/{id}/edit', 'update')->middleware('auth');
 });
