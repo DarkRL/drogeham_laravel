@@ -1,4 +1,4 @@
-<tr>
+<tr id="record-{{$postid}}">
     <td>
         <p>{!! html_entity_decode($headline) !!}</p>
     </td>
@@ -29,7 +29,7 @@
         </button>
     </td>
     <td style="padding-left:3%">
-    <form class="form-group" id="article_post_form_{{ $postid }}">
+        <form class="form-group" id="article_post_form_{{ $postid }}">
             @csrf
             <input type="hidden" name="article_id" value="{{ $postid }}">
             <input type="hidden" name="headline" value="{{ $headline }}">
@@ -81,6 +81,31 @@
                 });
             });
         });
+
+        $(document).ready(function() {
+            $('#delete_{{ $postid }}').submit(function(event) {
+                event.preventDefault();
+
+                var id = "{{ $postid }}";
+                var formElement = $(this);
+                var formData = $(formElement).serialize();
+
+                $.ajax({
+                    url: "{{ route('admin.meyd.delete', ['id' => $postid]) }}",
+                    type: 'PUT',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#record-' + id).remove();
+                        $('#message').text(response.message).addClass("alert alert-success");
+                    },
+                    error: function(xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        $('#message').text(err.message).addClass("alert alert-danger");
+                    }
+                });
+            });
+        });
     </script>
 
 
@@ -97,12 +122,14 @@
                 <div class="modal-footer justify-content-center">
                     <div class="row">
                         <div class="col-6">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nee</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuleren</button>
                         </div>
                         <div class="col-6">
-                            <a href="{{ route('admin.meyd.delete', ['id' => $postid]) }}">
-                                <button type="button" class="btn btn-danger">Ja</button>
-                            </a>
+                            <form method="post" id="delete_{{ $postid }}">
+                                @csrf
+                                <input class="form-control" type="hidden" name="headline" value="{{ $headline  }}">
+                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Verwijder</button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -83,7 +83,7 @@ Route::controller(MeydPostsController::class)->group(function () {
     Route::patch('/admin/meydinfo/{id}/edit', 'update_info')->middleware('auth');
     Route::get('/admin/meydinfo/create', 'create_info')->name('admin.meydinfo.create')->middleware('auth');
     Route::post('/admin/meydinfo/create', 'store_info')->middleware('auth');
-    Route::get('/admin/meyd/{id}/delete', 'delete')->name('admin.meyd.delete')->middleware('auth');
+    Route::put('/admin/meyd/{id}/delete', 'delete')->name('admin.meyd.delete')->middleware('auth');
     Route::put('/admin/meyd/{id}/publish', 'publish')->name('admin.meyd.publish')->middleware('auth');
     Route::get('/admin/meyd/index', 'index')->name('admin.meyd.index')->middleware('auth');
 });

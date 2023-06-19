@@ -35,8 +35,8 @@ class MeydPostsController extends Controller
             ->count();
 
         if ($count > 0) {
-            return redirect()->route('admin.meyd.edit')
-                ->withFail('"' . $request->pagename . '" bestaat al, kies een andere naam!');
+            return redirect()->route('admin.meyd.create')
+                ->withFail('"' . $request->pagename . '" bestaat al, kies een andere paginanaam!');
         }
 
         $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
@@ -92,12 +92,23 @@ class MeydPostsController extends Controller
             ->withFail('Er is een probleem opgetreden, "' . $request->headline . '" kon niet aangepast worden!');
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
         $beforeDel = MeydPosts::findOrFail($id);
         $deleted = MeydPosts::find($id)->delete();
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeDel->fulltext, '');
-        return redirect()->route('admin.meyd.index');
+
+        if ($deleted) {
+            return response()->json([
+                'success' => true,
+                'message' => "Het artikel '" . $request->headline . "' is succesvol verwijderd!"
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => "Er is iets fout gegaan, het artikel '" . $request->headline . "' is niet verwijderd!"
+        ]);
     }
 
     public function publish(Request $request, $id)

@@ -32,7 +32,6 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary custom_hidden_repeat">Verstuur</button>
                             </form>
-
                     </div>
                 </div>
             </div>
