@@ -316,10 +316,10 @@ input[type=number].phonenumber {
 }
 
 .text-smaller-badge {
-    padding-top:0 !important;
-    padding-bottom:0 !important;
-    margin-top:0 !important;
-    margin-bottom:0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .custom-text {
@@ -328,4 +328,36 @@ input[type=number].phonenumber {
 
 .custom-badge:hover .custom-text {
     transform: translateY(-20px);
+}
+
+.hoverProjectArticle:hover .custom-headline-project {
+    color: #ff0000;
+}
+
+.custom-headline-project {
+    color: rgb(33, 37, 41);
+    /* Initial color */
+    transition: color 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+.hover-arrow-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.hover-arrow-container .hoverarrowicon {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.hover-arrow-container:hover .hoverarrowicon {
+    transform: translateX(10px);
+    /* Adjust the amount of movement as needed */
+}
+
+.hoverarrowicon {
+    display: inline-block;
+    margin-left: 5px;
+    /* Adjust the spacing between the text and the arrow as needed */
 }

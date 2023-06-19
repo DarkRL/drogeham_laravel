@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AgendaAdminController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostTaskController;
 use App\Http\Controllers\Auth\LoginRegisterController;
@@ -176,6 +177,8 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/contact', 'contactpage')->name('contact');
     Route::post('/contact/post', 'contactSumbit')->name("contact.post");
     Route::get('/custom/{pagename}', 'extrapage')->name('custom.extrapage');
+
+    App::setLocale("nl");
 });
 
 Route::get("/admin/contact", [Contact::class, "index"])->name("admin.contact.index");

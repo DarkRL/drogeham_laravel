@@ -13,7 +13,7 @@
 </div>
 
 <div class="container">
-    <div class="row">
+    <div class="row my-5">
         @php
         $startingArray = $posts;
         $sortedArrays = [[], [], []];
@@ -25,17 +25,19 @@
 
             <div class="position-relative">
                 <div class="d-flex align-items-end custom-badge">
-                    <a class="mt-5 mb-3" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
+                    <a class="mt-5 mb-3" title="{!! html_entity_decode($post->headline) !!}" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
                         <img src="{{ $post->photo }}" class="img-fluid rounded" alt="thumbnail">
 
                         <div class="custom-text">
                             <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light badge w-75 shadow-lg p-3" style="transform: translateZ(0);">
                                 <div class="text-dark h6 text-top-left hideOverflow h-100">{!! html_entity_decode($post->headline) !!}</div>
-                                <div class="text-dark mt-3 text-top-left hideOverflow h-100 text-smaller-badge">
-                                    <span class="hover-underline-animation hover-underline-grey mb-1">Lees meer
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                <div class="text-muted mt-3 text-top-left hideOverflow h-100 text-smaller-badge">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
                                         </svg>
+                                        {{ \Carbon\Carbon::parse($post->updated_at)->locale('nl')->isoFormat('D MMMM, YYYY') }}
                                     </span>
                                 </div>
                             </div>
