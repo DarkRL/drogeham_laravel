@@ -8,8 +8,8 @@
             <h6>Artikel Aanpassen</h6>
             @csrf
             @method('PATCH')
-            <input name="headline" class="form-control" placeholder="Titel" value="{{ $post->headline }}" required></input>
-            <textarea name="fulltext" class="form-control" id="file-picker" required>{{ $post->fulltext }}</textarea>
+            <input name="headline" class="form-control my-2" placeholder="Titel" value="{{ $post->headline }}" required></input>
+            <textarea name="fulltext" class="form-control" id="file-picker">{{ $post->fulltext }}</textarea>
             <div class="my-2">
                 <label for="thumbnail" class="form-label">Upload een nieuwe thumbnail om de huidige te veranderen</label>
                 <input class="form-control" type="file" id="thumbnail" name="photo">

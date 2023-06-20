@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
-        <h6>Aanpassen</h6>
+        <h6>Aanpassen homepagina</h6>
         <form action="" method="post" class="form-group">
             @csrf
             @method('PATCH')

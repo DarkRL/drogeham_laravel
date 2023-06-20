@@ -24,7 +24,7 @@
         for ($i = 0; $i < count($startingArray); $i++) { $sortedArrays[$i % 3][]=$startingArray[$i]; } @endphp @foreach ($sortedArrays as $chunks_arrays) <div class="col-lg-4 mb-4 mb-lg-0">
             @foreach ($chunks_arrays as $post)
 
-            <div class="position-relative">
+            <div class="position-relative custom_hidden_stay_up">
                 <div class="d-flex align-items-end custom-badge">
                     <a class="mt-5 mb-3 w-100" title="{!! html_entity_decode($post->headline) !!}" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
                         <div class="justify-content-center text-center align-center">

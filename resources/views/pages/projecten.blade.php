@@ -22,7 +22,7 @@
 
         for ($i = 0; $i < count($startingArray); $i++) { $sortedArrays[$i % 3][]=$startingArray[$i]; } @endphp @foreach ($sortedArrays as $chunks_arrays) <div class="col-lg-4 mb-4 mb-lg-0">
             @foreach ($chunks_arrays as $post)
-            <div class="card mb-4">
+            <div class="card mb-4 custom_hidden_stay_up">
                 <div class="card-body">
                     <a class="hoverProjectArticle" href="{{ route('templates.projectpost', ['id' => $post->id]) }}" style="color: black; text-decoration: none">
                         <img src="{{ $post->photo }}" class="img-fluid rounded" alt="thumbnail">
