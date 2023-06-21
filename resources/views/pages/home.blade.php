@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">
-                <a class="clicktohome" href="#home" style="text-decoration:none;"><span class="text-white pb-3">Onze projecten</span></a>
+                <a class="clicktohome d-none d-xl-block" href="#home" style="text-decoration:none;"><span class="text-white pb-3">Onze projecten</span></a>
                 <a class="clicktohome" href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="row justify-content-center">
                 <div class="col-10">
                     <div class="m-5">
-                        <div id="CarouselProjecten" class="carousel slide" data-bs-ride="carousel">
+                        <div id="CarouselProjecten" class="carousel slide d-none d-xl-block" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 @for ($i = 0; $i < count($carouselProjecten); $i++) <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="{{$i}}" @if ($i===0) class="active" aria-current="true" @endif aria-label="Slide {{ ($i + 1) }}"></button>
                                     @endfor
@@ -117,7 +117,7 @@
                 </div>
                 <div class="col-10 mt-5">
                     <div class="mb-5">
-                        <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay_up" data-bs-ride="carousel">
+                        <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay_up d-none d-xl-block" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @if (count($carouselNewsPosts) > 0)
                                 @if (gettype($carouselNewsPosts[0]) === "array")
