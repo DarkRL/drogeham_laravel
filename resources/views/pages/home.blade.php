@@ -34,7 +34,7 @@
                             </div>
                             <div class="carousel-inner">
                                 @forelse ($carouselProjecten as $key => $carouselProject)
-                                <div class="carousel-item rounded @if ($key === 0) active @endif" style="min-height: 400px; background-color:lightgrey;">
+                                <div class="carousel-item rounded bg-light-custom @if ($key === 0) active @endif" style="min-height: 400px;">
                                     <div class="container">
 
                                         <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
@@ -49,6 +49,21 @@
                                                     <div class="p-2"></div>
                                                     <div class="strip-img-iframe mx-2 project-max-character">
                                                         {!! html_entity_decode($carouselProject->fulltext) !!}
+                                                    </div>
+                                                    <p class="mt-3 mx-2 text-muted">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                                                        </svg>
+                                                        {{ \Carbon\Carbon::parse($carouselProject->updated_at)->locale('nl')->isoFormat('D MMMM, YYYY') }}
+                                                    </p>
+                                                    <div class="hover-arrow-container mx-2">
+                                                        <span class="hover-underline-animation hover-underline-grey hovertextarrow">Lees meer</span>
+                                                        <span class="hoverarrowicon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                                            </svg>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
