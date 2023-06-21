@@ -34,12 +34,12 @@
                             </div>
                             <div class="carousel-inner">
                                 @forelse ($carouselProjecten as $key => $carouselProject)
-                                <div class="carousel-item bg-dark @if ($key === 0) active @endif" style="min-height: 400px; ">
+                                <div class="carousel-item bg-dark rounded @if ($key === 0) active @endif" style="min-height: 400px; ">
                                     <div class="container">
 
                                         <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
-                                            <div class="col-8">
-                                                <img src="{{$carouselProject->photo}}" class="d-block w-100" height="400" alt="Slide {{ ($key + 1) }}">
+                                            <div class="col-8 d-flex justify-content-center">
+                                                <img src="{{$carouselProject->photo}}" class="d-block w-auto rounded my-3" height="400" alt="Slide {{ ($key + 1) }}">
                                             </div>
                                             <div class="col-4">
                                                 <div class="text-white">
@@ -89,11 +89,11 @@
                                     <div class="row ">
                                         @forelse ($carouselNewsPost as $NewsPost)
                                         <div class="col">
-                                            <div class="text-center bg-dark text-light">
-                                                {{$NewsPost->headline}}
-                                            </div>
-                                            <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
-                                                <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                            <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}" class="text-decoration-none text-center text-dark">
+                                                <img height="200" src="{{$NewsPost->photo}}" class="d-block w-auto rounded m-auto" alt="Image 4">
+                                                <div class="text-center">
+                                                    {{$NewsPost->headline}}
+                                                </div>
                                             </a>
                                         </div>
                                         @empty
@@ -105,16 +105,14 @@
                                 @elseif (gettype($carouselNewsPosts[0]) === "object")
                                 @forelse ($carouselNewsPosts as $key => $NewsPost)
                                 <div class="carousel-item @if ($key === 0) active @endif">
-                                    <div class="row">
-                                        <div class="col ">
-                                            <div class="text-center bg-dark text-light">
-                                                {{$NewsPost->headline}}
-                                            </div>
-                                            <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
-                                                <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
-                                            </a>
+                                    <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
+                                        <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5> {{$NewsPost->headline}}</h5>
+
+
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 @empty
                                 @endforelse
