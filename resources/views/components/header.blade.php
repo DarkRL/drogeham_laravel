@@ -1,8 +1,7 @@
 <header class="sticky-top">
     <nav class="py-2 bg-light navbar-expand-xxl d-flex align-items-start">
-        <div class="container d-flex flex-wrap text-algin align-items-center justify-content-center">
+        <div class="container d-flex flex-wrap justify-content-center">
             <a href="{{route('home')}}"><img src="{{URL::asset('/img/wapen.svg')}}" alt="Wapen Drogeham" title="Drogeham" height="50" /></a>
-            <a class="d-xxl-none px-4" href="{{route('meydinfo')}}"><img src="{{URL::asset('/img/MEYD_drogeham.png')}}" alt="Logo MEYD" title="MEYD" height="60" /></a>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="menu d-xxl-none list-unstyled text-center ">
                 <li class="nav-item text-decoration-none mt-4 p-1  "><a href="{{route('home')}}" class="nav-link link-dark link_header_class" id="homepagelinkid" aria-current="page"><span class="hover-underline-animation hover-underline-grey">Home</span></a></li>
@@ -13,7 +12,7 @@
                 <li class="nav-item text-decoration-none p-1"><a href="{{route('brinkpraat')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Brinkpraat</span></a></li>
                 <li class="nav-item text-decoration-none p-1"><a href="{{route('historie')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Historie</span></a></li>
                 <li class="nav-item text-decoration-none p-1"><a href="{{route('contact')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Contact</span></a></li>
-                <div class="">
+                <div class="bg-light-custom">
                   <li class="nav-item text-decoration-none p-1"><a href="{{route('meydinfo')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">
                     MEDY
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
@@ -74,30 +73,3 @@
         });
     </script>
 </header>
-
-<!-- <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header> -->
