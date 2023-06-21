@@ -11,7 +11,7 @@
                 <li class="nav-item text-decoration-none p-1"><a href="{{route('plaatselijkbelang')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Plaatselijk belang</span></a></li>
                 <li class="nav-item text-decoration-none p-1"><a href="{{route('brinkpraat')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Brinkpraat</span></a></li>
                 <li class="nav-item text-decoration-none p-1"><a href="{{route('historie')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Historie</span></a></li>
-                <li class="nav-item text-decoration-none p-1"><a href="{{route('contact')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Contact</span></a></li>
+                <li class="nav-item text-decoration-none p-1"><a href="{{route('contact')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Word lid</span></a></li>
                 <div class="bg-light-custom">
                   <li class="nav-item text-decoration-none p-1"><a href="{{route('meydinfo')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">
                     MEDY
@@ -47,7 +47,7 @@
                 <li class="nav-item"><a href="{{route('plaatselijkbelang')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Plaatselijk belang</span></a></li>
                 <li class="nav-item"><a href="{{route('brinkpraat')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Brinkpraat</span></a></li>
                 <li class="nav-item"><a href="{{route('historie')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Historie</span></a></li>
-                <li class="nav-item"><a href="{{route('contact')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Contact</span></a></li>
+                <li class="nav-item"><a href="{{route('contact')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Word lid</span></a></li>
             </ul>
             </div>
 
