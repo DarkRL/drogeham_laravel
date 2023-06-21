@@ -152,10 +152,25 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Bericht</label>
-                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Vertel hier wat over jezelf..." required></textarea>
+                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Vertel hier wat over jezelf..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="h-captcha" data-sitekey="13d3c42a-ca96-4cc5-876a-9b403e08db0d" data-theme="licht" required></div>
                                 </div>
                                 <button type="submit" class="btn btn-primary custom_hidden_repeat">Verstuur</button>
                             </form>
+                            <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+                            <div class="col"></div>
+                            <script>
+                                var form = document.getElementById('Contact');
+                                form.addEventListener('submit', function(event) {
+                                    var response = hcaptcha.getResponse();
+                                    if (!response) {
+                                        event.preventDefault(); // Voorkom dat het formulier wordt verzonden
+                                        alert('Bevestig dat u een mens bent');
+                                    }
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,7 @@
             <input type="text" class="form-control" name="search" placeholder="Zoek...">
             <div class="input-group-append">
                 <button class="btn btn-secondary" type="submit">Zoek</button>
+                <a href="{{ route('actueel') }}" class="btn btn-secondary" type="submit">Alle artikelen</a>
             </div>
         </div>
     </form>
@@ -23,14 +24,15 @@
         for ($i = 0; $i < count($startingArray); $i++) { $sortedArrays[$i % 3][]=$startingArray[$i]; } @endphp @foreach ($sortedArrays as $chunks_arrays) <div class="col-lg-4 mb-4 mb-lg-0">
             @foreach ($chunks_arrays as $post)
 
-            <div class="position-relative">
+            <div class="position-relative custom_hidden_stay_up">
                 <div class="d-flex align-items-end custom-badge">
-                    <a class="mt-5 mb-3" title="{!! html_entity_decode($post->headline) !!}" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
-                        <img src="{{ $post->photo }}" class="img-fluid rounded" alt="thumbnail">
-
+                    <a class="mt-5 mb-3 w-100" title="{!! html_entity_decode($post->headline) !!}" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
+                        <div class="justify-content-center text-center align-center">
+                            <img src="{{ $post->photo }}" style="min-width: 22rem" class="img-fluid rounded w-100" alt="thumbnail">
+                        </div>
                         <div class="custom-text">
                             <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light badge w-75 shadow-lg p-3" style="transform: translateZ(0);">
-                                <div class="text-dark h6 text-top-left hideOverflow h-100">{!! html_entity_decode($post->headline) !!}</div>
+                                <div style="word-break: break-all;" class="text-dark h6 text-top-left text-wrap h-100 headline-max-character">{!! html_entity_decode($post->headline) !!}</div>
                                 <div class="text-muted mt-3 text-top-left hideOverflow h-100 text-smaller-badge">
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -50,6 +52,21 @@
     @endforeach
 </div>
 </div>
+<script>
+    $(document).ready(function() {
+        var maxLength = 62; // Set your desired maximum character length
+
+        $('.headline-max-character').each(function() {
+            var badgeTextElement = $(this);
+            var badgeText = badgeTextElement.text();
+
+            if (badgeText.length > maxLength) {
+                var truncatedText = badgeText.substring(0, maxLength) + '...';
+                badgeTextElement.text(truncatedText);
+            }
+        });
+    });
+</script>
 
 <div class="d-flex justify-content-between align-items-center">
     <div>

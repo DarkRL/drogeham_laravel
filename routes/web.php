@@ -83,7 +83,7 @@ Route::controller(MeydPostsController::class)->group(function () {
     Route::patch('/admin/meydinfo/{id}/edit', 'update_info')->middleware('auth');
     Route::get('/admin/meydinfo/create', 'create_info')->name('admin.meydinfo.create')->middleware('auth');
     Route::post('/admin/meydinfo/create', 'store_info')->middleware('auth');
-    Route::get('/admin/meyd/{id}/delete', 'delete')->name('admin.meyd.delete')->middleware('auth');
+    Route::put('/admin/meyd/{id}/delete', 'delete')->name('admin.meyd.delete')->middleware('auth');
     Route::put('/admin/meyd/{id}/publish', 'publish')->name('admin.meyd.publish')->middleware('auth');
     Route::get('/admin/meyd/index', 'index')->name('admin.meyd.index')->middleware('auth');
 });
@@ -150,13 +150,18 @@ Route::controller(ExtraPagesAdminController::class)->group(function() {
     Route::get('/admin/extra/index', 'index')->name('admin.extra.index')->middleware('auth');
     Route::get('/admin/extra/create', 'create')->name('admin.extra.create')->middleware('auth');
     Route::post('/admin/extra/create', 'store')->middleware('auth');
-    Route::get('/admin/extra/{id}/delete', 'delete')->name('admin.extra.delete')->middleware('auth');
+    Route::put('/admin/extra/{id}/delete', 'delete')->name('admin.extra.delete')->middleware('auth');
     Route::get('/admin/extra/{id}/edit', 'edit')->name('admin.extra.edit')->middleware('auth');
     Route::patch('/admin/extra/{id}/edit', 'update')->middleware('auth');
 });
 
+Route::controller(Contact::class)->group(function() {
+    Route::get("/admin/contact", "index")->name("admin.contact.index")->middleware('auth');
+    Route::put("/admin/contact/{id}/delete", "delete")->name("admin.contact.delete")->middleware('auth');
+});
+
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
-    ->name('upload.post.image');
+    ->name('upload.post.image')->middleware('auth');
 
 Route::controller(PageController::class)->group(function () {
     Route::get('/', 'homepage')->name('home');
@@ -181,5 +186,4 @@ Route::controller(PageController::class)->group(function () {
     App::setLocale("nl");
 });
 
-Route::get("/admin/contact", [Contact::class, "index"])->name("admin.contact.index");
 Route::get('/admin/dashboard', [PageAdminController::class, 'index'])->name('admin.dashboard')->middleware('auth');

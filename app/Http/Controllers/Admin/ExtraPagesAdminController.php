@@ -59,12 +59,23 @@ class ExtraPagesAdminController extends Controller
             ->withFail('Er is een error ontstaan, "' . $request->headline . '" kon niet aangemaakt worden!');
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
         $beforeDel = ExtraPages::findOrFail($id);
         $deleted = ExtraPages::find($id)->delete();
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeDel->fulltext, '');
-        return redirect()->route('admin.extra.index');
+       
+        if ($deleted) {
+            return response()->json([
+                'success' => true,
+                'message' => "Het artikel '" . $request->headline . "' is succesvol verwijderd!"
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => "Er is iets fout gegaan, het artikel '" . $request->headline . "' is niet verwijderd!"
+        ]);
     }
 
     public function edit(ExtraPages $id)

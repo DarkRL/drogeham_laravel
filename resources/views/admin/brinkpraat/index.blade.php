@@ -50,7 +50,7 @@
                 @endforelse
             </div>
         </div>
-        <a href="{{ route('admin.brinkpraat.create.files') }}"><button type="button" class="btn btn-primary m-2">Voeg een nieuw bestand toe</button></a>
+        <a href="{{ route('admin.brinkpraat.create.files') }}"><button type="button" class="btn btn-success mt-3">Voeg een nieuw bestand toe</button></a>
         <div class="my-3">
                 <form action="{{ route('admin.brinkpraat.index') }}" method="GET">
                     <div class="input-group">

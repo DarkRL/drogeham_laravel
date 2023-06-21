@@ -165,8 +165,8 @@ class PageController extends Controller
         $NewContract = ContactPosts::create([
             'naam' => $request->name,
             'email' => $request->email,
-            'tel' => $request->Tel,
-            'bericht' => $request->message,
+            'tel' => $request->Tel ?? '-',
+            'bericht' => $request->message ?? '-',
             'updated_at' => date("Y-m-d Hs"),
             'created_at' => date("Y-m-d Hs"),
         ]);

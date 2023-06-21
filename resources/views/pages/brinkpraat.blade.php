@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col"></div>
-    <div class="col-10">
+    <div class="col-12">
         <div class="m-5">
             <div class="custom_hidden_repeat">
                 @foreach ($posts as $post)
@@ -17,12 +16,11 @@
             <h4>Publicaties {{ $year }}</h4>
             <ul>
                 @foreach($files as $file)
-                <li><a href="{{ $file->filepath }}">{{ $file->filename }}</a></li>
+                <li><a target="_blank" href="{{ $file->filepath }}">{{ $file->filename }}</a></li>
                 @endforeach
             </ul>
             @endforeach
         </div>
     </div>
-    <div class="col"></div>
 </div>
 @endsection
