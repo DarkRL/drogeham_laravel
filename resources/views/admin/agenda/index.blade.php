@@ -36,7 +36,8 @@
                         <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="m-2 container-fluid modal-header-custom">
-                        <div id="eventText"></div>
+                        <div class="prevent-text-overflow" id="eventText">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <div class="btn-toolbar">

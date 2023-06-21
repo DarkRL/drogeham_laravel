@@ -145,11 +145,11 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Voorbeeld</h5>
                 </div>
-                <div class="m-2 container-fluid modal-header-custom">
-                    <div class="mb-4 mt-2">
+                <div class="m-2 container-fluid">
+                    <div class="mb-4 mt-2 prevent-text-overflow">
                         <h2><b>{!! html_entity_decode($headline) !!}</b></h2>
                     </div>
-                    <div>{!! html_entity_decode($fulltext) !!}</div>
+                    <div class="prevent-text-overflow">{!! html_entity_decode($fulltext) !!}</div>
                 </div>
                 <div class="modal-footer">
                     <div class="row">

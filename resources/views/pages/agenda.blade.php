@@ -1,7 +1,7 @@
 @extends('pages.layouts')
 
 @section('content')
-<div class="row">
+<div class="row mb-2">
     <div class="vh-100 w-100" id="calendar"></div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -63,11 +63,11 @@
 <div class="modal fade" id="eventModal"> <!--  modal voor display event -->
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
-            <div class="modal-header  modal-header-custom">
-                <h5 class="modal-title"><span id="clickedevent"></span></h5>
+            <div class="modal-header">
+                <h5 class="modal-title modal-header-custom""><span id="clickedevent"></span></h5>
                 <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="m-2 container-fluid">
+            <div class="m-2 w-100 container-fluid modal-header-custom">
                 <div id="eventText"></div>
             </div>
         </div>

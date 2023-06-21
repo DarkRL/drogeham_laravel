@@ -27,7 +27,7 @@
                     <a class="hoverProjectArticle" href="{{ route('templates.projectpost', ['id' => $post->id]) }}" style="color: black; text-decoration: none">
                         <img src="{{ $post->photo }}" class="img-fluid rounded" alt="thumbnail">
                         <div class="m-3">
-                            <h5 class="custom-headline-project">{!! html_entity_decode($post->headline) !!}</h5>
+                            <h5 class="prevent-text-overflow headline-max-character">{!! html_entity_decode($post->headline) !!}</h5>
                             <p class="mt-3 text-muted">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
@@ -52,6 +52,21 @@
     @endforeach
 </div>
 </div>
+<script>
+    $(document).ready(function() {
+        var maxLength = 70; // Set your desired maximum character length
+
+        $('.headline-max-character').each(function() {
+            var badgeTextElement = $(this);
+            var badgeText = badgeTextElement.text();
+
+            if (badgeText.length > maxLength) {
+                var truncatedText = badgeText.substring(0, maxLength) + '...';
+                badgeTextElement.text(truncatedText);
+            }
+        });
+    });
+</script>
 
 <div class="d-flex justify-content-between align-items-center">
     <div>

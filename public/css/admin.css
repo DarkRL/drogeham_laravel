@@ -31,3 +31,12 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-responsive td {
+  word-wrap: break-word;
+  max-width: 200px; /* Set your desired maximum width */
+}

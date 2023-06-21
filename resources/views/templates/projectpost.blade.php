@@ -11,10 +11,12 @@
                 </svg>
                 Terug
             </a>
-            <h2><b>{!! html_entity_decode($post->headline) !!}</b></h2>
+            <div class="prevent-text-overflow">
+                <h2><b>{!! html_entity_decode($post->headline) !!}</b></h2>
+            </div>
             <div>
-            {!! html_entity_decode($post->fulltext) !!}
-        </div>
+                {!! html_entity_decode($post->fulltext) !!}
+            </div>
         </div>
     </div>
 </div>

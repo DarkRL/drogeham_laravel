@@ -28,11 +28,11 @@
                 <div class="d-flex align-items-end custom-badge">
                     <a class="mt-5 mb-3 w-100" title="{!! html_entity_decode($post->headline) !!}" href="{{ route('templates.newspost', ['id' => $post->id]) }}">
                         <div class="justify-content-center text-center align-center">
-                        <img src="{{ $post->photo }}" style="min-width: 22rem" class="img-fluid rounded w-100" alt="thumbnail">
+                            <img src="{{ $post->photo }}" style="min-width: 22rem" class="img-fluid rounded w-100" alt="thumbnail">
                         </div>
                         <div class="custom-text">
                             <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light badge w-75 shadow-lg p-3" style="transform: translateZ(0);">
-                                <div class="text-dark h6 text-top-left hideOverflow h-100">{!! html_entity_decode($post->headline) !!}</div>
+                                <div style="word-break: break-all;" class="text-dark h6 text-top-left text-wrap h-100 headline-max-character">{!! html_entity_decode($post->headline) !!}</div>
                                 <div class="text-muted mt-3 text-top-left hideOverflow h-100 text-smaller-badge">
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
@@ -52,6 +52,21 @@
     @endforeach
 </div>
 </div>
+<script>
+    $(document).ready(function() {
+        var maxLength = 62; // Set your desired maximum character length
+
+        $('.headline-max-character').each(function() {
+            var badgeTextElement = $(this);
+            var badgeText = badgeTextElement.text();
+
+            if (badgeText.length > maxLength) {
+                var truncatedText = badgeText.substring(0, maxLength) + '...';
+                badgeTextElement.text(truncatedText);
+            }
+        });
+    });
+</script>
 
 <div class="d-flex justify-content-between align-items-center">
     <div>

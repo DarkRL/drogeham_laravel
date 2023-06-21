@@ -16,7 +16,7 @@
             <h4>Publicaties {{ $year }}</h4>
             <ul>
                 @foreach($files as $file)
-                <li><a href="{{ $file->filepath }}">{{ $file->filename }}</a></li>
+                <li><a target="_blank" href="{{ $file->filepath }}">{{ $file->filename }}</a></li>
                 @endforeach
             </ul>
             @endforeach

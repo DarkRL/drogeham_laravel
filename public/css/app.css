@@ -364,4 +364,12 @@ input[type=number].phonenumber {
 
 .modal-header-custom {
     overflow-x: auto;
+}
+
+.prevent-text-overflow {
+    word-wrap: break-word;
+}
+
+.modal-body {
+    overflow-wrap: break-word;
   }
