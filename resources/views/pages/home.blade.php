@@ -39,16 +39,16 @@
 
                                         <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
                                             <div class="col-8 d-flex justify-content-center">
-                                                <img src="{{$carouselProject->photo}}" class="d-block w-auto rounded my-3" height="400" alt="Slide {{ ($key + 1) }}">
+                                                <img src="{{$carouselProject->photo}}" class="d-block w-auto mw-100 rounded my-4" height="400" alt="Slide {{ ($key + 1) }}">
                                             </div>
                                             <div class="col-4">
-                                                <div class="text-white">
-                                                    <div class="p-2 mw-50">
+                                                <div class="text-white my-3">
+                                                    <div class="p-2 h3">
                                                         {!! html_entity_decode($carouselProject->headline) !!}
-                                                        <div class="p-2"></div>
-                                                        <div class="strip-img-iframe">
+                                                    </div>
+                                                    <div class="p-2"></div>
+                                                    <div class="strip-img-iframe mx-2 project-max-character">
                                                         {!! html_entity_decode($carouselProject->fulltext) !!}
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,6 +64,18 @@
                                 $(document).ready(function() {
                                     $('.strip-img-iframe').each(function() {
                                         $(this).find('img, iframe').remove(); // Remove image and iframe tags
+                                    });
+
+                                    var maxLength = 400; // Set your desired maximum character length
+
+                                    $('.project-max-character').each(function() {
+                                        var badgeTextElement = $(this);
+                                        var badgeText = badgeTextElement.text();
+
+                                        if (badgeText.length > maxLength) {
+                                            var truncatedText = badgeText.substring(0, maxLength) + '...';
+                                            badgeTextElement.text(truncatedText);
+                                        }
                                     });
                                 });
                             </script>
