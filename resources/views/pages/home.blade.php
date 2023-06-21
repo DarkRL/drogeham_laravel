@@ -34,7 +34,7 @@
                             </div>
                             <div class="carousel-inner">
                                 @forelse ($carouselProjecten as $key => $carouselProject)
-                                <div class="carousel-item bg-dark rounded @if ($key === 0) active @endif" style="min-height: 400px; ">
+                                <div class="carousel-item rounded @if ($key === 0) active @endif" style="min-height: 400px; background-color:lightgrey;">
                                     <div class="container">
 
                                         <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
@@ -42,7 +42,7 @@
                                                 <img src="{{$carouselProject->photo}}" class="d-block w-auto mw-100 rounded my-4" height="400" alt="Slide {{ ($key + 1) }}">
                                             </div>
                                             <div class="col-4">
-                                                <div class="text-white my-3">
+                                                <div class="text-dark my-3">
                                                     <div class="p-2 h3">
                                                         {!! html_entity_decode($carouselProject->headline) !!}
                                                     </div>
@@ -110,9 +110,9 @@
                                 <div class="carousel-item @if ($key === 0) active @endif">
                                     <div class="row ">
                                         @forelse ($carouselNewsPost as $NewsPost)
-                                        <div class="col">
+                                        <div class="col border border-dark rounded m-3">
                                             <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}" class="text-decoration-none text-center text-dark">
-                                                <img height="200" src="{{$NewsPost->photo}}" class="d-block w-auto rounded m-auto" alt="Image 4">
+                                                <img height="200" src="{{$NewsPost->photo}}" class="d-block w-auto rounded m-auto mt-3" alt="Image 4">
                                                 <div class="text-center">
                                                     {{$NewsPost->headline}}
                                                 </div>
