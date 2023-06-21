@@ -46,7 +46,9 @@
                                                     <div class="p-2 mw-50">
                                                         {!! html_entity_decode($carouselProject->headline) !!}
                                                         <div class="p-2"></div>
+                                                        <div class="strip-img-iframe">
                                                         {!! html_entity_decode($carouselProject->fulltext) !!}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -57,6 +59,14 @@
                                 @empty
                                 @endforelse
                             </div>
+
+                            <script>
+                                $(document).ready(function() {
+                                    $('.strip-img-iframe').each(function() {
+                                        $(this).find('img, iframe').remove(); // Remove image and iframe tags
+                                    });
+                                });
+                            </script>
 
                             <button class="carousel-control-prev" type="button" data-bs-target="#CarouselProjecten" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
