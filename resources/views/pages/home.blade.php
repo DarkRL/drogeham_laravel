@@ -39,7 +39,7 @@
 
                                         <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
                                             <div class="col-8 d-flex justify-content-center">
-                                                <img src="{{$carouselProject->photo}}" class="d-block w-auto mw-100 rounded my-4" height="400" alt="Slide {{ ($key + 1) }}">
+                                                <img src="{{$carouselProject->photo}}" class="d-block carousel-image mh-100 mw-175 rounded my-4" height="400" alt="Slide {{ ($key + 1) }}">
                                             </div>
                                             <div class="col-4">
                                                 <div class="text-dark my-3">
@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div class="col-10 mt-5">
-                    <div class="mb-5">
+                    <div class="mb-2">
                         <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay_up d-none d-xl-block" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @if (count($carouselNewsPosts) > 0)
@@ -125,13 +125,34 @@
                                 <div class="carousel-item @if ($key === 0) active @endif">
                                     <div class="row ">
                                         @forelse ($carouselNewsPost as $NewsPost)
-                                        <div class="col border border-dark rounded m-3">
-                                            <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}" class="text-decoration-none text-center text-dark">
-                                                <img height="200" src="{{$NewsPost->photo}}" class="d-block w-auto rounded m-auto mt-3" alt="Image 4">
-                                                <div class="text-center">
-                                                    {{$NewsPost->headline}}
+                                        <div class="col-4 rounded">
+                                            <div class="card mb-4 custom_hidden_stay_up">
+                                                <div class="card-body max-height-custom-carousel2">
+                                                    <a class="hoverProjectArticle justify-content-center" href="{{ route('templates.projectpost', ['id' => $NewsPost->id]) }}" style="color: black; text-decoration: none">
+                                                        <div class="text-center">
+                                                            <img src="{{ $NewsPost->photo }}" class="mh-auto mx-auto max-height-custom-carousel img-fluid rounded" alt="thumbnail">
+                                                        </div>
+                                                        <div class="m-3">
+                                                            <h5 class="prevent-text-overflow headline-max-character">{!! html_entity_decode($NewsPost->headline) !!}</h5>
+                                                            <p class="mt-3 text-muted">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                                                                </svg>
+                                                                {{ \Carbon\Carbon::parse($NewsPost->updated_at)->locale('nl')->isoFormat('D MMMM, YYYY') }} - Actueel
+                                                            </p>
+                                                            <div class="hover-arrow-container">
+                                                                <span class="hover-underline-animation hover-underline-grey hovertextarrow">Lees meer</span>
+                                                                <span class="hoverarrowicon">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                            </a>
+                                            </div>
                                         </div>
                                         @empty
                                         @endforelse
@@ -139,21 +160,7 @@
                                 </div>
                                 @empty
                                 @endforelse
-                                @elseif (gettype($carouselNewsPosts[0]) === "object")
-                                @forelse ($carouselNewsPosts as $key => $NewsPost)
-                                <div class="carousel-item @if ($key === 0) active @endif">
-                                    <a href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}">
-                                        <img height="200" src="{{$NewsPost->photo}}" class="d-block w-100" alt="Image 4">
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h5> {{$NewsPost->headline}}</h5>
 
-
-                                        </div>
-                                    </a>
-                                </div>
-                                @empty
-                                @endforelse
-                                @else
                                 @endif
                                 @endif
                             </div>
@@ -168,6 +175,33 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-10 text-center justify-content-center align-center">
+                    <div class="text-center mb-3 hover-arrow-container">
+                        <a class="text-decoration-none text-dark" href="{{ route('actueel') }}">
+                            <h5 class="hover-underline-animation hover-underline-grey hovertextarrow">Ga naar Actueel</h5>
+                            <span class="hoverarrowicon">
+                                <svg style="scale:1.5;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <script>
+                    $(document).ready(function() {
+                        var maxLength = 50; // Set your desired maximum character length
+
+                        $('.headline-max-character').each(function() {
+                            var badgeTextElement = $(this);
+                            var badgeText = badgeTextElement.text();
+
+                            if (badgeText.length > maxLength) {
+                                var truncatedText = badgeText.substring(0, maxLength) + '...';
+                                badgeTextElement.text(truncatedText);
+                            }
+                        });
+                    });
+                </script>
                 <div class="container bg-light-custom pt-5 pb-5">
                     <div class="row">
                         <div class="col-md-8 mx-auto">
@@ -193,7 +227,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary custom_hidden_repeat">Verstuur</button>
                             </form>
-                           <div class="col"></div>
+                            <div class="col"></div>
                         </div>
                     </div>
                 </div>
