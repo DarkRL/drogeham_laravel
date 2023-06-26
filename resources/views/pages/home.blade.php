@@ -104,9 +104,21 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
+                        <div class="col-12 mt-5 text-center justify-content-center align-center d-none d-xl-block">
+                                <div class="text-center mb-3 hover-arrow-container">
+                                    <a class="text-decoration-none text-dark" href="{{ route('projecten') }}">
+                                        <h5 class="hover-underline-animation hover-underline-grey hovertextarrow">Bekijk meer projecten</h5>
+                                        <span class="hoverarrowicon">
+                                            <svg style="scale:1.5;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
 
 
-                        <div class="pt-5 pb-3 custom_hidden_repeat">
+                        <div class="pt-4 pb-3 custom_hidden_repeat">
 
                             @foreach ($posts as $post)
                             {!! html_entity_decode($post->fulltext) !!}
@@ -175,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-10 text-center justify-content-center align-center">
+                <div class="col-10 text-center justify-content-center align-center d-none d-xl-block">
                     <div class="text-center mb-3 hover-arrow-container">
                         <a class="text-decoration-none text-dark" href="{{ route('actueel') }}">
                             <h5 class="hover-underline-animation hover-underline-grey hovertextarrow">Ga naar Actueel</h5>
