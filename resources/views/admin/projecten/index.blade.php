@@ -16,9 +16,8 @@
                 </div>
                 @endif
             </div>
-            <h5>Homepagina
-                <a href="{{ route('admin.projecten.create') }}"><button type="button" class="btn btn-success">Voeg een nieuw project toe</button></a>
-            </h5>
+            <h5>Projectenpagina </h5>
+            <a href="{{ route('admin.projecten.create') }}"><button type="button" class="btn btn-success">Voeg een nieuw project toe</button></a>
             <div class="my-3">
                 <form action="{{ route('admin.projecten.index') }}" method="GET">
                     <div class="input-group">

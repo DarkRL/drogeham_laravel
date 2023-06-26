@@ -115,7 +115,7 @@
                     <h5 class="modal-title">Let op!</h5>
                 </div>
                 <div class="modal-body">
-                    <div class="my-3">Weet u zeker dat u dit artikel wil verwijderen?</div>
+                    <div class="my-3">Weet u zeker dat u dit project wil verwijderen?</div>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <div class="row">
