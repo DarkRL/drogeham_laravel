@@ -3,6 +3,15 @@
 @section('content')
 <div class="row">
     <div class="col-md-12 my-5">
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            {{ $message }}
+        </div>
+        @elseif ($message = Session::get('fail'))
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
+        @endif
         <h2 class="text-center custom_hidden_repeat">Nieuw in Drogeham?</h2>
         <p class="text-mute text-center mb-4"><i>Namens de hele gemeenschap van Drogeham wil ik je van harte welkom heten in ons prachtige dorp. We zijn verheugd dat je ervoor hebt gekozen om hier te komen wonen en deel uit te maken van onze hechte gemeenschap.</i></p>
         <form id="Contact" action="{{route('contact.post')}}" method="post">
