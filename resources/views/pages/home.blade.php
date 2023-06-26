@@ -140,7 +140,7 @@
                                         <div class="col-4 rounded">
                                             <div class="card mb-4 custom_hidden_stay_up">
                                                 <div class="card-body max-height-custom-carousel2">
-                                                    <a class="hoverProjectArticle justify-content-center" href="{{ route('templates.projectpost', ['id' => $NewsPost->id]) }}" style="color: black; text-decoration: none">
+                                                    <a class="hoverProjectArticle justify-content-center" href="{{ route('templates.newspost', ['id' => $NewsPost->id]) }}" style="color: black; text-decoration: none">
                                                         <div class="text-center">
                                                             <img src="{{ $NewsPost->photo }}" class="mh-auto mx-auto max-height-custom-carousel img-fluid rounded" alt="thumbnail">
                                                         </div>
