@@ -5,7 +5,7 @@
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
         <form action="" method="post" class="form-group" enctype="multipart/form-data">
-            <h6>Nieuw Bestand uploaden</h6>
+            <h6>Bestand aanpassen</h6>
             @csrf
             @method('PATCH')
             <input type="text" name="filename" class="form-control" placeholder="File naam" value="{{ $post->filename }}" required></input>

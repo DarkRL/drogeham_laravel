@@ -28,7 +28,7 @@
         @endif
     </div>
 </div>
-<div class="row justify-content-center mt-2">
+<div class="row justify-content-center">
     <div class="col-md-10">
         <div class="card">
             <div class="card-header">
