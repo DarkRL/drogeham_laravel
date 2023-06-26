@@ -9,10 +9,18 @@ use Illuminate\Support\Facades\DB;
 
 class Contact extends Controller
 {
-  public function index()
+  public function index(Request $request)
   {
-    $posts = DB::select('SELECT * FROM contact_posts');
-    return view('admin.contact.index', ['posts' => $posts]);
+    $search = $request->query('search');
+
+    $posts = ContactPosts::query()
+      ->when($search, function ($query, $search) {
+        return $query->where('naam', 'like', '%' . $search . '%');
+      })
+      ->orderBy('id', 'desc')
+      ->paginate(15);
+
+    return view('admin.contact.index', compact('posts'));
   }
 
   public function delete(Request $request, $id)
