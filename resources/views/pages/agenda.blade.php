@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row mb-2">
-    <div class="vh-100 w-100" id="calendar"></div>
+    <div class="vh-100 w-100 my-3" id="calendar"></div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
