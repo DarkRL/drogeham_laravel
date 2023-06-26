@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
-        <h5>Homepagina
+        <h5>Plaatselijk belang
             @php
             use App\Models\admin\PlaatselijkbelangPosts;
             @endphp
