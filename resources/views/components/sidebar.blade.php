@@ -136,7 +136,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-sm bg-light">
               <li><a class="dropdown-item dropdown-item-custom" href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">Logout</a>
+                            document.getElementById('logout-form').submit();">Uitloggen</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                   @csrf
                 </form>

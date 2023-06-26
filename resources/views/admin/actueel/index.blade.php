@@ -18,7 +18,9 @@
                     @endif
                 </div>
             </div>
-            <a href="{{ route('admin.actueel.create') }}"><button type="button" class="btn btn-success">Voeg een nieuw artikel toe</button></a>
+            <h5>Homepagina
+                <a href="{{ route('admin.actueel.create') }}"><button type="button" class="btn btn-success">Voeg een nieuw artikel toe</button></a>
+            </h5>
             <div class="my-3">
                 <form action="{{ route('admin.actueel.index') }}" method="GET">
                     <div class="input-group">
