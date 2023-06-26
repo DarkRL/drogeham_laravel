@@ -7,7 +7,7 @@
         <form action="" method="post" class="form-group" enctype="multipart/form-data">
             <h6>Nieuw Bestand uploaden</h6>
             @csrf
-            <input type="text" name="filename" class="form-control" placeholder="File naam" required></input>
+            <input type="text" name="filename" class="form-control" placeholder="Bestandsnaam" required></input>
             <div class="my-2">
                 <input class="form-control @error('file') is-invalid @enderror" type="file" id="formFile" name="filepath" />
             </div>
