@@ -170,7 +170,13 @@ class PageController extends Controller
             'updated_at' => date("Y-m-d Hs"),
             'created_at' => date("Y-m-d Hs"),
         ]);
-        return back();
+
+        if($NewContract){
+            return redirect()->back()
+            ->withSuccess('Uw bent succesvol toegevoegd, bedankt!');
+        }
+        return redirect()->back()
+        ->withFail('Er is een probleem opgetreden, probeer het later opnieuw!');
     }
 
     public function contactpage()
