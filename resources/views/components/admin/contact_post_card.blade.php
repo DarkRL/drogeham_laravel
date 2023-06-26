@@ -29,7 +29,7 @@
                     <h5 class="modal-title">Let op!</h5>
                 </div>
                 <div class="modal-body">
-                    <div class="my-3">Weet u zeker dat u dit artikel wil verwijderen?</div>
+                    <div class="my-3">Weet u zeker dat u deze persoon wil verwijderen?</div>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <div class="row">
@@ -55,7 +55,7 @@
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Voorbeeld</h5>
+                    <h5 class="modal-title">Bericht</h5>
                 </div>
                 <div class="m-2 container-fluid">
                     {!! html_entity_decode($fulltext) !!}
