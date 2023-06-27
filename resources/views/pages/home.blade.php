@@ -18,7 +18,13 @@
                 </div>
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">
-                <a class="clicktohome d-none d-xl-block" href="#home" style="text-decoration:none;"><span class="text-white pb-3">Onze projecten</span></a>
+                <a class="clicktohome d-none d-xl-block" href="#home" style="text-decoration:none;"><span class="text-white pb-3">
+                        @if(!empty($carouselNewsPosts))
+                        Onze projecten
+                        @else
+                        Over Drogeham
+                        @endif
+                    </span></a>
                 <a class="clicktohome" href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
             </div>
         </div>
@@ -27,6 +33,7 @@
             <div class="row justify-content-center">
                 <div class="col-10">
                     <div class="m-5">
+                        @if(!empty($carouselProjecten))
                         <div id="CarouselProjecten" class="carousel slide d-none d-xl-block" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 @for ($i = 0; $i < count($carouselProjecten); $i++) <button type="button" data-bs-target="#CarouselProjecten" data-bs-slide-to="{{$i}}" @if ($i===0) class="active" aria-current="true" @endif aria-label="Slide {{ ($i + 1) }}"></button>
@@ -116,7 +123,9 @@
                                 </a>
                             </div>
                         </div>
+                        @else
 
+                        @endif
 
                         <div class="pt-4 pb-3 custom_hidden_repeat text-display-area">
 
@@ -127,6 +136,7 @@
                         </div>
                     </div>
                 </div>
+                @if(!empty($carouselNewsPosts))
                 <div class="col-10 mt-5">
                     <div class="mb-2">
                         <div id="CarouselArtikelen" class="carousel slide custom_hidden_stay_up d-none d-xl-block" data-bs-ride="carousel">
@@ -199,6 +209,9 @@
                         </a>
                     </div>
                 </div>
+                @else
+
+                @endif
                 <script>
                     $(document).ready(function() {
                         var maxLength = 50; // Set your desired maximum character length

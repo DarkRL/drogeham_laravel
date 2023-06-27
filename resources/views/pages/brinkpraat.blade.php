@@ -10,6 +10,7 @@
                 @endforeach
             </div>
         </div>
+        @if(!$groupedFiles->isEmpty())
         <div class="border-bottom border-secondary"></div>
         <div class="m-5">
             @foreach($groupedFiles as $year => $files)
@@ -21,6 +22,8 @@
             </ul>
             @endforeach
         </div>
+        @else
+        @endif
     </div>
 </div>
 @endsection
