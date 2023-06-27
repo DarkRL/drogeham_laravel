@@ -10,6 +10,15 @@
                 @endforeach
             </div>
         </div>
+        <div class="border-bottom border-secondary"></div>
+        <div class="m-5">
+            <h6>Hieronder zijn de presentaties te vinden van de jaarvergaderingen van Plaatselijk Belang Drogeham.</h6>
+            <ul>
+                @foreach($posts_files as $file)
+                <li><a target="_blank" href="{{ $file->filepath }}">{{ $file->filename }}-{{ date('Y', strtotime($file->datetime)) }}</a></li>
+                @endforeach
+            </ul>
+        </div>
     </div>
 </div>
 @endsection
