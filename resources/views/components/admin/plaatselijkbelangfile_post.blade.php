@@ -1,6 +1,6 @@
 <tr id="record-{{ $postid }}">
     <td>
-        <a target="_blank" href="{{ $filepath }}"><p class="searchable-table-row">{{ $filename }}</p></a>
+        <a target="_blank" href="{{ $filepath }}"><p class="searchable-table-row">{{ $filename }}-{{ date('Y', strtotime($datetime)) }}</p></a>
     </td>
     <td class="text-center">
         <p>{{ $datetime }}</p>

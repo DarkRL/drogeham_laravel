@@ -5,6 +5,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="menu d-xxl-none list-unstyled text-center ">
                 <li class="nav-item text-decoration-none mt-4 p-1  "><a href="{{route('home')}}" class="nav-link link-dark link_header_class" id="homepagelinkid" aria-current="page"><span class="hover-underline-animation hover-underline-grey">Home</span></a></li>
+                <li class="nav-item text-decoration-none p-1"><a href="{{route('agenda')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Agenda</span></a></li>
                 <li class="nav-item text-decoration-none p-1"><a href="{{route('actueel')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Actueel</span></a></li>
                 <li class="nav-item text-decoration-none p-1"><a href="{{route('projecten')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Projecten</span></a></li>
 

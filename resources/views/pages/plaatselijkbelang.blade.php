@@ -10,6 +10,7 @@
                 @endforeach
             </div>
         </div>
+        @if(!$posts_files->isEmpty())
         <div class="border-bottom border-secondary"></div>
         <div class="m-5">
             <h6>Hieronder zijn de presentaties te vinden van de jaarvergaderingen van Plaatselijk Belang Drogeham.</h6>
@@ -19,6 +20,8 @@
                 @endforeach
             </ul>
         </div>
+        @else
+        @endif
     </div>
 </div>
 @endsection
