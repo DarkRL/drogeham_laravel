@@ -401,3 +401,8 @@ input[type=number].phonenumber {
     min-height:400px;
     max-height:400px;
 }
+
+.text-display-area img {
+  max-width: 100%;
+  height: auto;
+}

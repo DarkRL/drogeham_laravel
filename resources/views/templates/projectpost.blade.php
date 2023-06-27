@@ -14,7 +14,7 @@
             <div class="prevent-text-overflow">
                 <h2><b>{!! html_entity_decode($post->headline) !!}</b></h2>
             </div>
-            <div class="prevent-text-overflow">
+            <div class="prevent-text-overflow text-display-area">
                 {!! html_entity_decode($post->fulltext) !!}
             </div>
         </div>

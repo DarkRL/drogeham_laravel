@@ -118,7 +118,7 @@
                         </div>
 
 
-                        <div class="pt-4 pb-3 custom_hidden_repeat">
+                        <div class="pt-4 pb-3 custom_hidden_repeat text-display-area">
 
                             @foreach ($posts as $post)
                             {!! html_entity_decode($post->fulltext) !!}
