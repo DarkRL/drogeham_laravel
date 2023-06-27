@@ -9,7 +9,7 @@
             @csrf
             <input type="text" name="filename" class="form-control" placeholder="Bestandsnaam" required></input>
             <div class="my-2">
-                <input class="form-control @error('file') is-invalid @enderror" type="file" id="formFile" name="filepath" />
+                <input class="form-control @error('file') is-invalid @enderror" type="file" id="formFile" name="filepath" required/>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">

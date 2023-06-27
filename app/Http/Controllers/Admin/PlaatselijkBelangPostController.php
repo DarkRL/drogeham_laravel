@@ -82,7 +82,7 @@ class PlaatselijkBelangPostController extends Controller
             $url = 'Undefined';
             if ($request->hasFile('filepath')) {
                 $request->validate([
-                    'filepath' => 'required|mimes:pdf,xlx,csv|max:2048',
+                    'filepath' => 'required|mimes:pdf,xlx,csv|max:8000',
                 ]);
     
                 $filepath = request()->file('filepath')->store('files', 'public');
@@ -118,7 +118,7 @@ class PlaatselijkBelangPostController extends Controller
         {
             if ($request->hasFile('filepath')) {
                 $request->validate([
-                    'filepath' => 'required|mimes:pdf,xlx,csv|max:2048',
+                    'filepath' => 'required|mimes:pdf,xlx,csv|max:8000',
                 ]);
     
                 $fileName = time() . '.' . $request->filepath->extension();
