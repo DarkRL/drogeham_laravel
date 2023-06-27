@@ -117,6 +117,13 @@ Route::controller(PlaatselijkBelangPostController::class)->group(function () {
     Route::get('/admin/plaatselijkbelang/create', 'create')->name('admin.plaatselijkbelang.create')->middleware('auth');
     Route::post('/admin/plaatselijkbelang/create', 'store')->middleware('auth');
     Route::get('/admin/plaatselijkbelang/index', 'index')->name('admin.plaatselijkbelang.index')->middleware('auth');
+
+    Route::get('/admin/plaatselijkbelang/files/{id}/edit', 'edit_files')->name('admin.plaatselijkbelang.edit.files')->middleware('auth');
+    Route::patch('/admin/plaatselijkbelang/files/{id}/edit', 'update_files')->middleware('auth');
+    Route::get('/admin/plaatselijkbelang/files/create', 'create_files')->name('admin.plaatselijkbelang.create.files')->middleware('auth');
+    Route::post('/admin/plaatselijkbelang/files/create', 'store_files')->middleware('auth');
+    Route::put('/admin/plaatselijkbelang/{id}/publish', 'publish_files')->name('admin.plaatselijkbelang.publish.files')->middleware('auth');
+    Route::put('/admin/plaatselijkbelang/{id}/delete', 'delete_files')->name('admin.plaatselijkbelang.delete.files')->middleware('auth');
 });
 
 Route::controller(PrivacyPostController::class)->group(function () {

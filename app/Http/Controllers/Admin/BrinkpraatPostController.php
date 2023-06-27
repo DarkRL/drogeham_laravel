@@ -96,10 +96,10 @@ class BrinkpraatPostController extends Controller
         ]);
         if ($newPost) {
             return redirect()->route('admin.brinkpraat.index')
-                ->withSuccess('Nieuwe inhoud is succesvol aangepast!');
+                ->withSuccess('Nieuw bestand is succesvol aangemaakt!');
         }
         return redirect()->route('admin.brinkpraat.index')
-            ->withFail('Er is een probleem opgetreden, inhoud is niet aangepast!');
+            ->withFail('Er is een probleem opgetreden, bestand is niet aangemaakt!');
     }
 
     public function create_files()

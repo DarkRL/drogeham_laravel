@@ -8,6 +8,7 @@ use App\Models\posts\Event;
 use App\Models\posts\NewsPosts;
 use App\Models\admin\ProjectPost;
 use App\Models\admin\BrinkpraatfilePosts;
+use App\Models\admin\PlaatselijkbelangfilePosts;
 use App\Models\admin\ExtraPages;
 use Illuminate\Support\Facades\DB;
 use App\Models\posts\ContactPosts;
@@ -56,8 +57,9 @@ class PageController extends Controller
     public function plaatselijkbelangpage()
     {
         $posts = DB::select('SELECT * FROM plaatselijkbelang_posts WHERE id = ?', ['1']);
+        $posts_files = PlaatselijkbelangfilePosts::where('public', 1)->orderBy('datetime', 'asc')->get();
 
-        return view("pages/plaatselijkbelang", compact('posts'));
+        return view("pages/plaatselijkbelang", compact('posts', 'posts_files'));
     }
 
     public function actueelpage(Request $request)
