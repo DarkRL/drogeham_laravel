@@ -153,7 +153,7 @@ Route::controller(AgendaAdminController::class)->group(function () {
     Route::post('/admin/agenda/eventajax/{id}', 'eventajax')->name('admin.agenda.eventajax')->middleware('auth');
 });
 
-Route::controller(ExtraPagesAdminController::class)->group(function() {
+Route::controller(ExtraPagesAdminController::class)->group(function () {
     Route::get('/admin/extra/index', 'index')->name('admin.extra.index')->middleware('auth');
     Route::get('/admin/extra/create', 'create')->name('admin.extra.create')->middleware('auth');
     Route::post('/admin/extra/create', 'store')->middleware('auth');
@@ -162,7 +162,7 @@ Route::controller(ExtraPagesAdminController::class)->group(function() {
     Route::patch('/admin/extra/{id}/edit', 'update')->middleware('auth');
 });
 
-Route::controller(Contact::class)->group(function() {
+Route::controller(Contact::class)->group(function () {
     Route::get("/admin/contact", "index")->name("admin.contact.index")->middleware('auth');
     Route::put("/admin/contact/{id}/delete", "delete")->name("admin.contact.delete")->middleware('auth');
 });
@@ -170,8 +170,11 @@ Route::controller(Contact::class)->group(function() {
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
     ->name('upload.post.image')->middleware('auth');
 
+Route::get('/', function () {
+    return redirect('home');
+});
+
 Route::controller(PageController::class)->group(function () {
-    Route::get('/', 'homepage')->name('home');
     Route::get('/home', 'homepage')->name('home');
     Route::get('/historie', 'historypage')->name('historie');
     Route::get('/plaatselijkbelang', 'plaatselijkbelangpage')->name('plaatselijkbelang');

@@ -41,7 +41,7 @@
                             </div>
                             <div class="carousel-inner">
                                 @forelse ($carouselProjecten as $key => $carouselProject)
-                                <div class="carousel-item rounded bg-light-custom @if ($key === 0) active @endif" style="min-height: 400px;">
+                                <div class="carousel-item rounded bg-light-custom @if ($key === 0) active @endif" style="min-height: 400px; max-height: 450px;">
                                     <div class="container">
 
                                         <a class="row text-decoration-none" href="{{ route('templates.projectpost', ['id' => $carouselProject->id]) }}">
@@ -50,7 +50,7 @@
                                             </div>
                                             <div class="col-4">
                                                 <div class="text-dark my-3">
-                                                    <div class="p-2 h3">
+                                                    <div style="word-break:break-word;" class="p-2 h3 headline-project-max">
                                                         {!! html_entity_decode($carouselProject->headline) !!}
                                                     </div>
                                                     <div class="p-2"></div>
@@ -88,9 +88,21 @@
                                         $(this).find('img, iframe').remove(); // Remove image and iframe tags
                                     });
 
-                                    var maxLength = 400; // Set your desired maximum character length
+                                    var maxLength = 300; // Set your desired maximum character length
 
                                     $('.project-max-character').each(function() {
+                                        var badgeTextElement = $(this);
+                                        var badgeText = badgeTextElement.text();
+
+                                        if (badgeText.length > maxLength) {
+                                            var truncatedText = badgeText.substring(0, maxLength) + '...';
+                                            badgeTextElement.text(truncatedText);
+                                        }
+                                    });
+
+                                    var maxLength = 100; // Set your desired maximum character length
+
+                                    $('.headline-project-max').each(function() {
                                         var badgeTextElement = $(this);
                                         var badgeText = badgeTextElement.text();
 
@@ -155,7 +167,7 @@
                                                             <img src="{{ $NewsPost->photo }}" class="mh-auto mx-auto max-height-custom-carousel img-fluid rounded" alt="thumbnail">
                                                         </div>
                                                         <div class="m-3">
-                                                            <h5 class="prevent-text-overflow headline-max-character">{!! html_entity_decode($NewsPost->headline) !!}</h5>
+                                                            <h5 class="prevent-text-overflow headline-max-character limited-height">{!! html_entity_decode($NewsPost->headline) !!}</h5>
                                                             <p class="mt-3 text-muted">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                                                                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />

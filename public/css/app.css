@@ -406,3 +406,10 @@ input[type=number].phonenumber {
   max-width: 100%;
   height: auto;
 }
+
+.limited-height {
+    max-height: 240px;
+    overflow: hidden;
+    font-size: 17px;
+    line-height: 1.2;
+  }

@@ -31,8 +31,8 @@
                     <li class="nav-item"><a href="{{route('agenda')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Agenda</span></a></li>
                     <li class="nav-item"><a href="{{route('actueel')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Actueel</span></a></li>
                     <li class="nav-item"><a href="{{route('projecten')}}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">Projecten</span></a></li>
-                    <div class="dropdown nav-link link-dark w-12 text-center">
-                        <a class="text-decoration-none text-reset" href="{{route('meydinfo')}}">
+                    <div class="dropdown w-12 text-center nav-link">
+                        <a class="text-decoration-none link-dark link_header_class" href="{{route('meydinfo')}}">
                             <div class="dropdown-toggle" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
                                 MEYD
                             </div>
