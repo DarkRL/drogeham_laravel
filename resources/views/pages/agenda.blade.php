@@ -67,7 +67,7 @@
                 <h5 class="modal-title modal-header-custom""><span id="clickedevent"></span></h5>
                 <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="m-2 w-100 container-fluid modal-header-custom">
+            <div class="m-2 w-100 container-fluid modal-header-custom text-display-area">
                 <div id="eventText"></div>
             </div>
         </div>
