@@ -19,7 +19,15 @@ return new class extends Migration
         });
 
         DB::table('plaatselijkbelang_posts')->insert([
-            'fulltext' => 'Deze tekst is voor het plaatselijk belang. Verander deze! :-)',
+            'fulltext' => '<h3>Plaatselijk Belang</h3>
+            <p>Het bestuur van plaatselijk belang Drogeham bestaat uit zeven leden.</p>
+            <ul>
+            <li>Klaas Alma 0633513612 (voorzitter)</li>
+            <li>Anneke v/d Gali&euml;n (secretaresse)</li>
+            <li>Lonneke Wijma (penningmeester)</li>
+            <li>Henrike de Jong (algemeen bestuurslid)</li>
+            <li>Jan Tjoelker (algemeen bestuurslid/Webmaster)</li>
+            </ul>',
             'datetime' => date("Y-m-d H:m:s")
         ]);
     }
