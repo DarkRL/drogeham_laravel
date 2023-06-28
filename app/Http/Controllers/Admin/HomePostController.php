@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\HomePost;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class HomePostController extends Controller
 {
@@ -48,6 +48,17 @@ class HomePostController extends Controller
     public function update(Request $request, $id)
     {
         $beforeUpdate = HomePost::findOrFail($id);
+        if ($request->hasFile('photo')) {
+            $imgpath = request()->file('photo')->store('uploads', 'public');
+            $url = asset('storage/' . $imgpath);
+
+            Storage::delete('public/uploads/' . basename($beforeUpdate->photo));
+
+            HomePost::find($id)->update([
+                'photo' => $url
+            ]);
+        }
+
         $saved = HomePost::find($id)->update([
             'fulltext' => $request->fulltext ?? " "
         ]);

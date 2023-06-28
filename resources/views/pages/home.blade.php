@@ -9,7 +9,13 @@
     <div class="wrapper custom_hidden_stay_fast">
         <x-header meydData="{{ $meydRecords }}" />
         <div style="align-items:center;" class="header_parallax_section d-flex flex-column justify-content-around h-100">
-            <img src="{{URL::asset('/img/luchtfoto.jpg')}}" class="parallax_background">
+            @foreach ($posts as $post)
+            @if($post->photo != 'empty')
+            <img src="{{ $post->photo }}" class="parallax_background">
+            @else
+            <img src="{{ URL::asset("./img/luchtfoto.jpg")}}" class="parallax_background">
+            @endif
+            @endforeach
             <div></div>
             <div class="container">
                 <div class="text-center text-white text-capitalize">
@@ -19,12 +25,12 @@
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">
                 <a class="clicktohome" href="#home" style="text-decoration:none;">
-                        @if(!empty($carouselProjecten))
-                        <span class="text-white pb-3">Onze Projecten</span>
-                        @else
-                        <span class="text-white pb-3">Over Drogeham</span>
-                        @endif
-                    </a>
+                    @if(!empty($carouselProjecten))
+                    <span class="text-white pb-3">Onze Projecten</span>
+                    @else
+                    <span class="text-white pb-3">Over Drogeham</span>
+                    @endif
+                </a>
                 <a class="clicktohome" href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
             </div>
         </div>
