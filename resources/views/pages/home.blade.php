@@ -18,13 +18,13 @@
                 </div>
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">
-                <a class="clicktohome" href="#home" style="text-decoration:none;"><span class="text-white pb-3">
-                        @if(!empty($carouselNewsPosts))
-                        Onze projecten
+                <a class="clicktohome" href="#home" style="text-decoration:none;">
+                        @if(empty($carouselProjecten))
+                        <span class="text-white pb-3">Onze Projecten</span>
                         @else
-                        Over Drogeham
+                        <span class="text-white pb-3">Over Drogeham</span>
                         @endif
-                    </span></a>
+                    </a>
                 <a class="clicktohome" href="#home"><img class="arrows" src="{{URL::asset("./img/arrow-down.svg")}}" alt="Arrow-down" height="35" width="35" /></a>
             </div>
         </div>
