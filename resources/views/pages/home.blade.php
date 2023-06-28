@@ -50,9 +50,7 @@
                                             </div>
                                             <div class="col-4">
                                                 <div class="text-dark my-3">
-                                                    <div style="word-break:break-word;" class="p-2 h3 headline-project-max">
-                                                        {!! html_entity_decode($carouselProject->headline) !!}
-                                                    </div>
+                                                    <div style="word-break:break-word;" class="p-2 h3 headline-project-max">{!! html_entity_decode($carouselProject->headline) !!}</div>
                                                     <div class="p-2"></div>
                                                     <div class="strip-img-iframe mx-2 project-max-character">
                                                         {!! html_entity_decode($carouselProject->fulltext) !!}
@@ -100,15 +98,14 @@
                                         }
                                     });
 
-                                    var maxLength = 100; // Set your desired maximum character length
+                                    var maxLength = 55;
 
                                     $('.headline-project-max').each(function() {
-                                        var badgeTextElement = $(this);
-                                        var badgeText = badgeTextElement.text();
+                                        var text = $(this).text();
 
-                                        if (badgeText.length > maxLength) {
-                                            var truncatedText = badgeText.substring(0, maxLength) + '...';
-                                            badgeTextElement.text(truncatedText);
+                                        if (text.length > maxLength) {
+                                            var truncatedText = text.substring(0, maxLength) + "...";
+                                            $(this).text(truncatedText);
                                         }
                                     });
                                 });
