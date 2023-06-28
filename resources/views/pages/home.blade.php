@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">
-                <a class="clicktohome d-none d-xl-block" href="#home" style="text-decoration:none;"><span class="text-white pb-3">
+                <a class="clicktohome" href="#home" style="text-decoration:none;"><span class="text-white pb-3">
                         @if(!empty($carouselNewsPosts))
                         Onze projecten
                         @else
