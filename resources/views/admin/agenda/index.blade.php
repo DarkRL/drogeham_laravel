@@ -57,6 +57,7 @@
                 </div>
             </div>
         </div>
+        <!-- <a href="{{ route('admin.agenda.create') }}"><button type="button" class="btn btn-success">Voeg een nieuw evenement toe</button></a> -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
@@ -72,8 +73,9 @@
                         // alert('Clicked on: ' + info.startStr + ' to ' + info.endStr);
                         $("#start_date").val(info.startStr);
                         $("#end_date").val(info.endStr);
+                        var endDate = info.end.toISOString().slice(0, 10);
                         $("#startdate").text(info.startStr);
-                        $("#enddate").text(info.endStr);
+                        $("#enddate").text(endDate);
 
                         $('#eventModal').modal('show');
                     },
