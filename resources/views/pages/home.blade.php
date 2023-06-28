@@ -19,7 +19,7 @@
             </div>
             <div style="align-items:center" class="text-center text-capitalize d-flex flex-column custom_hidden_stay">
                 <a class="clicktohome" href="#home" style="text-decoration:none;">
-                        @if(empty($carouselProjecten))
+                        @if(!empty($carouselProjecten))
                         <span class="text-white pb-3">Onze Projecten</span>
                         @else
                         <span class="text-white pb-3">Over Drogeham</span>
