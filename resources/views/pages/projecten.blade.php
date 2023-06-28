@@ -7,6 +7,7 @@
             <input type="text" class="form-control" name="search" placeholder="Zoek...">
             <div class="input-group-append">
                 <button class="btn btn-secondary" type="submit">Zoek</button>
+                <a href="{{ route('projecten') }}" class="btn btn-secondary" type="submit">Alle artikelen</a>
             </div>
         </div>
     </form>

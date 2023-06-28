@@ -9,5 +9,5 @@ class HomePost extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['fulltext', 'datetime'];
+    protected $fillable = ['fulltext', 'photo', 'datetime'];
 }
