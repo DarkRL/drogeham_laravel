@@ -3,7 +3,12 @@
         <p>{!! html_entity_decode($headline) !!}</p>
     </td>
     <td>{!! html_entity_decode($datetime) !!}</td>
-    <td>{!! html_entity_decode($email) !!}</td>
+    <td>
+      <a href="mailto:{{$email}}">
+        {!! html_entity_decode($email) !!}
+      </a>
+
+    </td>
     <td>{!! html_entity_decode($tel) !!}</td>
     <td class="text-center">
         <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#previewModel{{ $postid }}" title="Preview">
