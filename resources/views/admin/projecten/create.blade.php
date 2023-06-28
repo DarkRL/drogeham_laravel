@@ -11,7 +11,7 @@
             <textarea name="fulltext" class="form-control" id="file-picker"></textarea>
             <div class="my-3">
                 <label for="formFile" class="form-label">Upload Thumbnail</label>
-                <input class="form-control" type="file" id="formFile" name="photo"/>
+                <input class="form-control" type="file" id="formFile" name="photo" required/>
             </div>
             <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Save" class="btn btn-primary">Toevoegen</button>
