@@ -7,7 +7,7 @@
 
 <body>
     <div class="wrapper custom_hidden_stay_fast">
-        <x-header meydData="{{ $meydRecords }}" />
+        <x-header />
         <div style="align-items:center;" class="header_parallax_section d-flex flex-column justify-content-around h-100">
             @foreach ($posts as $post)
             @if($post->photo != 'empty')

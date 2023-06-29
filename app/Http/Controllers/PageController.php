@@ -10,6 +10,7 @@ use App\Models\admin\ProjectPost;
 use App\Models\admin\BrinkpraatfilePosts;
 use App\Models\admin\PlaatselijkbelangfilePosts;
 use App\Models\admin\ExtraPages;
+use App\Models\admin\ImageasignPosts;
 use Illuminate\Support\Facades\DB;
 use App\Models\posts\ContactPosts;
 
@@ -18,8 +19,9 @@ class PageController extends Controller
     public function __construct()
     {
         $meydRecords = MeydPosts::all()->where('public', '=', 1);
+        $posts_image = DB::select('SELECT * FROM imageasign_posts WHERE id = ?', ['1']);
 
-        view()->share('meydRecords', $meydRecords);
+        view()->share(["meyd" => $meydRecords, "images" => $posts_image]);
     }
 
     public function index($page)

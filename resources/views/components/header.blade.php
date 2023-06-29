@@ -20,7 +20,7 @@
                                         <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
                                     </svg>
                                 </span></a></li>
-                        @foreach ($meydRecords as $record)
+                        @foreach ($meyd as $record)
                         <li class="nav-item text-decoration-none p-1"><a href="{{ route('meyd.meydpost', ['pagename' => $record->pagename]) }}" class="nav-link link-dark link_header_class"><span class="hover-underline-animation hover-underline-grey">{{ $record->headline }}</span></a></li>
                         @endforeach
                     </div>
@@ -39,8 +39,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="{{route('meydinfo')}}">MEYD Algemeen</a></li>
-
-                            @foreach ($meydRecords as $record)
+                            @foreach ($meyd as $record)
                             <li><a class="dropdown-item nav-link link-dark ink-hover-bg-black" href="{{ route('meyd.meydpost', ['pagename' => $record->pagename]) }}">{{ $record->headline }}</a></li>
                             @endforeach
                         </ul>
