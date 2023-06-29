@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\posts\Event;
+use DateTime;
+use DateInterval;
 
 class AgendaAdminController extends Controller
 {
@@ -17,18 +19,26 @@ class AgendaAdminController extends Controller
 
     public function create(Request $request)
     {
-        return view('admin.agenda.create', ['start' => $request->start, 'end' => $request->end]);
+        $end_date = new DateTime($request->end);
+        $end_date->sub(new DateInterval('P1D'));
+        $end_date = $end_date->format('Y-m-d');
+
+        return view('admin.agenda.create', ['start' => $request->start, 'end' => $end_date]);
     }
 
     public function store(Request $request)
     {
         $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
 
+        $end_date = new DateTime($request->enddate);
+        $end_date->add(new DateInterval('P1D'));
+        $end_date = $end_date->format('Y-m-d');
+
         $newEvent = Event::create([
             'title' => $request->title,
             'fulltext' => $fulltext ?? " ",
             'start' => $request->startdate,
-            'end' => $request->enddate
+            'end' => $end_date
         ]);
 
         if ($newEvent) {
@@ -42,18 +52,27 @@ class AgendaAdminController extends Controller
 
     public function edit(Event $id)
     {
-        return view('admin.agenda.edit', ['post' => $id]);
+        $end_date = new DateTime($id->end);
+        $end_date->sub(new DateInterval('P1D'));
+        $end_date = $end_date->format('Y-m-d');
+
+        return view('admin.agenda.edit', ['post' => $id, 'end' => $end_date]);
     }
 
     public function update(Request $request, $id)
     {
         $fulltext = app('App\Http\Controllers\Imagehandler\ImageController')->fixTinymceImageUrl($request->fulltext);
         $beforeUpdate = Event::findOrFail($id);
+
+        $end_date = new DateTime($request->enddate);
+        $end_date->add(new DateInterval('P1D'));
+        $end_date = $end_date->format('Y-m-d');
+
         Event::find($id)->update([
             'title' => $request->title,
             'fulltext' => $fulltext ?? " ",
             'start' => $request->startdate,
-            'end' => $request->enddate
+            'end' => $end_date
         ]);
         $afterUpdate = Event::findOrFail($id);
         app('App\Http\Controllers\Imagehandler\ImageController')->deleteUnusedImages($beforeUpdate->fulltext, $afterUpdate->fulltext);

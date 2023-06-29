@@ -22,7 +22,7 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">Einddatum</div>
                 </div>
-                <input name="enddate" class="form-control" type="date" value="{{ $post->end }}"></input>
+                <input name="enddate" class="form-control" type="date" value="{{ $end }}"></input>
             </div>
 
             <textarea name="fulltext" class="form-control" id="file-picker">{{ $post->fulltext }}</textarea>
