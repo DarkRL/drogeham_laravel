@@ -57,7 +57,6 @@
                 </div>
             </div>
         </div>
-        <!-- <a href="{{ route('admin.agenda.create') }}"><button type="button" class="btn btn-success">Voeg een nieuw evenement toe</button></a> -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
