@@ -4,6 +4,18 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-10">
+        <form method="POST" action="{{ route('admin.agenda.create') }}">
+            @csrf
+            <?php
+            $start_day = new DateTime();
+            $start_day = $start_day->format('Y-m-d');
+            $end_day = new DateTime();
+            $end_day->add(new DateInterval('P1D'));
+            $end_day = $end_day->format('Y-m-d');
+            echo "<input type='hidden' name='start' value='" . $start_day ."'> <input type='hidden' name='end' value=' " . $end_day . "'>";
+            ?>
+            <button type="submit" class="btn btn-success">Voeg een nieuw evenement toe</button>
+        </form>
         <div id="calendar" class="vh-100 w-100"></div>
         <div class="modal fade" id="eventModal"> <!--  modal voor toevoegen event -->
             <div class="modal-dialog modal-dialog-centered modal-xl">
