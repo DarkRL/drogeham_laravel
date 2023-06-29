@@ -104,6 +104,9 @@
               <div class="d-none d-sm-inline">
                 <a class="text-white text-decoration-none hover-underline-animation hover-underline-white" href="{{route('admin.disclaimer.index')}}">- Disclaimer aanpassen</a><br>
               </div>
+              <div class="d-none d-sm-inline">
+                <a class="text-white text-decoration-none hover-underline-animation hover-underline-white" href="{{route('admin.imageasign.index')}}">- Afbeeldingen aanpassen</a><br>
+              </div>
             </div>
           </div>
         </li>
@@ -120,6 +123,7 @@
               <a class="dropdown-item" href="{{route('admin.extra.index')}}">- Pagina's aanmaken</a>
               <a class="dropdown-item" href="{{route('admin.privacy.index')}}">- Privacy aanpassen</a>
               <a class="dropdown-item" href="{{route('admin.disclaimer.index')}}">- Disclaimer aanpassen</a>
+              <a class="dropdown-item" href="{{route('admin.imageasign.index')}}">- Afbeeldingen aanpassen</a>
             </div>
           </div>
         </li>

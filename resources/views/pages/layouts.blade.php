@@ -3,6 +3,11 @@
 
 <head>
     <x-imports />
+    <style>
+        .parallax_fixed{
+            background-image: "{{ url('/img/luchtfoto.jpg')}}";
+        }
+    </style>
 </head>
 @section('content')
 

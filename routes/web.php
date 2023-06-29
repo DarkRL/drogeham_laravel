@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\PrivacyPostController;
 use App\Http\Controllers\Admin\DisclaimerPostController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\Contact;
+use App\Http\Controllers\Admin\ImageasignPostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -166,6 +168,12 @@ Route::controller(ExtraPagesAdminController::class)->group(function () {
 Route::controller(Contact::class)->group(function () {
     Route::get("/admin/contact", "index")->name("admin.contact.index")->middleware('auth');
     Route::put("/admin/contact/{id}/delete", "delete")->name("admin.contact.delete")->middleware('auth');
+});
+
+Route::controller(ImageasignPostController::class)->group(function () {
+    Route::get('/admin/imageasign/index', 'index')->name('admin.imageasign.index')->middleware('auth');
+    Route::get('/admin/imageasign/{id}/edit', 'edit')->name('admin.imageasign.edit')->middleware('auth');
+    Route::patch('/admin/imageasign/{id}/edit', 'update')->middleware('auth');
 });
 
 Route::post('/upload/post-image', [PostTaskController::class, 'uploadImage'])
