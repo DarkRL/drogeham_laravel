@@ -9,7 +9,6 @@
             @csrf
             @method('PATCH')
             <div class="my-2">
-                <label for="formFile" class="form-label">Verander homepagina achtergrond</label>
                 <input class="form-control" type="file" id="formFile" name="photo" />
                 @if($post->photo == "empty")
                 <a href="{{ URL::asset("./img/luchtfoto.jpg") }}" target="_blank">Huidige achtergrond</a>
