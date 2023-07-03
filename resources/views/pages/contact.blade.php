@@ -32,6 +32,10 @@
                 <label for="message" class="form-label">Bericht</label>
                 <textarea class="form-control" name="message" id="message" rows="5" placeholder="Vertel hier wat over jezelf..."></textarea>
             </div>
+            <div class="mb-3">
+                <input type="checkbox" name="privacy" required>
+                <label for="privacy" class="form-label">Ik ga akkoord met de <a target="_blank" href="{{ route('privacy') }}">privacy verklaring</a>*</label>
+            </div>
             <button type="submit" class="btn btn-primary custom_hidden_repeat">Verstuur</button>
         </form>
     </div>
