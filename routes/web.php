@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\admin\AgendaAdminController;
+use App\Http\Controllers\Admin\AgendaAdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\PageController;
@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\ProjectPostController;
 use App\Http\Controllers\Admin\MeydPostsController;
 use App\Http\Controllers\Admin\HistoryPostController;
 use App\Http\Controllers\Admin\BrinkpraatPostController;
-use App\Http\Controllers\admin\ExtraPagesAdminController;
+use App\Http\Controllers\Admin\ExtraPagesAdminController;
 use App\Http\Controllers\Admin\PlaatselijkBelangPostController;
 use App\Http\Controllers\Admin\PrivacyPostController;
 use App\Http\Controllers\Admin\DisclaimerPostController;

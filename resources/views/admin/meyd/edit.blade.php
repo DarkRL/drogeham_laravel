@@ -21,7 +21,7 @@
                 <span class="input-group-text" id="basic-pagenametxt">Pagina naam</span>
                 <input name="pagename" class="form-control" placeholder="Pagina naam" value="{{ $post->pagename }}" aria-describedby="basic-pagenametxt" required></input>
             </div>
-            <textarea name="fulltext" class="form-control" id="file-picker" required>{{ $post->fulltext }}</textarea>
+            <textarea name="fulltext" class="form-control" id="file-picker">{{ $post->fulltext }}</textarea>
             <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary">Annuleren</button></a>
             <button type="submit" value="Update" class="btn btn-primary">Submit</button>
         </form>
