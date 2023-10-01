@@ -13,7 +13,7 @@
         </div>
         @endif
         <h2 class="text-center custom_hidden_repeat">Nieuw in Drogeham?</h2>
-        <p class="text-mute text-center mb-4"><i>Namens de hele gemeenschap van Drogeham wil ik je van harte welkom heten in ons prachtige dorp. We zijn verheugd dat je ervoor hebt gekozen om hier te komen wonen en deel uit te maken van onze hechte gemeenschap.</i></p>
+        <p class="text-mute text-center mb-4"><i>Als Plaatselijk Belang zijn we het aanspreekpunt voor de gemeente, provincie en andere organisaties. We behandelen zaken die onze bewoners en het dorp bezig houden zoals veiligheid, leefbaarheid, voorzieningen, sport, jeugd- en ouderenbeleid, dorpsvernieuwing en verkeersveiligheid. Wat er in het dorp gebeurt raakt ons allemaal. Daarom streven we naar een zo groot mogelijk draagvlak in de gemeenschap. We waarderen uw steun als actief lid of als donateur. Een lidmaatschap bedraagt € 5,00 op jaarbasis.</i></p>
         <form id="Contact" action="{{route('contact.post')}}" method="post">
             @csrf
             <div class="mb-3">
